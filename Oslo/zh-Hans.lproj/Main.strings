@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "Beijing"; ObjectID = "0C7-2e-0Rg"; */
+"0C7-2e-0Rg.text" = "Beijing";
+
+/* Class = "UILabel"; text = "A good logo works in the simplest form. It is a memorable representation of your brand and inspires confidence in your customers."; ObjectID = "8Ue-70-fAL"; */
+"8Ue-70-fAL.text" = "A good logo works in the simplest form. It is a memorable representation of your brand and inspires confidence in your customers.";
+
+/* Class = "UINavigationItem"; title = "hippo_san"; ObjectID = "9I8-Sb-0G1"; */
+"9I8-Sb-0G1.title" = "hippo_san";
+
+/* Class = "UIButton"; normalTitle = "hippo_san"; ObjectID = "FMO-9s-ZRa"; */
+"FMO-9s-ZRa.normalTitle" = "hippo_san";
+
+/* Class = "UILabel"; text = "hippo_san"; ObjectID = "GB1-8k-j0j"; */
+"GB1-8k-j0j.text" = "hippo_san";
+
+/* Class = "UILabel"; text = " "; ObjectID = "KOW-MN-kwO"; */
+"KOW-MN-kwO.text" = " ";
+
+/* Class = "UILabel"; text = "114"; ObjectID = "dWO-qb-zhs"; */
+"dWO-qb-zhs.text" = "114";
+
+/* Class = "UILabel"; text = "114"; ObjectID = "j0i-Ap-vZZ"; */
+"j0i-Ap-vZZ.text" = "114";
+
+/* Class = "UIButton"; normalTitle = "hippo_san"; ObjectID = "jkX-zS-Z4h"; */
+"jkX-zS-Z4h.normalTitle" = "hippo_san";
+
+/* Class = "UILabel"; text = " "; ObjectID = "ty5-Sm-Nrz"; */
+"ty5-Sm-Nrz.text" = " ";
+
+/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[0] = "  Published"; ObjectID = "zQc-UC-jHw"; */
+"zQc-UC-jHw.segmentTitles[0]" = "  Published";
+
+/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[1] = "  Liked"; ObjectID = "zQc-UC-jHw"; */
+"zQc-UC-jHw.segmentTitles[1]" = "  Liked";

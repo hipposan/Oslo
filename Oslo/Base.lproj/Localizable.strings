@@ -1,0 +1,50 @@
+/* 
+  Localization.strings
+  Oslo
+
+  Created by Ziyi Zhang on 12/12/2016.
+  Copyright © 2016 Ziyideas. All rights reserved.
+*/
+
+// MARK: Photos Table View Controller
+"Feature" = "Feature";
+
+// MARK: Profile View Controller
+"No Location" = "No Location";
+"Website" = "Website";
+"%@'s website" = "%@'s website";
+
+
+// MARK: Personal Photo View Controller
+"Save photo failed" = "⚠️ Photo is not saved. You may check the photo permission or storage.";
+"Photo saved" = " Photo is saved to Album.";
+
+
+// MARK: Exif View
+"Published" = "Published";
+"Dimensions" = "Dimensions";
+"Camera Make" = "Camera Make";
+"Camera Model" = "Camera Model";
+"Aperture" = "Aperture";
+"Exposure Time" = "Exposure Time";
+"Focal Length" = "Focal Length";
+"ISO" = "ISO";
+
+
+// MARK: Statistics View
+"Downloads" = "Downloads";
+"Views" = "Views";
+"Likes" = "Likes";
+
+
+// MARK: Login View Controller
+"Back" = "Back";
+
+
+// MARK: Me View Controller
+"Logout" = "Logout Unsplash";
+"Logout intro" = "After logout you could not access your personal photos and specific functions like ❤️ a photo.";
+"Logout action title" = "Logout";
+"Logout cancel title" = "Cancel";
+"Published count" = "%@ Published";
+"Liked count" = "%@ Liked";

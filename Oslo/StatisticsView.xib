@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C63a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StatisticsView" customModule="Oslo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="363"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="jwu-Id-6Kp">
+                    <rect key="frame" x="124.5" y="162" width="97.5" height="40"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ojc-nz-kXG">
+                            <rect key="frame" x="0.0" y="0.0" width="10.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-zy-WCw">
+                                    <rect key="frame" x="1.5" y="0.0" width="8" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="0.79526760057471246" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVX-bC-lXT">
+                                    <rect key="frame" x="0.0" y="23" width="10.5" height="17"/>
+                                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="0.90331806752873545" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rJi-9U-L2T">
+                            <rect key="frame" x="43.5" y="0.0" width="10.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uma-2v-Rqv">
+                                    <rect key="frame" x="3.5" y="0.0" width="4" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="0.79526760060000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAC-mf-uja">
+                                    <rect key="frame" x="0.0" y="23" width="10.5" height="17"/>
+                                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="0.90331806749999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="I17-Ov-8VO">
+                            <rect key="frame" x="87" y="0.0" width="10.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ao-jn-ILS">
+                                    <rect key="frame" x="3.5" y="0.0" width="4" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="0.79526760060000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-gD-AYR">
+                                    <rect key="frame" x="0.0" y="23" width="10.5" height="17"/>
+                                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="0.90331806749999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="jwu-Id-6Kp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eNn-bK-SjX"/>
+                <constraint firstItem="jwu-Id-6Kp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oMv-CZ-GMW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="downloadsLabel" destination="yVX-bC-lXT" id="7qp-aq-D5h"/>
+                <outlet property="downloadsTitleLabel" destination="aoi-zy-WCw" id="XbM-g1-g3g"/>
+                <outlet property="likesLabel" destination="X3L-gD-AYR" id="CZT-JM-Q0c"/>
+                <outlet property="likesTitleLabel" destination="5ao-jn-ILS" id="f0F-jC-bUQ"/>
+                <outlet property="viewsLabel" destination="NAC-mf-uja" id="Vc8-jk-i5f"/>
+                <outlet property="viewsTitleLabel" destination="uma-2v-Rqv" id="ew0-X4-Anj"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
