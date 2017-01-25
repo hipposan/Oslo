@@ -24,7 +24,7 @@ class NetworkService {
     
     let task = session.dataTask(with: request) { (data, response, error) in
       guard error == nil else {
-        print("An error occured: \(error)")
+        print("An error occured: \(String(describing: error))")
         return
       }
       
