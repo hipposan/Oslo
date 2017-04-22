@@ -5,4 +5,4 @@
 Oslo is a third party [Unsplash](https://unsplash.com/) iOS app. Actually there would be a book introducing how I made this along with Sketch designing skills, Xcode prototyping, iOS developing concepts, backend and data transfer, etc. The release date of Chinese paper version of this book is about this summer. You could also grab an ebook right now at [Gumroad](https://gum.co/qLry). I hope you enjoy iOS learning and thanks for your support 😉.
 
 ### Made by
-Xcode 8.3 Beta | Swift 3.1
+Xcode 8.3.2 | Swift 3.1
