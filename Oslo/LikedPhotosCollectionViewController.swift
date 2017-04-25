@@ -8,6 +8,11 @@
 
 import UIKit
 
+import OsloKit
+import PromiseKit
+import Alamofire
+import Kingfisher
+
 class LikedPhotosCollectionViewController: UICollectionViewController {
   var userName: String = ""
   var likedTotalCount: Int = 0
@@ -40,24 +45,8 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
     let photoURLString = likedPhotos[indexPath.row].imageURL
     
     if let photoURL = URL(string: photoURLString) {
-      if let cachedImage = self.photoCache.object(forKey: photoURLString as NSString) {
-        cell.likedPhotoImageView.image = cachedImage
-        self.downloadedLikedPhotos[indexPath.row] = cachedImage
-      } else {
-        NetworkService.image(with: photoURL) { image in
-          self.photoCache.setObject(image, forKey: photoURLString as NSString)
-          
-          self.downloadedLikedPhotos[indexPath.row] = image
-          
-          if let updateCell = collectionView.cellForItem(at: indexPath)  as? LikedPhotoCollectionViewCell {
-            updateCell.likedPhotoImageView.alpha = 0
-            
-            UIView.animate(withDuration: 0.3) {
-              updateCell.likedPhotoImageView.alpha = 1
-              updateCell.likedPhotoImageView.image = image
-            }
-          }
-        }
+      cell.likedPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
+        self.downloadedLikedPhotos[indexPath.row] = image
       }
     }
     
@@ -68,7 +57,9 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
     if indexPath.row == likedPhotos.count - 1  && indexPath.row != likedTotalCount - 1 {
       currentLikedPhotoPage += 1
       
-      load(with: currentLikedPhotoPage)
+      _ = load(with: currentLikedPhotoPage).then(on: DispatchQueue.main) { _ in
+        self.likedPhotosCollectionView.reloadData()
+      }
     }
   }
   
@@ -90,29 +81,31 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
     }
   }
   
-  func load(with page: Int = 1) {
+  func load(with page: Int = 1) -> Promise<[Photo]> {
     let urlString = Constants.Base.UnsplashAPI + "/users/\(userName)/likes"
-    let url = URL(string: urlString)!
     
-    NetworkService.request(url: url,
-                           method: NetworkService.HTTPMethod.GET,
-                           parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-                                        ["page": page as AnyObject]],
-                           headers: ["Authorization": "Bearer " + Token.getToken()!]) { jsonData in
-                                          OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-                                            self.likedPhotos.append(photo)
-                                            self.downloadedLikedPhotos.append(nil)
-                                          }
-                                          
-                                          OperationQueue.main.addOperation {
-                                            self.likedPhotosCollectionView.reloadData()
-                                          }
+    return Promise { fulfill, reject in
+      NetworkService.getPhotosJson(with: urlString,
+                             parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                                          "page": page],
+                             headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
+                              for dict in dicts {
+                                OperationService.parseJsonWithPhotoData(dict) { photo in
+                                  self.likedPhotos.append(photo)
+                                  self.downloadedLikedPhotos.append(nil)
+                                }
+                              }
+                              
+                              fulfill(self.likedPhotos)
+      }.catch(execute: reject)
     }
   }
   
   func retryLoad() {
     if userName != "" {
-      load()
+      _ = load().then(on: DispatchQueue.main) { _ in
+        self.likedPhotosCollectionView.reloadData()
+      }
       
       return
     } else {

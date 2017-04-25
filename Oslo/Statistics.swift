@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Statistics {
-  let downloads: Int
-  let views: Int
-  let likes: Int
+public struct Statistics {
+  public let downloads: Int
+  public let views: Int
+  public let likes: Int
   
   init(downloads: Int, views: Int, likes: Int) {
     self.downloads = downloads

@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D6BF714FFC84A96257D7EBC /* Pods_OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A29D1553A30A9088988BF2 /* Pods_OsloKit.framework */; };
+		73AB5BA51820149F294B5641 /* Pods_Oslo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86E743F76DF0925F79241C8 /* Pods_Oslo.framework */; };
 		EA05DFAE1DE40B700094B251 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05DFAD1DE40B700094B251 /* LoginViewController.swift */; };
-		EA0A174A1D64685F0090637B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A17491D64685F0090637B /* NetworkService.swift */; };
-		EA0A174C1D6469450090637B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A174B1D6469450090637B /* Constants.swift */; };
 		EA0DA6C51DE0434300790384 /* ExifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6C41DE0434300790384 /* ExifView.swift */; };
-		EA0DA6C71DE0506100790384 /* Exif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6C61DE0506100790384 /* Exif.swift */; };
-		EA0DA6CC1DE057D000790384 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CB1DE057D000790384 /* Statistics.swift */; };
 		EA0DA6CE1DE057FE00790384 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CD1DE057FE00790384 /* StatisticsView.swift */; };
-		EA0FC88E1DDEFCFD00195E3C /* OperationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */; };
-		EA1A5DA11D547C1B00B1E8E0 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */; };
 		EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */; };
+		EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
+		EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
 		EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */; };
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
-		EA4D285D1D79614E00D24413 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D285C1D79614E00D24413 /* Photo.swift */; };
 		EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */; };
-		EA9942411DFECE2500F682E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
-		EA99424A1DFED1AC00F682E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */; };
+		EA81B1A71EABBEDF005A1CA2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */; };
+		EA81B1AA1EABBEDF005A1CA2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */; };
+		EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */; };
+		EA81B1B11EABBEDF005A1CA2 /* Oslo Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
+		EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
+		EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA94AE9A1EAD90D8002036F2 /* CompactView.xib */; };
 		EAA0DDC71DF7A1880002B12F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0DDC61DF7A1880002B12F /* LoadingView.swift */; };
 		EAA25FF11DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA25FF01DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift */; };
 		EAA25FF31DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA25FF21DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift */; };
@@ -31,15 +33,75 @@
 		EAA25FF91DEFCD7C008B1CBE /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA25FF81DEFCD7C008B1CBE /* MeViewController.swift */; };
 		EAAD1A891D4B390100D22669 /* PersonalPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1A881D4B390100D22669 /* PersonalPhotoViewController.swift */; };
 		EABB35271D0E67CF00C8D761 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB35261D0E67CF00C8D761 /* PhotoTableViewCell.swift */; };
+		EABFAE0B1EAC55AC00731F90 /* OsloKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EABFAE091EAC55AC00731F90 /* OsloKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EABFAE0E1EAC55AC00731F90 /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
+		EABFAE0F1EAC55AC00731F90 /* OsloKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EABFAE141EAC55ED00731F90 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D285C1D79614E00D24413 /* Photo.swift */; };
+		EABFAE151EAC55ED00731F90 /* Exif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6C61DE0506100790384 /* Exif.swift */; };
+		EABFAE161EAC55ED00731F90 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CB1DE057D000790384 /* Statistics.swift */; };
+		EABFAE171EAC55F700731F90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A174B1D6469450090637B /* Constants.swift */; };
+		EABFAE181EAC55F700731F90 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A17491D64685F0090637B /* NetworkService.swift */; };
+		EABFAE191EAC55F700731F90 /* OperationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */; };
+		EABFAE1A1EAC560600731F90 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */; };
+		EABFAE1B1EAC560E00731F90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
+		EABFAE1C1EAC563400731F90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */; };
 		EAE5B8C61D0D6CB500883E3B /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE5B8C51D0D6CB500883E3B /* PhotosTableViewController.swift */; };
 		EAE8289D1CFEF4A100FD1657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */; };
 		EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A01CFEF4A100FD1657 /* Main.storyboard */; };
-		EAE828A41CFEF4A100FD1657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
 		EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A51CFEF4A100FD1657 /* LaunchScreen.storyboard */; };
 		EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */; };
+		F31A71CE8848A95294FA81AE /* Pods_Oslo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EA81B1AF1EABBEDF005A1CA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAE828911CFEF4A100FD1657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA81B1A41EABBEDF005A1CA2;
+			remoteInfo = "Oslo Widget";
+		};
+		EABFAE0C1EAC55AC00731F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAE828911CFEF4A100FD1657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EABFAE061EAC55AC00731F90;
+			remoteInfo = OsloKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EA81B1B51EABBEDF005A1CA2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EA81B1B11EABBEDF005A1CA2 /* Oslo Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EABFAE131EAC55AC00731F90 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EABFAE0F1EAC55AC00731F90 /* OsloKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		583BF5C475700EBB98839DF9 /* Pods-OsloKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OsloKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OsloKit/Pods-OsloKit.debug.xcconfig"; sourceTree = "<group>"; };
+		687ACE9778DB476A2270D468 /* Pods-Oslo Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oslo Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oslo Widget/Pods-Oslo Widget.debug.xcconfig"; sourceTree = "<group>"; };
+		C0A29D1553A30A9088988BF2 /* Pods_OsloKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OsloKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95760D2A5377B7AFEDEE551 /* Pods-Oslo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oslo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oslo/Pods-Oslo.debug.xcconfig"; sourceTree = "<group>"; };
+		DA50AA7339D74643A3EA4A38 /* Pods-Oslo Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oslo Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oslo Widget/Pods-Oslo Widget.release.xcconfig"; sourceTree = "<group>"; };
+		E86E743F76DF0925F79241C8 /* Pods_Oslo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oslo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA05DFAD1DE40B700094B251 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA0A17491D64685F0090637B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EA0A174B1D6469450090637B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -50,10 +112,18 @@
 		EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationService.swift; sourceTree = "<group>"; };
 		EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
+		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
+		EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Oslo.framework; path = "../../Library/Developer/Xcode/DerivedData/Oslo-bgmevrozsetmxqavsyludbhhtago/Build/Products/Debug-iphonesimulator/Pods_Oslo.framework"; sourceTree = "<group>"; };
 		EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA4D285C1D79614E00D24413 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsView.xib; sourceTree = "<group>"; };
+		EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Oslo Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		EA81B1AC1EABBEDF005A1CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		EA81B1AE1EABBEDF005A1CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA94AE9A1EAD90D8002036F2 /* CompactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompactView.xib; sourceTree = "<group>"; };
 		EA99423A1DFECB4500F682E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		EA99423B1DFECB4500F682E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		EA9942421DFECE2500F682E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -68,6 +138,9 @@
 		EAA25FF81DEFCD7C008B1CBE /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		EAAD1A881D4B390100D22669 /* PersonalPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPhotoViewController.swift; sourceTree = "<group>"; };
 		EABB35261D0E67CF00C8D761 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		EABFAE071EAC55AC00731F90 /* OsloKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OsloKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EABFAE091EAC55AC00731F90 /* OsloKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OsloKit.h; sourceTree = "<group>"; };
+		EABFAE0A1EAC55AC00731F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE5B8C51D0D6CB500883E3B /* PhotosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		EAE828991CFEF4A100FD1657 /* Oslo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oslo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,19 +149,67 @@
 		EAE828A61CFEF4A100FD1657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE828A81CFEF4A100FD1657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioWebViewController.swift; sourceTree = "<group>"; };
+		F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oslo_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F827076338CA6ACB55BB81A9 /* Pods-Oslo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oslo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oslo/Pods-Oslo.release.xcconfig"; sourceTree = "<group>"; };
+		FEC68E30C1720771FC9CEEEB /* Pods-OsloKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OsloKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-OsloKit/Pods-OsloKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EA81B1A21EABBEDF005A1CA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */,
+				EA81B1A71EABBEDF005A1CA2 /* NotificationCenter.framework in Frameworks */,
+				F31A71CE8848A95294FA81AE /* Pods_Oslo_Widget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EABFAE031EAC55AC00731F90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D6BF714FFC84A96257D7EBC /* Pods_OsloKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAE828961CFEF4A100FD1657 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABFAE0E1EAC55AC00731F90 /* OsloKit.framework in Frameworks */,
+				73AB5BA51820149F294B5641 /* Pods_Oslo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DB88917840FE4D1E8FA4ECB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */,
+				E86E743F76DF0925F79241C8 /* Pods_Oslo.framework */,
+				EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */,
+				F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */,
+				C0A29D1553A30A9088988BF2 /* Pods_OsloKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD9E2C705543DE9B8FE06F68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C95760D2A5377B7AFEDEE551 /* Pods-Oslo.debug.xcconfig */,
+				F827076338CA6ACB55BB81A9 /* Pods-Oslo.release.xcconfig */,
+				687ACE9778DB476A2270D468 /* Pods-Oslo Widget.debug.xcconfig */,
+				DA50AA7339D74643A3EA4A38 /* Pods-Oslo Widget.release.xcconfig */,
+				583BF5C475700EBB98839DF9 /* Pods-OsloKit.debug.xcconfig */,
+				FEC68E30C1720771FC9CEEEB /* Pods-OsloKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EA0A17481D6467FC0090637B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +218,7 @@
 				EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */,
 			);
 			name = Services;
+			path = ../Oslo;
 			sourceTree = "<group>";
 		};
 		EA0DA6C31DE0432900790384 /* Views */ = {
@@ -117,6 +239,7 @@
 				EA0DA6CB1DE057D000790384 /* Statistics.swift */,
 			);
 			name = Models;
+			path = ../Oslo;
 			sourceTree = "<group>";
 		};
 		EA0DA6CA1DE0509000790384 /* Helper */ = {
@@ -127,6 +250,19 @@
 				EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */,
 			);
 			name = Helper;
+			path = ../Oslo;
+			sourceTree = "<group>";
+		};
+		EA81B1A81EABBEDF005A1CA2 /* Oslo Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */,
+				EA1C7FF91EAE0AD40086690B /* Animators.swift */,
+				EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */,
+				EA81B1AE1EABBEDF005A1CA2 /* Info.plist */,
+				EA94AE9A1EAD90D8002036F2 /* CompactView.xib */,
+			);
+			path = "Oslo Widget";
 			sourceTree = "<group>";
 		};
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
@@ -160,11 +296,27 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		EABFAE081EAC55AC00731F90 /* OsloKit */ = {
+			isa = PBXGroup;
+			children = (
+				EA0DA6C91DE0508100790384 /* Models */,
+				EA0A17481D6467FC0090637B /* Services */,
+				EA0DA6CA1DE0509000790384 /* Helper */,
+				EABFAE091EAC55AC00731F90 /* OsloKit.h */,
+				EABFAE0A1EAC55AC00731F90 /* Info.plist */,
+			);
+			path = OsloKit;
+			sourceTree = "<group>";
+		};
 		EAE828901CFEF4A100FD1657 = {
 			isa = PBXGroup;
 			children = (
 				EAE8289B1CFEF4A100FD1657 /* Oslo */,
+				EA81B1A81EABBEDF005A1CA2 /* Oslo Widget */,
+				EABFAE081EAC55AC00731F90 /* OsloKit */,
 				EAE8289A1CFEF4A100FD1657 /* Products */,
+				BD9E2C705543DE9B8FE06F68 /* Pods */,
+				1DB88917840FE4D1E8FA4ECB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				EAE828991CFEF4A100FD1657 /* Oslo.app */,
+				EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */,
+				EABFAE071EAC55AC00731F90 /* OsloKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,11 +333,8 @@
 		EAE8289B1CFEF4A100FD1657 /* Oslo */ = {
 			isa = PBXGroup;
 			children = (
-				EA0DA6C91DE0508100790384 /* Models */,
 				EA0DA6C31DE0432900790384 /* Views */,
 				EA9A13451D64677500C0C1D5 /* View Controllers */,
-				EA0A17481D6467FC0090637B /* Services */,
-				EA0DA6CA1DE0509000790384 /* Helper */,
 				EA9A13441D6466E600C0C1D5 /* Assets */,
 				EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */,
 				EAE828A81CFEF4A100FD1657 /* Info.plist */,
@@ -193,18 +344,75 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		EABFAE041EAC55AC00731F90 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EABFAE0B1EAC55AC00731F90 /* OsloKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		EAE828981CFEF4A100FD1657 /* Oslo */ = {
+		EA81B1A41EABBEDF005A1CA2 /* Oslo Widget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAE828AB1CFEF4A100FD1657 /* Build configuration list for PBXNativeTarget "Oslo" */;
+			buildConfigurationList = EA81B1B41EABBEDF005A1CA2 /* Build configuration list for PBXNativeTarget "Oslo Widget" */;
 			buildPhases = (
-				EAE828951CFEF4A100FD1657 /* Sources */,
-				EAE828961CFEF4A100FD1657 /* Frameworks */,
-				EAE828971CFEF4A100FD1657 /* Resources */,
+				44D327EDAB0460DA69219F54 /* [CP] Check Pods Manifest.lock */,
+				EA81B1A11EABBEDF005A1CA2 /* Sources */,
+				EA81B1A21EABBEDF005A1CA2 /* Frameworks */,
+				EA81B1A31EABBEDF005A1CA2 /* Resources */,
+				5B7258DB1C689CD06C39C02F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = "Oslo Widget";
+			productName = "Oslo Widget";
+			productReference = EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EABFAE061EAC55AC00731F90 /* OsloKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EABFAE121EAC55AC00731F90 /* Build configuration list for PBXNativeTarget "OsloKit" */;
+			buildPhases = (
+				3409C7A2C5146A9D32757715 /* [CP] Check Pods Manifest.lock */,
+				EABFAE021EAC55AC00731F90 /* Sources */,
+				EABFAE031EAC55AC00731F90 /* Frameworks */,
+				EABFAE041EAC55AC00731F90 /* Headers */,
+				EABFAE051EAC55AC00731F90 /* Resources */,
+				1A67C09C219FE4EAB153D000 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OsloKit;
+			productName = OsloKit;
+			productReference = EABFAE071EAC55AC00731F90 /* OsloKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAE828981CFEF4A100FD1657 /* Oslo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAE828AB1CFEF4A100FD1657 /* Build configuration list for PBXNativeTarget "Oslo" */;
+			buildPhases = (
+				26044FB08B603E0252098C2C /* [CP] Check Pods Manifest.lock */,
+				EAE828951CFEF4A100FD1657 /* Sources */,
+				EAE828961CFEF4A100FD1657 /* Frameworks */,
+				EAE828971CFEF4A100FD1657 /* Resources */,
+				35EFF0CDA41B57F963C0B1DB /* [CP] Embed Pods Frameworks */,
+				F2B57D8AFC0B809387E1322F /* [CP] Copy Pods Resources */,
+				EA81B1B51EABBEDF005A1CA2 /* Embed App Extensions */,
+				EABFAE131EAC55AC00731F90 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA81B1B01EABBEDF005A1CA2 /* PBXTargetDependency */,
+				EABFAE0D1EAC55AC00731F90 /* PBXTargetDependency */,
 			);
 			name = Oslo;
 			productName = Oslo;
@@ -217,10 +425,20 @@
 		EAE828911CFEF4A100FD1657 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Ziyideas;
 				TargetAttributes = {
+					EA81B1A41EABBEDF005A1CA2 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = J8DC9PK5S4;
+						ProvisioningStyle = Automatic;
+					};
+					EABFAE061EAC55AC00731F90 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = J8DC9PK5S4;
+						ProvisioningStyle = Automatic;
+					};
 					EAE828981CFEF4A100FD1657 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = J8DC9PK5S4;
@@ -244,61 +462,225 @@
 			projectRoot = "";
 			targets = (
 				EAE828981CFEF4A100FD1657 /* Oslo */,
+				EA81B1A41EABBEDF005A1CA2 /* Oslo Widget */,
+				EABFAE061EAC55AC00731F90 /* OsloKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EA81B1A31EABBEDF005A1CA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */,
+				EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */,
+				EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EABFAE051EAC55AC00731F90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EABFAE1B1EAC560E00731F90 /* Localizable.strings in Resources */,
+				EABFAE1C1EAC563400731F90 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAE828971CFEF4A100FD1657 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */,
-				EA99424A1DFED1AC00F682E3 /* InfoPlist.strings in Resources */,
-				EA9942411DFECE2500F682E3 /* Localizable.strings in Resources */,
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
+				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
 				EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */,
-				EAE828A41CFEF4A100FD1657 /* Assets.xcassets in Resources */,
 				EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A67C09C219FE4EAB153D000 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OsloKit/Pods-OsloKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26044FB08B603E0252098C2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3409C7A2C5146A9D32757715 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		35EFF0CDA41B57F963C0B1DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oslo/Pods-Oslo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44D327EDAB0460DA69219F54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5B7258DB1C689CD06C39C02F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oslo Widget/Pods-Oslo Widget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B57D8AFC0B809387E1322F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oslo/Pods-Oslo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		EA81B1A11EABBEDF005A1CA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */,
+				EA81B1AA1EABBEDF005A1CA2 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EABFAE021EAC55AC00731F90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EABFAE181EAC55F700731F90 /* NetworkService.swift in Sources */,
+				EABFAE191EAC55F700731F90 /* OperationService.swift in Sources */,
+				EABFAE141EAC55ED00731F90 /* Photo.swift in Sources */,
+				EABFAE161EAC55ED00731F90 /* Statistics.swift in Sources */,
+				EABFAE1A1EAC560600731F90 /* Misc.swift in Sources */,
+				EABFAE151EAC55ED00731F90 /* Exif.swift in Sources */,
+				EABFAE171EAC55F700731F90 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAE828951CFEF4A100FD1657 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EAA25FF71DEFCC87008B1CBE /* LikedPhotosCollectionViewController.swift in Sources */,
-				EA0DA6C71DE0506100790384 /* Exif.swift in Sources */,
 				EAA25FF11DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift in Sources */,
 				EAE5B8C61D0D6CB500883E3B /* PhotosTableViewController.swift in Sources */,
 				EAAD1A891D4B390100D22669 /* PersonalPhotoViewController.swift in Sources */,
 				EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */,
 				EAE8289D1CFEF4A100FD1657 /* AppDelegate.swift in Sources */,
-				EA1A5DA11D547C1B00B1E8E0 /* Misc.swift in Sources */,
 				EA0DA6CE1DE057FE00790384 /* StatisticsView.swift in Sources */,
 				EAA0DDC71DF7A1880002B12F /* LoadingView.swift in Sources */,
 				EAA25FF31DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift in Sources */,
 				EA0DA6C51DE0434300790384 /* ExifView.swift in Sources */,
 				EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */,
-				EA0A174C1D6469450090637B /* Constants.swift in Sources */,
-				EA0A174A1D64685F0090637B /* NetworkService.swift in Sources */,
-				EA4D285D1D79614E00D24413 /* Photo.swift in Sources */,
 				EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */,
 				EAA25FF91DEFCD7C008B1CBE /* MeViewController.swift in Sources */,
 				EA05DFAE1DE40B700094B251 /* LoginViewController.swift in Sources */,
 				EAA25FF51DEFCC7A008B1CBE /* PublishedPhotosCollectionViewController.swift in Sources */,
 				EABB35271D0E67CF00C8D761 /* PhotoTableViewCell.swift in Sources */,
-				EA0DA6CC1DE057D000790384 /* Statistics.swift in Sources */,
-				EA0FC88E1DDEFCFD00195E3C /* OperationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EA81B1B01EABBEDF005A1CA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA81B1A41EABBEDF005A1CA2 /* Oslo Widget */;
+			targetProxy = EA81B1AF1EABBEDF005A1CA2 /* PBXContainerItemProxy */;
+		};
+		EABFAE0D1EAC55AC00731F90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EABFAE061EAC55AC00731F90 /* OsloKit */;
+			targetProxy = EABFAE0C1EAC55AC00731F90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA81B1AC1EABBEDF005A1CA2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		EA9942431DFECE2500F682E3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -338,6 +720,99 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EA81B1B21EABBEDF005A1CA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 687ACE9778DB476A2270D468 /* Pods-Oslo Widget.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = J8DC9PK5S4;
+				INFOPLIST_FILE = "Oslo Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ziyideas.Oslo.Oslo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EA81B1B31EABBEDF005A1CA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA50AA7339D74643A3EA4A38 /* Pods-Oslo Widget.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = J8DC9PK5S4;
+				INFOPLIST_FILE = "Oslo Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ziyideas.Oslo.Oslo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EABFAE101EAC55AC00731F90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 583BF5C475700EBB98839DF9 /* Pods-OsloKit.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J8DC9PK5S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OsloKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ziyideas.OsloKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EABFAE111EAC55AC00731F90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC68E30C1720771FC9CEEEB /* Pods-OsloKit.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J8DC9PK5S4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OsloKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ziyideas.OsloKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		EAE828A91CFEF4A100FD1657 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -431,7 +906,9 @@
 		};
 		EAE828AC1CFEF4A100FD1657 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C95760D2A5377B7AFEDEE551 /* Pods-Oslo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oslo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -443,7 +920,9 @@
 		};
 		EAE828AD1CFEF4A100FD1657 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F827076338CA6ACB55BB81A9 /* Pods-Oslo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oslo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -457,6 +936,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EA81B1B41EABBEDF005A1CA2 /* Build configuration list for PBXNativeTarget "Oslo Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA81B1B21EABBEDF005A1CA2 /* Debug */,
+				EA81B1B31EABBEDF005A1CA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EABFAE121EAC55AC00731F90 /* Build configuration list for PBXNativeTarget "OsloKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EABFAE101EAC55AC00731F90 /* Debug */,
+				EABFAE111EAC55AC00731F90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EAE828941CFEF4A100FD1657 /* Build configuration list for PBXProject "Oslo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

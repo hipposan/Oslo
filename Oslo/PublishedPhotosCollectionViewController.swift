@@ -8,6 +8,11 @@
 
 import UIKit
 
+import OsloKit
+import Alamofire
+import PromiseKit
+import Kingfisher
+
 class PublishedPhotosCollectionViewController: UICollectionViewController {
   var userName: String = ""
   var publishedTotalCount: Int = 0
@@ -40,26 +45,8 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
     let photoURLString = publishedPhotos[indexPath.row].imageURL
     
     if let photoURL = URL(string: photoURLString) {
-      if let cachedImage = self.photoCache.object(forKey: photoURLString as NSString) {
-        cell.publishedPhotoImageView.image = cachedImage
-        
-        self.downloadedPublishedPhotos[indexPath.row] = cachedImage
-      } else {
-        NetworkService.image(with: photoURL) { image in
-          
-          self.photoCache.setObject(image, forKey: photoURLString as NSString)
-          
-          self.downloadedPublishedPhotos[indexPath.row] = image
-          
-          if let updateCell = collectionView.cellForItem(at: indexPath) as? PublishedPhotoCollectionViewCell {
-            updateCell.publishedPhotoImageView.alpha = 0
-            
-            UIView.animate(withDuration: 0.3) {
-              updateCell.publishedPhotoImageView.alpha = 1
-              updateCell.publishedPhotoImageView.image = image
-            }
-          }
-        }
+      cell.publishedPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
+        self.downloadedPublishedPhotos[indexPath.row] = image
       }
     }
     
@@ -74,7 +61,9 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
     if indexPath.row == publishedPhotos.count - 1 && indexPath.row != publishedTotalCount - 1 {
       currentPublishedPhotoPage += 1
       
-      load(with: currentPublishedPhotoPage)
+      _ = load(with: currentPublishedPhotoPage).then(on: DispatchQueue.main) { _ in
+        self.publishedPhotosCollectionView.reloadData()
+      }
     }
   }
   
@@ -96,29 +85,32 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
     }
   }
   
-  func load(with page: Int = 1) {
+  func load(with page: Int = 1) -> Promise<[Photo]> {
     let urlString = Constants.Base.UnsplashAPI + "/users/\(userName)/photos"
-    let url = URL(string: urlString)!
     
-    NetworkService.request(url: url,
-                           method: NetworkService.HTTPMethod.GET,
-                           parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-                                        ["page": page as AnyObject]],
-                           headers: ["Authorization": "Bearer " + Token.getToken()!]) { jsonData in
-                                          OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-                                            self.publishedPhotos.append(photo)
-                                            self.downloadedPublishedPhotos.append(nil)
-                                          }
-                                          
-                                          OperationQueue.main.addOperation {
-                                            self.publishedPhotosCollectionView.reloadData()
-                                          }
+    return Promise { fulfill, reject in
+      NetworkService.getPhotosJson(with: urlString,
+                             parameters: [
+                              "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                              "page": page
+        ], headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
+          for dict in dicts {
+            OperationService.parseJsonWithPhotoData(dict) { photo in
+              self.publishedPhotos.append(photo)
+              self.downloadedPublishedPhotos.append(nil)
+            }
+          }
+          
+          fulfill(self.publishedPhotos)
+      }.catch(execute: reject)
     }
   }
   
   func retryLoad() {
     if userName != "" {
-      load()
+      _ = load().then(on: DispatchQueue.main) { _ in
+        self.publishedPhotosCollectionView.reloadData()
+      }
       
       return
     } else {

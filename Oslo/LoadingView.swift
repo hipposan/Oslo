@@ -8,6 +8,8 @@
 
 import UIKit
 
+import OsloKit
+
 class LoadingView: UIView {
   private let images = [#imageLiteral(resourceName: "mountain"), #imageLiteral(resourceName: "kaminarimon_gate"), #imageLiteral(resourceName: "tram"), #imageLiteral(resourceName: "blitzcam")]
   private var imageView: UIImageView! {

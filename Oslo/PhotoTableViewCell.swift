@@ -8,6 +8,10 @@
 
 import UIKit
 
+import OsloKit
+import Alamofire
+import PromiseKit
+
 protocol PhotoTableViewCellDelegate: class {
   func tapToPerformSegue(_ sender: Any)
   func heartButtonDidPressed(sender: Any, isLike: Bool, heartCount: Int)
@@ -47,7 +51,7 @@ class PhotoTableViewCell: UITableViewCell {
   
   @IBAction func heartButtonDidPressed(_ sender: Any) {
     if let token = Token.getToken() {
-      let url = URL(string: Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like")!
+      let urlString = Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like"
       
       if !isLike {
         isLike = !isLike
@@ -55,14 +59,15 @@ class PhotoTableViewCell: UITableViewCell {
         
         delegate?.heartButtonDidPressed(sender: sender, isLike: isLike, heartCount: Int(heartCountLabel.text!)!)
         
-        NetworkService.request(url: url, method: NetworkService.HTTPMethod.POST, headers: ["Authorization": "Bearer " + token])
+        _ = Alamofire.request(urlString, method: HTTPMethod.post, headers: ["Authorization": "Bearer " + token])
+        
       } else {
         isLike = !isLike
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! - 1)"
         
         delegate?.heartButtonDidPressed(sender: sender, isLike: isLike, heartCount: Int(heartCountLabel.text!)!)
         
-        NetworkService.request(url: url, method: NetworkService.HTTPMethod.DELETE, headers: ["Authorization": "Bearer " + token])
+        _ = Alamofire.request(urlString, method: HTTPMethod.delete, headers: ["Authorization": "Bearer " + token])
       }
     } else {
       delegate?.heartButtonDidPressed(sender: sender, isLike: isLike, heartCount: Int(heartCountLabel.text!)!)

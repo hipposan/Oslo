@@ -8,6 +8,11 @@
 
 import UIKit
 
+import OsloKit
+import Kingfisher
+import Alamofire
+import PromiseKit
+
 class ProfileViewController: UIViewController {
   
   var photo: Photo!
@@ -15,11 +20,10 @@ class ProfileViewController: UIViewController {
   
   fileprivate var personalPhotos = [Photo]()
   fileprivate var totalPhotosCount: Int = 0
-  fileprivate var photoCache = NSCache<NSString, UIImage>()
   fileprivate var downloadedPersonalPhotos = [UIImage?]()
   fileprivate var currentPage = 1
   
-  private var loadingView: LoadingView! {
+  fileprivate var loadingView: LoadingView! {
     didSet {
       loadingView.frame = collectionView.bounds
       loadingView.frame.size.width = self.view.frame.size.width
@@ -61,61 +65,66 @@ class ProfileViewController: UIViewController {
     loadingView = LoadingView()
     collectionView.addSubview(loadingView)
     
-    load()
+    _ = load().then(on: DispatchQueue.main) { dicts -> Void in
+      self.collectionView.reloadData()
+      
+      self.loadingView.removeFromSuperview()
+    }
   }
   
-  func load(with page: Int = 1) {
+  func load(with page: Int = 1) -> Promise<[Photo]> {
     let urlString = Constants.Base.UnsplashAPI + "/users/\(photo.userName)/photos"
-    let url = URL(string: urlString)!
     
-    if let token = Token.getToken() {
-      NetworkService.request(url: url,
-                             method: NetworkService.HTTPMethod.GET,
-                             parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-                                         ["page": page as AnyObject]],
-                             headers: ["Authorization": "Bearer " + token]) { jsonData in
-                              guard let data = (jsonData as? [Dictionary<String, AnyObject>]) else { return }
-                              
-                              let firstData = data[0]
-                              
-                              if let user = firstData["user"] as? [String: AnyObject],
-                                let totalPhotos = user["total_photos"] as? Int {
-                                self.totalPhotosCount = totalPhotos
-                              }
-                              
-                              OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-                                self.personalPhotos.append(photo)
-                                self.downloadedPersonalPhotos.append(nil)
-                              }
-                              
-                              OperationQueue.main.addOperation {
-                                self.collectionView.reloadData()
-                                
-                                self.loadingView.removeFromSuperview()
-                              }
-      }
-    } else {
-      NetworkService.request(url: url,
-                             method: NetworkService.HTTPMethod.GET,
-                             parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>]) { jsonData in
-                              guard let data = (jsonData as? [Dictionary<String, AnyObject>]) else { return }
-                              
-                              let firstData = data[0]
-                              
-                              if let user = firstData["user"] as? [String: AnyObject],
-                                let totalPhotos = user["total_photos"] as? Int {
-                                self.totalPhotosCount = totalPhotos
-                              }
-                              
-                              OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-                                self.personalPhotos.append(photo)
-                                self.downloadedPersonalPhotos.append(nil)
-                              }
-                              
-                              OperationQueue.main.addOperation {
-                                self.collectionView.reloadData()
-                                self.loadingView.removeFromSuperview()
-                              }
+    return Promise { fulfill, reject in
+      if let token = Token.getToken() {
+        NetworkService.getPhotosJson(with: urlString,
+                               parameters: [
+          "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+          "page": page
+          ], headers: ["Authorization": "Bearer " + token]).then { dicts -> Void in
+            guard let firstData = dicts[0] as? Dictionary<String, Any>,
+              let user = firstData["user"] as? [String: Any],
+              let totalPhotos = user["total_photos"] as? Int else {
+                let error = NSError(domain: "ziyideas.com.PromiseKit", code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+                reject(error)
+                return
+            }
+            
+            self.totalPhotosCount = totalPhotos
+            
+            for dict in dicts {
+              OperationService.parseJsonWithPhotoData(dict) { photo in
+                self.personalPhotos.append(photo)
+                self.downloadedPersonalPhotos.append(nil)
+              }
+            }
+            
+            fulfill(self.personalPhotos)
+        }.catch(execute: reject)
+      } else {
+        NetworkService.getPhotosJson(with: urlString,
+                               parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dicts -> Void in
+            guard let firstData = dicts[0] as? Dictionary<String, Any>,
+              let user = firstData["user"] as? [String: Any],
+              let totalPhotos = user["total_photos"] as? Int else {
+                let error = NSError(domain: "ziyideas.com.PromiseKit", code: 0,
+                                    userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+                reject(error)
+                return
+            }
+            
+            self.totalPhotosCount = totalPhotos
+            
+            for dict in dicts {
+              OperationService.parseJsonWithPhotoData(dict) { photo in
+                self.personalPhotos.append(photo)
+                self.downloadedPersonalPhotos.append(nil)
+              }
+            }
+            
+            fulfill(self.personalPhotos)
+          }.catch(execute: reject)
       }
     }
   }
@@ -135,24 +144,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     let photoURLString = personalPhotos[indexPath.row].imageURL
     
     if let photoURL = URL(string: photoURLString) {
-      if let cachedImage = self.photoCache.object(forKey: photoURLString as NSString) {
-        cell.personalPhotoImageView.image = cachedImage
-        self.downloadedPersonalPhotos[indexPath.row] = cachedImage
-      } else {
-        NetworkService.image(with: photoURL) { image in
-          self.photoCache.setObject(image, forKey: photoURLString as NSString)
-          
-          self.downloadedPersonalPhotos[indexPath.row] = image
-          
-          if let updateCell = collectionView.cellForItem(at: indexPath) as? ProfileCollectionViewCell {
-            updateCell.personalPhotoImageView.alpha = 0
-            
-            UIView.animate(withDuration: 0.3) {
-              updateCell.personalPhotoImageView.alpha = 1
-              updateCell.personalPhotoImageView.image = image
-            }
-          }
-        }
+      cell.personalPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
+        self.downloadedPersonalPhotos[indexPath.row] = image
       }
     }
     
@@ -163,7 +156,11 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     if indexPath.row == personalPhotos.count - 1 && indexPath.row != totalPhotosCount - 1 {
       currentPage += 1
       
-      load(with: currentPage)
+      _ = load(with: currentPage).then(on: DispatchQueue.main) { dicts -> Void in
+        self.collectionView.reloadData()
+        
+        self.loadingView.removeFromSuperview()
+      }
     }
   }
   

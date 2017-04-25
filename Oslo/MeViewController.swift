@@ -8,6 +8,11 @@
 
 import UIKit
 
+import OsloKit
+import Kingfisher
+import Alamofire
+import PromiseKit
+
 protocol PassDataDelegate: class {
   func pass(userName: String, photosCount: Int)
   func pass(width: CGFloat)
@@ -80,57 +85,43 @@ class MeViewController: UIViewController {
 
     likedPhotoContainerView.isHidden = true
     
-    let url = URL(string: Constants.Base.UnsplashAPI + Constants.Base.Me)!
-    
-    NetworkService.request(url: url,
-                           method: NetworkService.HTTPMethod.GET,
-                           parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>],
-                           headers: ["Authorization": "Bearer " + Token.getToken()!]) { jsonData in
-                            if let profileImage = jsonData["profile_image"] as? [String: AnyObject],
-                              let largeProfileImage = profileImage["large"] as? String {
-                              let largeProfileImageURL = URL(string: largeProfileImage)!
-                              NetworkService.image(with: largeProfileImageURL) { image in
-                                DispatchQueue.main.async {
-                                  self.profileImageView.image = image
-                                }
-                              }
+    _ = NetworkService.getJson(with: Constants.Base.UnsplashAPI + Constants.Base.Me,
+                           parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"],
+                           headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dict -> Void in
+                            guard let profileImage = dict["profile_image"] as? [String: AnyObject],
+                              let largeProfileImage = profileImage["large"] as? String,
+                              let largeProfileImageURL = URL(string: largeProfileImage) else { return }
+                            
+                            self.profileImageView.kf.setImage(with: largeProfileImageURL, options: [.transition(.fade(0.2))])
+                            
+                            if let name = dict["name"] as? String {
+                              self.nameLabel.text = name
                             }
                             
-                            if let name = jsonData["name"] as? String {
-                              DispatchQueue.main.async {
-                                self.nameLabel.text = name
-                              }
+                            if let bio = dict["bio"] as? String {
+                              self.bioLabel.text = bio
                             }
                             
-                            if let bio = jsonData["bio"] as? String {
-                              DispatchQueue.main.async {
-                                self.bioLabel.text = bio
-                              }
-                            }
-                            
-                            if let publishedPhotosCount = jsonData["total_photos"] as? Int {
+                            if let publishedPhotosCount = dict["total_photos"] as? Int {
                               self.publishedTotalCount = publishedPhotosCount
                               
-                              DispatchQueue.main.async {
-                                self.segmentedControl.setTitle(localizedFormat(with: "Published count", and: "\(publishedPhotosCount)"), forSegmentAt: 0)
-                              }
+                              self.segmentedControl.setTitle(localizedFormat(with: "%@ Published", and: "\(publishedPhotosCount)"), forSegmentAt: 0)
                             }
                             
-                            if let likededPhotosCount = jsonData["total_likes"] as? Int {
-                              self.likedTotalCount = likededPhotosCount
+                            if let likedPhotosCount = dict["total_likes"] as? Int {
+                              self.likedTotalCount = likedPhotosCount
                               
-                              DispatchQueue.main.async {
-                                self.segmentedControl.setTitle(localizedFormat(with: "Liked count", and: "\(likededPhotosCount)"), forSegmentAt: 1)
-                              }
+                              self.segmentedControl.setTitle(localizedFormat(with: "%@ Liked", and: "\(likedPhotosCount)"), forSegmentAt: 1)
                             }
                             
-                            if let userName = jsonData["username"] as? String {
+                            if let userName = dict["username"] as? String {
                               self.title = userName
                               self.userName = userName
                               
                               self.publishedPhotosdelegate?.pass(userName: userName, photosCount: self.publishedTotalCount)
                               self.likedPhotosdelegate?.pass(userName: userName, photosCount: self.likedTotalCount)
                             }
+    
     }
   }
   

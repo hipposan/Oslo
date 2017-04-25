@@ -8,6 +8,8 @@
 
 import UIKit
 
+import OsloKit
+
 class StatisticsView: UIView {
   @IBOutlet var downloadsTitleLabel: UILabel! {
     didSet {

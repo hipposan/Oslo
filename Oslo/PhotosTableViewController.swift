@@ -8,13 +8,17 @@
 
 import UIKit
 
+import OsloKit
+import Kingfisher
+import Alamofire
+import PromiseKit
+
 class PhotosTableViewController: UITableViewController {
   @IBOutlet weak var userBarButton: UIBarButtonItem!
   
   fileprivate var photos = [Photo]()
   fileprivate var personalPhotos = [UIImage?]()
   fileprivate var profileImages = [UIImage?]()
-  fileprivate var photoCache = NSCache<NSString, UIImage>()
   
   private var loadingView: LoadingView! {
     didSet {
@@ -26,7 +30,7 @@ class PhotosTableViewController: UITableViewController {
   lazy var feedRefreshControl: UIRefreshControl = {
     let feedRefreshControl = UIRefreshControl()
     feedRefreshControl.tintColor = UIColor.clear
-    feedRefreshControl.addTarget(self, action: #selector(load(with:)), for: .valueChanged)
+//    feedRefreshControl.addTarget(self, action: #selector(load(with:)), for: .valueChanged)
     
     self.loadingView = LoadingView()
     self.loadingView.frame.size.height = feedRefreshControl.frame.size.height
@@ -60,7 +64,10 @@ class PhotosTableViewController: UITableViewController {
     
     tableView.refreshControl = feedRefreshControl
     
-    load()
+    _ = load().then(on: DispatchQueue.main) { photos -> Void in
+      self.tableView.reloadData()
+      self.feedRefreshControl.endRefreshing()
+    }
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,40 +88,14 @@ class PhotosTableViewController: UITableViewController {
     cell.userImageView.image = nil
     
     if let photoURL = URL(string: photo.imageURL) {
-      if let cachedImage = self.photoCache.object(forKey: photo.imageURL as NSString) {
-        cell.photoImageView.image = cachedImage
-      } else {
-        NetworkService.image(with: photoURL) { image in
-          self.photoCache.setObject(image, forKey: photo.imageURL as NSString)
-          
-          self.personalPhotos[indexPath.row] = image
-          
-          if let updateCell = tableView.cellForRow(at: indexPath) as? PhotoTableViewCell {
-            updateCell.photoImageView.alpha = 0
-            
-            UIView.animate(withDuration: 0.3) {
-              updateCell.photoImageView.alpha = 1
-              updateCell.photoImageView.image = image
-            }
-            
-          }
-        }
+      cell.photoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
+        self.personalPhotos[indexPath.row] = image
       }
     }
     
     if let profileURL = URL(string: photo.profileImageURL) {
-      if let cachedImage = self.photoCache.object(forKey: photo.profileImageURL as NSString) {
-        cell.userImageView.image = cachedImage
-      } else {
-        NetworkService.image(with: profileURL) { image in
-          self.photoCache.setObject(image, forKey: photo.profileImageURL as NSString)
-          
-          self.profileImages[indexPath.row] = image
-          
-          if let updateCell = tableView.cellForRow(at: indexPath) as? PhotoTableViewCell {
-            updateCell.userImageView.image = image
-          }
-        }
+      cell.userImageView.kf.setImage(with: profileURL, options: [.transition(.fade(0.1))]) { (image, error, cacheType, imageUrl) in
+        self.profileImages[indexPath.row] = image
       }
     }
 
@@ -130,7 +111,10 @@ class PhotosTableViewController: UITableViewController {
     if indexPath.row == photos.count - 1 {
       currentPage += 1
       
-      load(with: currentPage)
+      _ = load(with: currentPage).then(on: DispatchQueue.main) { photos -> Void in
+        self.tableView.reloadData()
+        self.feedRefreshControl.endRefreshing()
+      }
     }
   }
   
@@ -150,45 +134,43 @@ class PhotosTableViewController: UITableViewController {
     
   }
   
-  func load(with page: Int = 1) {
+  func load(with page: Int = 1) -> Promise<[Photo]> {
     feedRefreshControl.beginRefreshing()
     
-    let url = URL(string: Constants.Base.UnsplashAPI + Constants.Base.Curated)!
-    
-    if Token.getToken() != nil {
-      NetworkService.request(url: url, method: NetworkService.HTTPMethod.GET,
-                             parameters: [
-                              Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-                              ["page": page as AnyObject]
-      ], headers: ["Authorization": "Bearer " + Token.getToken()!]) { jsonData in
-        
-        OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-          self.photos.append(photo)
-          self.personalPhotos.append(nil)
-          self.profileImages.append(nil)
-        }
-      
-        OperationQueue.main.addOperation {
-          self.tableView.reloadData()
-          self.feedRefreshControl.endRefreshing()
-        }
-      }
-    } else {
-      NetworkService.request(url: url, method: NetworkService.HTTPMethod.GET,
-                             parameters: [
-                              Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-                              ["page": page as AnyObject]
-                             ]) { jsonData in
-        OperationService.parseJsonWithPhotoData(jsonData as! [Dictionary<String, AnyObject>]) { photo in
-          self.photos.append(photo)
-          self.personalPhotos.append(nil)
-          self.profileImages.append(nil)
-        }
-        
-        OperationQueue.main.addOperation {
-          self.tableView.reloadData()
-          self.feedRefreshControl.endRefreshing()
-        }
+    return Promise { fulfill, reject in
+      if Token.getToken() != nil {
+        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
+                               parameters: [
+                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                                "page": page
+                               ],
+                               headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
+                                for dict in dicts {
+                                  OperationService.parseJsonWithPhotoData(dict) { photo in
+                                    self.photos.append(photo)
+                                    self.personalPhotos.append(nil)
+                                    self.profileImages.append(nil)
+                                  }
+                                }
+                                
+                                fulfill(self.photos)
+        }.catch(execute: reject)
+      } else {
+        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
+                               parameters: [
+                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                                "page": page
+                               ]).then { dicts -> Void in
+                                for dict in dicts {
+                                  OperationService.parseJsonWithPhotoData(dict) { photo in
+                                    self.photos.append(photo)
+                                    self.personalPhotos.append(nil)
+                                    self.profileImages.append(nil)
+                                  }
+                                }
+                                
+                                fulfill(self.photos)
+          }.catch(execute: reject)
       }
     }
   }

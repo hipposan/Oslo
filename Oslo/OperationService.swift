@@ -8,78 +8,77 @@
 
 import Foundation
 
-class OperationService {
-  class func parseJsonWithPhotoData(_ data: [Dictionary<String, AnyObject>], completion: (_ photo: Photo) -> Void) {
-    for jsonData in data {
-      var id: String = ""
-      var imageURL: String = ""
-      var profileImageURL: String = ""
-      var name: String = ""
-      var userName: String = ""
-      var isLike: Bool = false
-      var heartCount: Int = 0
-      var bio: String = ""
-      var location: String = ""
-      var portfolioURL: String = ""
-      
-      if let photoID = jsonData["id"] as? String {
-        id = photoID
-      }
-      
-      if let photoURLs = jsonData["urls"] as? [String: AnyObject],
-        let photoURL = photoURLs["regular"] as? String {
-        imageURL = photoURL
-      }
-      
-      if let user = jsonData["user"] as? [String: AnyObject] {
-        if let profileImage = user["profile_image"] as? [String: AnyObject],
-          let mediumImage = profileImage["medium"] as? String {
-          profileImageURL = mediumImage
-        }
-        
-        if let fullName = user["name"] as? String {
-          name = fullName
-        }
-        
-        if let webName = user["username"] as? String {
-          userName = webName
-        }
-        
-        if let bioDescription = user["bio"] as? String {
-          bio = bioDescription
-        }
-        
-        if let locationDescription = user["location"] as? String {
-          location = locationDescription
-        }
-        
-        if let portfolioURLDescription = user["portfolio_url"] as? String {
-          portfolioURL = portfolioURLDescription
-        }
-      }
-      
-      if let likeOrNot = jsonData["liked_by_user"] as? Bool {
-        isLike = likeOrNot
-      }
-      
-      if let likes = jsonData["likes"] as? Int {
-        heartCount = likes
-      }
-      
-      let photo = Photo(id: id,
-                        imageURL: imageURL,
-                        profileImageURL: profileImageURL,
-                        name: name, userName: userName,
-                        isLike: isLike,
-                        heartCount: heartCount,
-                        bio: bio,
-                        location: location,
-                        portfolioURL: portfolioURL)
-      completion(photo)
+public class OperationService {
+  public class func parseJsonWithPhotoData(_ data: NSDictionary, completion: (_ photo: Photo) -> Void) {
+    var id: String = ""
+    var imageURL: String = ""
+    var profileImageURL: String = ""
+    var name: String = ""
+    var userName: String = ""
+    var isLike: Bool = false
+    var heartCount: Int = 0
+    var bio: String = ""
+    var location: String = ""
+    var portfolioURL: String = ""
+    
+    if let photoID = data["id"] as? String {
+      id = photoID
     }
+    
+    if let photoURLs = data["urls"] as? [String: AnyObject],
+      let photoURL = photoURLs["regular"] as? String {
+      imageURL = photoURL
+    }
+    
+    if let user = data["user"] as? [String: AnyObject] {
+      if let profileImage = user["profile_image"] as? [String: AnyObject],
+        let mediumImage = profileImage["medium"] as? String {
+        profileImageURL = mediumImage
+      }
+      
+      if let fullName = user["name"] as? String {
+        name = fullName
+      }
+      
+      if let webName = user["username"] as? String {
+        userName = webName
+      }
+      
+      if let bioDescription = user["bio"] as? String {
+        bio = bioDescription
+      }
+      
+      if let locationDescription = user["location"] as? String {
+        location = locationDescription
+      }
+      
+      if let portfolioURLDescription = user["portfolio_url"] as? String {
+        portfolioURL = portfolioURLDescription
+      }
+    }
+    
+    if let likeOrNot = data["liked_by_user"] as? Bool {
+      isLike = likeOrNot
+    }
+    
+    if let likes = data["likes"] as? Int {
+      heartCount = likes
+    }
+    
+    let photo = Photo(id: id,
+                      imageURL: imageURL,
+                      profileImageURL: profileImageURL,
+                      name: name, userName: userName,
+                      isLike: isLike,
+                      heartCount: heartCount,
+                      bio: bio,
+                      location: location,
+                      portfolioURL: portfolioURL)
+    completion(photo)
+    
   }
   
-  class func parseJsonWithExifData(_ data: Dictionary<String, AnyObject>, completion: (_ exifData: Exif) -> Void) {
+  public class func parseJsonWithExifData(_ data: Dictionary<String, AnyObject>, completion: (_ exifData: Exif) -> Void) {
       var createTime: String = ""
       var width: Int = 0
       var height: Int = 0
@@ -140,7 +139,7 @@ class OperationService {
       completion(exifInfo)
   }
   
-  class func parseJsonWithStatisticsData(_ data: Dictionary<String, AnyObject>, completion: (_ statisticsData: Statistics) -> Void) {
+  public class func parseJsonWithStatisticsData(_ data: Dictionary<String, AnyObject>, completion: (_ statisticsData: Statistics) -> Void) {
       var downloads: Int = 0
       var views: Int = 0
       var likes: Int = 0
@@ -162,18 +161,18 @@ class OperationService {
   }
 }
 
-struct Token {
-  static let userDefaults = UserDefaults.standard
+public struct Token {
+  public static let userDefaults = UserDefaults.standard
   
-  static func getToken() -> String? {
+  public static func getToken() -> String? {
     return userDefaults.string(forKey: "token")
   }
   
-  static func saveToken(_ token: String) {
+  public static func saveToken(_ token: String) {
     userDefaults.set(token, forKey: "token")
   }
   
-  static func removeToken() {
+  public static func removeToken() {
     userDefaults.removeObject(forKey: "token")
   }
 }

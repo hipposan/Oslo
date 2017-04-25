@@ -4,14 +4,34 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Oslo Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Oslo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>OsloKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>EA81B1A41EABBEDF005A1CA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EABFAE061EAC55AC00731F90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EAE828981CFEF4A100FD1657</key>
 		<dict>
 			<key>primary</key>

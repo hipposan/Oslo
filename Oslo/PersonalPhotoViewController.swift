@@ -9,6 +9,10 @@
 import UIKit
 import Social
 
+import OsloKit
+import Alamofire
+import PromiseKit
+
 protocol PersonalPhotoViewControllerDelegate: class {
   func heartButtonDidPressed(with photoID: String, isLike: Bool, heartCount: Int)
 }
@@ -43,8 +47,6 @@ class PersonalPhotoViewController: UIViewController {
   
   @IBAction func heartButtonDidPressed(_ sender: Any) {
     if let token = Token.getToken() {
-      let url = URL(string: Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/like")!
-      
       if !photo.isLike {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! + 1)"
@@ -54,7 +56,9 @@ class PersonalPhotoViewController: UIViewController {
         
         delegate?.heartButtonDidPressed(with: photo.id, isLike: photo.isLike, heartCount: photo.heartCount)
         
-        NetworkService.request(url: url, method: NetworkService.HTTPMethod.POST, headers: ["Authorization": "Bearer " + token])
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/like",
+                          method: HTTPMethod.post,
+                          headers: ["Authorization": "Bearer " + token])
       } else {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-outline"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! - 1)"
@@ -64,7 +68,9 @@ class PersonalPhotoViewController: UIViewController {
         
         delegate?.heartButtonDidPressed(with: photo.id, isLike: photo.isLike, heartCount: photo.heartCount)
         
-        NetworkService.request(url: url, method: NetworkService.HTTPMethod.DELETE, headers: ["Authorization": "Bearer " + token])
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/like",
+                              method: HTTPMethod.delete,
+                              headers: ["Authorization": "Bearer " + token])
       }
     } else {
       let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -173,9 +179,8 @@ class PersonalPhotoViewController: UIViewController {
       personalPhotoImageView.image = nil
       
       let imageURL = URL(string: photo.imageURL)
-      NetworkService.image(with: imageURL) { image in
+      personalPhotoImageView.kf.setImage(with: imageURL, options: [.transition(.fade(0.1))]) { (image, error, cacheType, imageUrl) in
         self.personalPhoto = image
-        self.personalPhotoImageView.image = image
       }
     }
     
@@ -190,23 +195,23 @@ class PersonalPhotoViewController: UIViewController {
   
   private func load() {
     
-      let statisticsURL = URL(string: Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/stats")!
-      
-      NetworkService.request(url: statisticsURL, method: NetworkService.HTTPMethod.GET,
-                             parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>]) { jsonData in
-                              OperationService.parseJsonWithStatisticsData(jsonData as! Dictionary<String, AnyObject>) { statisticsInfo in
-                                self.statisticsInfo = statisticsInfo
-                              }
+    let statisticsURLString = Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/stats"
+    
+    _ = NetworkService.getJson(with: statisticsURLString,
+                           parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
+                            OperationService.parseJsonWithStatisticsData(dict) { statisticsInfo in
+                              self.statisticsInfo = statisticsInfo
+                            }
     }
     
-      let exifURL = URL(string: Constants.Base.UnsplashAPI + "/photos/" + photo.id)!
-      
-      NetworkService.request(url: exifURL, method: NetworkService.HTTPMethod.GET,
-                             parameters: [Constants.Parameters.ClientID as Dictionary<String, AnyObject>]) { jsonData in
-                              OperationService.parseJsonWithExifData(jsonData as! Dictionary<String, AnyObject>) { exifInfo in
-                                self.exifInfo = exifInfo
-                              }
-      
+    
+    let exifURLString = Constants.Base.UnsplashAPI + "/photos/" + photo.id
+    
+    _ = NetworkService.getJson(with: exifURLString,
+                               parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
+                                OperationService.parseJsonWithExifData(dict) { exifInfo in
+                                  self.exifInfo = exifInfo
+                                }
     }
   }
   

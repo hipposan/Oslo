@@ -8,6 +8,8 @@
 
 import UIKit
 
+import OsloKit
+
 class ExifView: UIView {
   @IBOutlet var createdTimeTitleLabel: UILabel! {
     didSet {

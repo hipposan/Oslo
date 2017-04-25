@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Exif {
-  let createTime: String
-  let width: Int
-  let height: Int
-  let make: String
-  let model: String
-  let aperture: String
-  let exposureTime: String
-  let focalLength: String
-  let iso: Int
+public struct Exif {
+  public let createTime: String
+  public let width: Int
+  public let height: Int
+  public let make: String
+  public let model: String
+  public let aperture: String
+  public let exposureTime: String
+  public let focalLength: String
+  public let iso: Int
   
   init(createTime: String,
        width: Int, height: Int,

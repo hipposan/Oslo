@@ -6,17 +6,17 @@
 //  Copyright © 2016 Ziyideas. All rights reserved.
 //
 
-struct Photo {
-  let id: String
-  let imageURL: String
-  let profileImageURL: String
-  let name: String
-  let userName: String
-  var isLike: Bool
-  var heartCount: Int
-  let bio: String
-  let location: String
-  let portfolioURL: String
+public struct Photo {
+  public let id: String
+  public let imageURL: String
+  public let profileImageURL: String
+  public let name: String
+  public let userName: String
+  public var isLike: Bool
+  public var heartCount: Int
+  public let bio: String
+  public let location: String
+  public let portfolioURL: String
   
   init(id: String,
        imageURL: String,

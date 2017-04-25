@@ -46,5 +46,5 @@
 "Logout intro" = "After logout you could not access your personal photos and specific functions like ❤️ a photo.";
 "Logout action title" = "Logout";
 "Logout cancel title" = "Cancel";
-"Published count" = "%@ Published";
-"Liked count" = "%@ Liked";
+"%@ Published" = "%@ Published";
+"%@ Liked" = "%@ Liked";

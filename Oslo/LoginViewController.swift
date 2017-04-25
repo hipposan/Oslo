@@ -8,6 +8,10 @@
 
 import UIKit
 
+import OsloKit
+import Alamofire
+import PromiseKit
+
 class LoginViewController: UIViewController {
   
   @IBOutlet var loginWebView: UIWebView!
@@ -43,18 +47,20 @@ extension LoginViewController: UIWebViewDelegate {
     if absoluteURL.contains("oslo://photos") {
       let code = absoluteURL.components(separatedBy: "=")[1]
       
-      NetworkService.request(url: URL(string: Constants.Base.UnsplashURL + Constants.Base.Token)!, method: NetworkService.HTTPMethod.POST, parameters: [
-        Constants.Parameters.ClientID as Dictionary<String, AnyObject>,
-        Constants.Parameters.ClientSecret as Dictionary<String, AnyObject>,
-        Constants.Parameters.RedirectURI as Dictionary<String, AnyObject>,
-        ["code": code as AnyObject],
-        Constants.Parameters.GrantType as Dictionary<String, AnyObject>
-      ]) { jsonData in
-        let accessToken = jsonData["access_token"] as! String
-        
-        Token.saveToken(accessToken)
-        
-        self.dismiss(animated: true)
+      Alamofire.request(Constants.Base.UnsplashURL + Constants.Base.Token, method: HTTPMethod.post, parameters: [
+        "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+        "client_secret": "c81b39a6a1f921a0b2b29de29f44fd176ffc101e816c5d2d34b6c951a885a68b",
+        "redirect_uri": "Oslo://photos",
+        "code": code,
+        "grant_type": "authorization_code"
+        ]).validate().responseJSON { response in
+          guard let json = response.result.value as? [String: Any] else { return }
+          
+          let accessToken = json["access_token"] as! String
+          
+          Token.saveToken(accessToken)
+          
+          self.dismiss(animated: true)
       }
       
       return false
