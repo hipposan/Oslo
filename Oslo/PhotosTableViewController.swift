@@ -12,11 +12,17 @@ import OsloKit
 import Kingfisher
 import Alamofire
 import PromiseKit
+import Gloss
 
 class PhotosTableViewController: UITableViewController {
   @IBOutlet weak var userBarButton: UIBarButtonItem!
   
-  fileprivate var photos = [Photo]()
+  fileprivate var photos = [Photo]() {
+    didSet {
+      personalPhotos = [UIImage?](repeating: nil, count: photos.count)
+      profileImages = [UIImage?](repeating: nil, count: photos.count)
+    }
+  }
   fileprivate var personalPhotos = [UIImage?]()
   fileprivate var profileImages = [UIImage?]()
   
@@ -87,22 +93,28 @@ class PhotosTableViewController: UITableViewController {
     cell.photoImageView.image = nil
     cell.userImageView.image = nil
     
-    if let photoURL = URL(string: photo.imageURL) {
-      cell.photoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
-        self.personalPhotos[indexPath.row] = image
+    if let photoImageURL = photo.imageURL,
+      let photoHeartCount = photo.heartCount,
+      let photoID = photo.id,
+      let photoProfileImageURL = photo.profileImageURL,
+      let photoIsLike = photo.isLike {
+      if let photoURL = URL(string: photoImageURL) {
+        cell.photoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
+          self.personalPhotos[indexPath.row] = image
+        }
       }
-    }
-    
-    if let profileURL = URL(string: photo.profileImageURL) {
-      cell.userImageView.kf.setImage(with: profileURL, options: [.transition(.fade(0.1))]) { (image, error, cacheType, imageUrl) in
-        self.profileImages[indexPath.row] = image
+      
+      if let profileURL = URL(string: photoProfileImageURL) {
+        cell.userImageView.kf.setImage(with: profileURL, options: [.transition(.fade(0.1))]) { (image, error, cacheType, imageUrl) in
+          self.profileImages[indexPath.row] = image
+        }
       }
+      
+      cell.userLabel.setTitle(photo.name, for: .normal)
+      cell.isLike = photoIsLike
+      cell.heartCountLabel.text = "\(photoHeartCount)"
+      cell.photoID = photoID
     }
-
-    cell.userLabel.setTitle(photo.name, for: .normal)
-    cell.isLike = photo.isLike
-    cell.heartCountLabel.text = "\(photo.heartCount)"
-    cell.photoID = photo.id
     
     return cell
   }
@@ -145,13 +157,9 @@ class PhotosTableViewController: UITableViewController {
                                 "page": page
                                ],
                                headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
-                                for dict in dicts {
-                                  OperationService.parseJsonWithPhotoData(dict) { photo in
-                                    self.photos.append(photo)
-                                    self.personalPhotos.append(nil)
-                                    self.profileImages.append(nil)
-                                  }
-                                }
+                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+                                
+                                self.photos.append(contentsOf: photos)
                                 
                                 fulfill(self.photos)
         }.catch(execute: reject)
@@ -161,13 +169,9 @@ class PhotosTableViewController: UITableViewController {
                                 "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
                                 "page": page
                                ]).then { dicts -> Void in
-                                for dict in dicts {
-                                  OperationService.parseJsonWithPhotoData(dict) { photo in
-                                    self.photos.append(photo)
-                                    self.personalPhotos.append(nil)
-                                    self.profileImages.append(nil)
-                                  }
-                                }
+                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+                                print(photos)
+                                self.photos.append(contentsOf: photos)
                                 
                                 fulfill(self.photos)
           }.catch(execute: reject)

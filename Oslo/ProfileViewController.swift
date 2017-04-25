@@ -12,13 +12,18 @@ import OsloKit
 import Kingfisher
 import Alamofire
 import PromiseKit
+import Gloss
 
 class ProfileViewController: UIViewController {
   
   var photo: Photo!
   var profileImage: UIImage!
   
-  fileprivate var personalPhotos = [Photo]()
+  fileprivate var personalPhotos = [Photo]() {
+    didSet {
+      downloadedPersonalPhotos = [UIImage?](repeating: nil, count: personalPhotos.count)
+    }
+  }
   fileprivate var totalPhotosCount: Int = 0
   fileprivate var downloadedPersonalPhotos = [UIImage?]()
   fileprivate var currentPage = 1
@@ -51,10 +56,10 @@ class ProfileViewController: UIViewController {
       locationLabel.text = localize(with: "No Location")
     }
     
-    if photo.portfolioURL.contains("instagram.com") {
+    if (photo.portfolioURL?.contains("instagram.com"))! {
       portfolioImage.image = #imageLiteral(resourceName: "instagram")
-      let instagramName = photo.portfolioURL.components(separatedBy: "/")
-      portfolioName.setTitle(instagramName[3], for: .normal)
+      let instagramName = photo.portfolioURL?.components(separatedBy: "/")
+      portfolioName.setTitle(instagramName?[3], for: .normal)
     } else {
       portfolioImage.image = #imageLiteral(resourceName: "portfolio")
       portfolioName.setTitle(localize(with: "Website"), for: .normal)
@@ -73,9 +78,16 @@ class ProfileViewController: UIViewController {
   }
   
   func load(with page: Int = 1) -> Promise<[Photo]> {
-    let urlString = Constants.Base.UnsplashAPI + "/users/\(photo.userName)/photos"
-    
     return Promise { fulfill, reject in
+      guard let userName = photo.userName else {
+        let error = NSError(domain: "ziyideas.com.PromiseKit", code: 0,
+                            userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
+        reject(error)
+        return
+      }
+      
+      let urlString = Constants.Base.UnsplashAPI + "/users/\(userName)/photos"
+      
       if let token = Token.getToken() {
         NetworkService.getPhotosJson(with: urlString,
                                parameters: [
@@ -93,12 +105,8 @@ class ProfileViewController: UIViewController {
             
             self.totalPhotosCount = totalPhotos
             
-            for dict in dicts {
-              OperationService.parseJsonWithPhotoData(dict) { photo in
-                self.personalPhotos.append(photo)
-                self.downloadedPersonalPhotos.append(nil)
-              }
-            }
+            guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+            self.personalPhotos.append(contentsOf: photos)
             
             fulfill(self.personalPhotos)
         }.catch(execute: reject)
@@ -116,12 +124,8 @@ class ProfileViewController: UIViewController {
             
             self.totalPhotosCount = totalPhotos
             
-            for dict in dicts {
-              OperationService.parseJsonWithPhotoData(dict) { photo in
-                self.personalPhotos.append(photo)
-                self.downloadedPersonalPhotos.append(nil)
-              }
-            }
+            guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+            self.personalPhotos.append(contentsOf: photos)
             
             fulfill(self.personalPhotos)
           }.catch(execute: reject)
@@ -141,9 +145,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     
     cell.personalPhotoImageView.image = nil
     
-    let photoURLString = personalPhotos[indexPath.row].imageURL
-    
-    if let photoURL = URL(string: photoURLString) {
+    if let photoURLString = personalPhotos[indexPath.row].imageURL,
+      let photoURL = URL(string: photoURLString) {
       cell.personalPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
         self.downloadedPersonalPhotos[indexPath.row] = image
       }
@@ -181,8 +184,9 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
       }
     } else if segue.identifier == "PortfolioSegue" {
       if let destinationViewController = segue.destination as? PortfolioWebViewController {
-        destinationViewController.navigationItem.title = localizedFormat(with: "%@'s website", and: photo.name)
-        destinationViewController.portfolioURL = photo.portfolioURL
+        guard let photoName = photo.name, let portfolioURL = photo.portfolioURL else { return }
+        destinationViewController.navigationItem.title = localizedFormat(with: "%@'s website", and: photoName)
+        destinationViewController.portfolioURL = portfolioURL
       }
     }
   }

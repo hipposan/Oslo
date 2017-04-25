@@ -22,8 +22,8 @@ class PersonalPhotoViewController: UIViewController {
   var photo: Photo!
   var personalPhoto: UIImage?
   
-  fileprivate var exifInfo: Exif?
-  fileprivate var statisticsInfo: Statistics?
+  fileprivate var exifInfo: Exif!
+  fileprivate var statisticsInfo: Statistics!
   
   private let emoji: Array = ["🗾", "🎑", "🏞", "🌅", "🌄", "🌠", "🎇", "🎆", "🌇", "🌆", "🏙", "🌃", "🌌", "🌉", "🌁"]
   
@@ -47,28 +47,32 @@ class PersonalPhotoViewController: UIViewController {
   
   @IBAction func heartButtonDidPressed(_ sender: Any) {
     if let token = Token.getToken() {
-      if !photo.isLike {
+      guard let photoIsLike = photo.isLike,
+        let photoID = photo.id,
+        let photoHeartCount = photo.heartCount else { return }
+      
+      if !photoIsLike {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! + 1)"
         
-        photo.isLike = !photo.isLike
+        photo.isLike = !photoIsLike
         photo.heartCount = Int(heartCountLabel.text!)!
         
-        delegate?.heartButtonDidPressed(with: photo.id, isLike: photo.isLike, heartCount: photo.heartCount)
+        delegate?.heartButtonDidPressed(with: photoID, isLike: photoIsLike, heartCount: photoHeartCount)
         
-        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/like",
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
                           method: HTTPMethod.post,
                           headers: ["Authorization": "Bearer " + token])
       } else {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-outline"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! - 1)"
         
-        photo.isLike = !photo.isLike
+        photo.isLike = !photoIsLike
         photo.heartCount = Int(heartCountLabel.text!)!
         
-        delegate?.heartButtonDidPressed(with: photo.id, isLike: photo.isLike, heartCount: photo.heartCount)
+        delegate?.heartButtonDidPressed(with: photoID, isLike: photoIsLike, heartCount: photoHeartCount)
         
-        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/like",
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
                               method: HTTPMethod.delete,
                               headers: ["Authorization": "Bearer " + token])
       }
@@ -112,11 +116,13 @@ class PersonalPhotoViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        guard statisticsInfo != nil else { return }
+        guard let statisticsDownloads = statisticsInfo.downloads,
+          let statisticsViews = statisticsInfo.views,
+          let statisticsLikes = statisticsInfo.likes else { return }
         
-        statisticsView!.downloadsLabel.text = numberFormatter.string(from: statisticsInfo!.downloads as NSNumber)
-        statisticsView!.viewsLabel.text = numberFormatter.string(from: statisticsInfo!.views as NSNumber)
-        statisticsView!.likesLabel.text = numberFormatter.string(from: statisticsInfo!.likes as NSNumber)
+        statisticsView!.downloadsLabel.text = numberFormatter.string(from: statisticsDownloads as NSNumber)
+        statisticsView!.viewsLabel.text = numberFormatter.string(from: statisticsViews as NSNumber)
+        statisticsView!.likesLabel.text = numberFormatter.string(from: statisticsLikes as NSNumber)
         
         personalPhotoImageView.addSubview(statisticsView!)
       }
@@ -142,9 +148,17 @@ class PersonalPhotoViewController: UIViewController {
       if let view = UIView.load(from: "ExifView", with: personalPhotoImageView.bounds) as? ExifView {
         exifView = view
         
-        guard exifInfo != nil else { return }
+        guard let createTime = exifInfo.createTime,
+          let width = exifInfo.width,
+          let height = exifInfo.height,
+          let make = exifInfo.make,
+          let model = exifInfo.model,
+          let aperture = exifInfo.aperture,
+          let exposure = exifInfo.exposureTime,
+          let focalLength = exifInfo.focalLength,
+          let iso = exifInfo.iso else { return }
         
-        let dateTime = exifInfo!.createTime.components(separatedBy: "T")[0]
+        let dateTime = createTime.components(separatedBy: "T")[0]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: dateTime)
@@ -152,13 +166,13 @@ class PersonalPhotoViewController: UIViewController {
         let createDate = dateFormatter.string(from: date!)
         exifView!.createdTimeLabel.text = createDate
         
-        exifView!.dimensionsLabel.text = "\(exifInfo!.width) x \(exifInfo!.height)"
-        exifView!.makeLabel.text = exifInfo!.make
-        exifView!.modelLabel.text = exifInfo!.model
-        exifView!.apertureLabel.text = exifInfo!.aperture
-        exifView!.exposureTimeLabel.text = exifInfo!.exposureTime
-        exifView!.focalLengthLabel.text = exifInfo!.focalLength
-        exifView!.isoLabel.text = "\(exifInfo!.iso)"
+        exifView!.dimensionsLabel.text = "\(width) x \(height)"
+        exifView!.makeLabel.text = make
+        exifView!.modelLabel.text = model
+        exifView!.apertureLabel.text = aperture
+        exifView!.exposureTimeLabel.text = exposure
+        exifView!.focalLengthLabel.text = focalLength
+        exifView!.isoLabel.text = "\(iso)"
         
         personalPhotoImageView.addSubview(exifView!)
       }
@@ -173,20 +187,24 @@ class PersonalPhotoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    guard let photoIsLike = photo.isLike,
+      let photoImageURL = photo.imageURL,
+      let photoHeartCount = photo.heartCount else { return }
+    
     if let downloadedImage = personalPhoto {
       personalPhotoImageView.image = downloadedImage
     } else {
       personalPhotoImageView.image = nil
       
-      let imageURL = URL(string: photo.imageURL)
+      let imageURL = URL(string: photoImageURL)
       personalPhotoImageView.kf.setImage(with: imageURL, options: [.transition(.fade(0.1))]) { (image, error, cacheType, imageUrl) in
         self.personalPhoto = image
       }
     }
     
-    photo.isLike ? heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal) : heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-outline"), for: .normal)
+    photoIsLike ? heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal) : heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-outline"), for: .normal)
     
-    heartCountLabel.text = String(photo.heartCount)
+    heartCountLabel.text = String(photoHeartCount)
     
     savePhotoLabel.alpha = 0
     
@@ -194,24 +212,22 @@ class PersonalPhotoViewController: UIViewController {
   }
   
   private func load() {
+    guard let photoID = photo.id else { return }
     
-    let statisticsURLString = Constants.Base.UnsplashAPI + "/photos/" + photo.id + "/stats"
+    let statisticsURLString = Constants.Base.UnsplashAPI + "/photos/" + photoID + "/stats"
     
     _ = NetworkService.getJson(with: statisticsURLString,
                            parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
-                            OperationService.parseJsonWithStatisticsData(dict) { statisticsInfo in
-                              self.statisticsInfo = statisticsInfo
-                            }
+                            guard let statisticsInfoData = Statistics(json: dict) else { return }
+                            self.statisticsInfo = statisticsInfoData
     }
     
-    
-    let exifURLString = Constants.Base.UnsplashAPI + "/photos/" + photo.id
+    let exifURLString = Constants.Base.UnsplashAPI + "/photos/" + photoID
     
     _ = NetworkService.getJson(with: exifURLString,
                                parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
-                                OperationService.parseJsonWithExifData(dict) { exifInfo in
-                                  self.exifInfo = exifInfo
-                                }
+                                guard let exifInfoData = Exif(json: dict) else { return }
+                                self.exifInfo = exifInfoData
     }
   }
   

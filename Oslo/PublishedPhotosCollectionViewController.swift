@@ -12,13 +12,18 @@ import OsloKit
 import Alamofire
 import PromiseKit
 import Kingfisher
+import Gloss
 
 class PublishedPhotosCollectionViewController: UICollectionViewController {
   var userName: String = ""
   var publishedTotalCount: Int = 0
   
   fileprivate var width: CGFloat = 0.0
-  fileprivate var publishedPhotos = [Photo]()
+  fileprivate var publishedPhotos = [Photo]() {
+    didSet {
+      downloadedPublishedPhotos = [UIImage?](repeating: nil, count: publishedPhotos.count)
+    }
+  }
   fileprivate var photoCache = NSCache<NSString, UIImage>()
   fileprivate var downloadedPublishedPhotos = [UIImage?]()
   fileprivate var currentPublishedPhotoPage = 1
@@ -42,9 +47,8 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
     
     cell.publishedPhotoImageView.image = nil
     
-    let photoURLString = publishedPhotos[indexPath.row].imageURL
-    
-    if let photoURL = URL(string: photoURLString) {
+    if let photoURLString = publishedPhotos[indexPath.row].imageURL,
+      let photoURL = URL(string: photoURLString) {
       cell.publishedPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
         self.downloadedPublishedPhotos[indexPath.row] = image
       }
@@ -94,12 +98,9 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
                               "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
                               "page": page
         ], headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
-          for dict in dicts {
-            OperationService.parseJsonWithPhotoData(dict) { photo in
-              self.publishedPhotos.append(photo)
-              self.downloadedPublishedPhotos.append(nil)
-            }
-          }
+          guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+          
+          self.publishedPhotos.append(contentsOf: photos)
           
           fulfill(self.publishedPhotos)
       }.catch(execute: reject)

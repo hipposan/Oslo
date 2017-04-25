@@ -8,14 +8,16 @@
 
 import Foundation
 
-public struct Statistics {
-  public let downloads: Int
-  public let views: Int
-  public let likes: Int
+import Gloss
+
+public struct Statistics: Decodable {
+  public let downloads: Int?
+  public let views: Int?
+  public let likes: Int?
   
-  init(downloads: Int, views: Int, likes: Int) {
-    self.downloads = downloads
-    self.views = views
-    self.likes = likes
+  public init?(json: JSON) {
+    self.downloads = "downloads" <~~ json
+    self.views = "views" <~~ json
+    self.likes = "likes" <~~ json
   }
 }

@@ -12,6 +12,7 @@ import OsloKit
 import PromiseKit
 import Alamofire
 import Kingfisher
+import Gloss
 
 class LikedPhotosCollectionViewController: UICollectionViewController {
   var userName: String = ""
@@ -19,7 +20,11 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
   
   fileprivate var width: CGFloat = 0.0
   fileprivate var photoCache = NSCache<NSString, UIImage>()
-  fileprivate var likedPhotos = [Photo]()
+  fileprivate var likedPhotos = [Photo]() {
+    didSet {
+      downloadedLikedPhotos = [UIImage?](repeating: nil, count: likedPhotos.count)
+    }
+  }
   fileprivate var downloadedLikedPhotos = [UIImage?]()
   fileprivate var currentLikedPhotoPage = 1
   
@@ -42,9 +47,8 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
     
     cell.likedPhotoImageView.image = nil
     
-    let photoURLString = likedPhotos[indexPath.row].imageURL
-    
-    if let photoURL = URL(string: photoURLString) {
+    if let photoURLString = likedPhotos[indexPath.row].imageURL,
+      let photoURL = URL(string: photoURLString) {
       cell.likedPhotoImageView.kf.setImage(with: photoURL, options: [.transition(.fade(0.2))]) { (image, error, cacheType, imageUrl) in
         self.downloadedLikedPhotos[indexPath.row] = image
       }
@@ -89,12 +93,9 @@ class LikedPhotosCollectionViewController: UICollectionViewController {
                              parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
                                           "page": page],
                              headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
-                              for dict in dicts {
-                                OperationService.parseJsonWithPhotoData(dict) { photo in
-                                  self.likedPhotos.append(photo)
-                                  self.downloadedLikedPhotos.append(nil)
-                                }
-                              }
+                              guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+                              
+                              self.likedPhotos.append(contentsOf: photos)
                               
                               fulfill(self.likedPhotos)
       }.catch(execute: reject)

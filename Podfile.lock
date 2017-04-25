@@ -1,0 +1,31 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Gloss (1.2.4)
+  - Kingfisher (3.6.1)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - Alamofire
+  - Gloss
+  - Kingfisher
+  - PromiseKit
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
+  Kingfisher: 2f31cb75f3e98d3d4c406cbdcd9b263e956cfa67
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
+
+PODFILE CHECKSUM: 14108335738f0eac97be268478e58e144f99bc95
+
+COCOAPODS: 1.2.0
