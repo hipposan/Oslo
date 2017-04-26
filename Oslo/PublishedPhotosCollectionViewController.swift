@@ -81,10 +81,6 @@ class PublishedPhotosCollectionViewController: UICollectionViewController {
         let destinationViewController = segue.destination as? PersonalPhotoViewController {
         destinationViewController.photo = publishedPhotos[selectedIndexPath]
         destinationViewController.personalPhoto = downloadedPublishedPhotos[selectedIndexPath]
-        
-        if let photosTableViewController = navigationController?.viewControllers[0] as? PhotosTableViewController {
-          destinationViewController.delegate = photosTableViewController
-        }
       }
     }
   }

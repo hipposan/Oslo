@@ -13,10 +13,6 @@ import OsloKit
 import Alamofire
 import PromiseKit
 
-protocol PersonalPhotoViewControllerDelegate: class {
-  func heartButtonDidPressed(with photoID: String, isLike: Bool, heartCount: Int)
-}
-
 class PersonalPhotoViewController: UIViewController {
   
   var photo: Photo!
@@ -29,8 +25,6 @@ class PersonalPhotoViewController: UIViewController {
   
   var exifView: ExifView?
   var statisticsView: StatisticsView?
-  
-  weak var delegate: PersonalPhotoViewControllerDelegate?
   
   @IBOutlet var personalPhotoImageView: UIImageView!
   @IBOutlet var heartButton: UIButton!
@@ -48,8 +42,7 @@ class PersonalPhotoViewController: UIViewController {
   @IBAction func heartButtonDidPressed(_ sender: Any) {
     if let token = Token.getToken() {
       guard let photoIsLike = photo.isLike,
-        let photoID = photo.id,
-        let photoHeartCount = photo.heartCount else { return }
+        let photoID = photo.id else { return }
       
       if !photoIsLike {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal)
@@ -58,7 +51,7 @@ class PersonalPhotoViewController: UIViewController {
         photo.isLike = !photoIsLike
         photo.heartCount = Int(heartCountLabel.text!)!
         
-        delegate?.heartButtonDidPressed(with: photoID, isLike: photoIsLike, heartCount: photoHeartCount)
+        
         
         _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
                           method: HTTPMethod.post,
@@ -70,12 +63,12 @@ class PersonalPhotoViewController: UIViewController {
         photo.isLike = !photoIsLike
         photo.heartCount = Int(heartCountLabel.text!)!
         
-        delegate?.heartButtonDidPressed(with: photoID, isLike: photoIsLike, heartCount: photoHeartCount)
-        
         _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
                               method: HTTPMethod.delete,
                               headers: ["Authorization": "Bearer " + token])
       }
+      
+      NotificationCenter.default.post(name: Constants.NotificationName.likeSendNotification, object: nil, userInfo: ["likedPressedPhoto": photo])
     } else {
       let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
       present(loginViewController, animated: true)
@@ -229,6 +222,10 @@ class PersonalPhotoViewController: UIViewController {
                                 guard let exifInfoData = Exif(json: dict) else { return }
                                 self.exifInfo = exifInfoData
     }
+  }
+  
+  private func toggleLikeStatus(completion: () -> Void) {
+    
   }
   
   @objc private func save(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {

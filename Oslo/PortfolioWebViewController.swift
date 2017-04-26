@@ -12,14 +12,16 @@ class PortfolioWebViewController: UIViewController, UIWebViewDelegate {
   
   @IBOutlet var portfolioWebView: UIWebView!
   
-  var portfolioURL = ""
+  var portfolioURL: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     portfolioWebView.delegate = self
     
-    let requestURL = URL(string: portfolioURL)!
+    guard let url = portfolioURL else { return }
+    
+    let requestURL = URL(string: url)!
     let request = URLRequest(url: requestURL)
     portfolioWebView.loadRequest(request)
   }

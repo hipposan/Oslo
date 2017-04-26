@@ -25,4 +25,9 @@ public struct Constants {
     public static let ResponseType = ["response_type": "code"]
     public static let Scope = ["scope": "public+read_user+write_likes"]
   }
+  
+  public struct NotificationName {
+    public static let likeSendNotification = NSNotification.Name(rawValue: "likedSent")
+    public static let likeGetNotification = NSNotification.Name(rawValue: "likedGet")
+  }
 }

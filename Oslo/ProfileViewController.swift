@@ -40,29 +40,35 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var bioLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet var portfolioImage: UIImageView!
+  @IBOutlet var locationImage: UIImageView!
   @IBOutlet var portfolioName: UIButton!
   @IBOutlet var collectionView: UICollectionView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-  
+    
     avatarImageView.image = profileImage
     userLabel.text = photo.name
     bioLabel.text = photo.bio
     
-    if photo.location != "" {
-      locationLabel.text = photo.location
+    if let photoLocation = photo.location {
+      locationLabel.text = photoLocation
     } else {
-      locationLabel.text = localize(with: "No Location")
+      locationImage.alpha = 0
     }
     
-    if (photo.portfolioURL?.contains("instagram.com"))! {
-      portfolioImage.image = #imageLiteral(resourceName: "instagram")
-      let instagramName = photo.portfolioURL?.components(separatedBy: "/")
-      portfolioName.setTitle(instagramName?[3], for: .normal)
+    if let photoPortfolioURL = photo.portfolioURL {
+      if photoPortfolioURL.contains("instagram.com") {
+        portfolioImage.image = #imageLiteral(resourceName: "instagram")
+        let instagramName = photoPortfolioURL.components(separatedBy: "/")
+        
+        portfolioName.setTitle(instagramName[3], for: .normal)
+      } else {
+        portfolioImage.image = #imageLiteral(resourceName: "portfolio")
+        portfolioName.setTitle(localize(with: "Website"), for: .normal)
+      }
     } else {
-      portfolioImage.image = #imageLiteral(resourceName: "portfolio")
-      portfolioName.setTitle(localize(with: "Website"), for: .normal)
+      portfolioImage.alpha = 0
     }
     
     currentPage = 1
@@ -94,6 +100,7 @@ class ProfileViewController: UIViewController {
           "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
           "page": page
           ], headers: ["Authorization": "Bearer " + token]).then { dicts -> Void in
+            
             guard let firstData = dicts[0] as? Dictionary<String, Any>,
               let user = firstData["user"] as? [String: Any],
               let totalPhotos = user["total_photos"] as? Int else {
@@ -177,10 +184,6 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         let destinationViewController = segue.destination as? PersonalPhotoViewController {
         destinationViewController.photo = personalPhotos[selectedIndexPath]
         destinationViewController.personalPhoto = downloadedPersonalPhotos[selectedIndexPath]
-        
-        if let photosTableViewController = navigationController?.viewControllers[0] as? PhotosTableViewController {
-          destinationViewController.delegate = photosTableViewController
-        }
       }
     } else if segue.identifier == "PortfolioSegue" {
       if let destinationViewController = segue.destination as? PortfolioWebViewController {

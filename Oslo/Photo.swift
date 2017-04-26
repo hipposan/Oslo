@@ -29,12 +29,12 @@ public struct Photo: Decodable {
       let profileImage: JSON = "profile_image" <~~ user else { return nil }
     self.profileImageURL = "medium" <~~ profileImage
     
-    self.name = "name" <~~ json
-    self.userName = "username" <~~ json
+    self.name = "name" <~~ user
+    self.userName = "username" <~~ user
     self.isLike = "liked_by_user" <~~ json
     self.heartCount = "likes" <~~ json
     self.bio = "bio" <~~ json
-    self.location = "location" <~~ json
-    self.portfolioURL = "portfolio_url" <~~ json
+    self.location = "location" <~~ user
+    self.portfolioURL = "portfolio_url" <~~ user
   }
 }

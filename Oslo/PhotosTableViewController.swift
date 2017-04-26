@@ -61,6 +61,8 @@ class PhotosTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    NotificationCenter.default.addObserver(self, selector: #selector(toggleLikedStatus(_:)), name: Constants.NotificationName.likeSendNotification, object: nil)
+    
     navigationItem.title = localize(with: "Feature")
     
     tableView.rowHeight = UITableViewAutomaticDimension
@@ -76,6 +78,98 @@ class PhotosTableViewController: UITableViewController {
     }
   }
   
+  @IBAction func userBarButtonDidPressed(_ sender: Any) {
+    
+    if Token.getToken() == nil {
+      let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+      present(loginViewController, animated: true)
+    } else {
+      let meViewController = storyboard?.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController
+      show(meViewController, sender: sender)
+    }
+    
+  }
+  
+  func load(with page: Int = 1) -> Promise<[Photo]> {
+    feedRefreshControl.beginRefreshing()
+    
+    return Promise { fulfill, reject in
+      if Token.getToken() != nil {
+        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
+                               parameters: [
+                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                                "page": page
+                               ],
+                               headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
+                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+                                
+                                self.photos.append(contentsOf: photos)
+                                
+                                fulfill(self.photos)
+        }.catch(execute: reject)
+      } else {
+        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
+                               parameters: [
+                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
+                                "page": page
+                               ]).then { dicts -> Void in
+                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
+                                
+                                self.photos.append(contentsOf: photos)
+                                
+                                fulfill(self.photos)
+          }.catch(execute: reject)
+      }
+    }
+  }
+  
+  func getCurrentCellRow(sender: Any?) -> IndexPath? {
+    if let sourceSender = sender as? UITapGestureRecognizer,
+      let cellView = sourceSender.view?.superview,
+      let cell = cellView.superview as? PhotoTableViewCell {
+      let selectedIndexPath = tableView.indexPath(for: cell)!
+      
+      return selectedIndexPath
+    } else if let sourceSender = sender as? UIButton {
+      let buttonPosition = sourceSender.convert(CGPoint.zero, to: tableView)
+      let selectedIndexPath = tableView.indexPathForRow(at: buttonPosition)!
+      
+      return selectedIndexPath
+    }
+    
+    return nil
+  }
+  
+  func toggleLikedStatus(_ notification:Notification) {
+    guard let likedPhoto = notification.userInfo?["likedPressedPhoto"] as? Photo else { return }
+    
+    guard let row = photos.index(where: { $0.id == likedPhoto.id }) else { return }
+    let indexPath = IndexPath(row: row, section: 0)
+    guard let cell = tableView.cellForRow(at: indexPath) as? PhotoTableViewCell else { return }
+    
+    cell.isLike = likedPhoto.isLike!
+    cell.heartCountLabel.text = "\(likedPhoto.heartCount!)"
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let selectedIndexPathRow = getCurrentCellRow(sender: sender)?.row else { return }
+    
+    if segue.identifier == "ProfileSegue" {
+      if let destinationViewController = segue.destination as? ProfileViewController {
+        destinationViewController.photo = photos[selectedIndexPathRow]
+        destinationViewController.profileImage = profileImages[selectedIndexPathRow]
+        destinationViewController.navigationItem.title = photos[selectedIndexPathRow].name
+      }
+    } else if segue.identifier == "PhotoSegue" {
+        if let destinationViewController = segue.destination as? PersonalPhotoViewController {
+          destinationViewController.photo = photos[selectedIndexPathRow]
+          destinationViewController.personalPhoto = personalPhotos[selectedIndexPathRow]
+        }
+    }
+  }
+}
+
+extension PhotosTableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
@@ -133,86 +227,6 @@ class PhotosTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return tableView.frame.width * 0.7
   }
-  
-  @IBAction func userBarButtonDidPressed(_ sender: Any) {
-    
-    if Token.getToken() == nil {
-      let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-      present(loginViewController, animated: true)
-    } else {
-      let meViewController = storyboard?.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController
-      show(meViewController, sender: sender)
-    }
-    
-  }
-  
-  func load(with page: Int = 1) -> Promise<[Photo]> {
-    feedRefreshControl.beginRefreshing()
-    
-    return Promise { fulfill, reject in
-      if Token.getToken() != nil {
-        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
-                               parameters: [
-                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
-                                "page": page
-                               ],
-                               headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
-                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
-                                
-                                self.photos.append(contentsOf: photos)
-                                
-                                fulfill(self.photos)
-        }.catch(execute: reject)
-      } else {
-        NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
-                               parameters: [
-                                "client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896",
-                                "page": page
-                               ]).then { dicts -> Void in
-                                guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
-                                print(photos)
-                                self.photos.append(contentsOf: photos)
-                                
-                                fulfill(self.photos)
-          }.catch(execute: reject)
-      }
-    }
-  }
-  
-  func getCurrentCellRow(sender: Any?) -> IndexPath? {
-    if let sourceSender = sender as? UITapGestureRecognizer,
-      let cellView = sourceSender.view?.superview,
-      let cell = cellView.superview as? PhotoTableViewCell {
-      let selectedIndexPath = tableView.indexPath(for: cell)!
-      
-      return selectedIndexPath
-    } else if let sourceSender = sender as? UIButton {
-      let buttonPosition = sourceSender.convert(CGPoint.zero, to: tableView)
-      let selectedIndexPath = tableView.indexPathForRow(at: buttonPosition)!
-      
-      return selectedIndexPath
-    }
-    
-    return nil
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let selectedIndexPathRow = getCurrentCellRow(sender: sender)?.row else { return }
-    
-    if segue.identifier == "ProfileSegue" {
-      if let destinationViewController = segue.destination as? ProfileViewController {
-        destinationViewController.photo = photos[selectedIndexPathRow]
-        destinationViewController.profileImage = profileImages[selectedIndexPathRow]
-        destinationViewController.navigationItem.title = photos[selectedIndexPathRow].name
-      }
-    } else if segue.identifier == "PhotoSegue" {
-        if let destinationViewController = segue.destination as? PersonalPhotoViewController {
-          destinationViewController.photo = photos[selectedIndexPathRow]
-          destinationViewController.personalPhoto = personalPhotos[selectedIndexPathRow]
-          destinationViewController.delegate = self
-        }
-    }
-  }
 }
 
 extension PhotosTableViewController: PhotoTableViewCellDelegate {
@@ -240,19 +254,6 @@ extension PhotosTableViewController: PhotoTableViewCellDelegate {
     } else {
       let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
       present(loginViewController, animated: true)
-    }
-  }
-}
-
-extension PhotosTableViewController: PersonalPhotoViewControllerDelegate {
-  func heartButtonDidPressed(with photoID: String, isLike: Bool, heartCount: Int) {
-    if let indexPathRow = photos.index(where: { $0.id == photoID }) {
-      photos[indexPathRow].isLike = isLike
-      photos[indexPathRow].heartCount = heartCount
-      
-      let indexPath = IndexPath(row: indexPathRow, section: 0)
-      
-      tableView.reloadRows(at: [indexPath], with: .automatic)
     }
   }
 }
