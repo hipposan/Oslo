@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8.3.2
+xcode_workspace: Oslo.xcworkspace
+xcode_scheme: Oslo
+xcode_sdk: iphonesimulator10.3
