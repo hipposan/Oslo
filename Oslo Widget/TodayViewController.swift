@@ -20,8 +20,10 @@ class TodayViewController: UIViewController {
   @IBOutlet weak var viewCountLabel: UILabel!
   @IBOutlet weak var downloadCountLabel: UILabel!
   @IBOutlet weak var infoStackView: UIStackView!
+  @IBOutlet weak var profileImageView: UIImageView!
   
   private let diceImages = [#imageLiteral(resourceName: "Dice1"), #imageLiteral(resourceName: "Dice2"), #imageLiteral(resourceName: "Dice3"), #imageLiteral(resourceName: "Dice4"), #imageLiteral(resourceName: "Dice5"), #imageLiteral(resourceName: "Dice6")]
+  private var showProfileImageAnimator: UIViewPropertyAnimator!
   private var isShuffleStopped = true
   
   @IBAction func likeItButton(_ sender: Any) {
@@ -29,9 +31,21 @@ class TodayViewController: UIViewController {
   }
   
   @IBAction func nextLuckButton(_ sender: Any) {
-    isShuffleStopped = false
-    
-    shuffle()
+    if !isShuffleStopped {
+      return
+    } else {
+      isShuffleStopped = false
+      
+      shuffle()
+    }
+  }
+  
+  @IBAction func showProfileImageButtonDidPressed(_ sender: Any) {
+    if profileImageView.alpha == 0 {
+      Animators.showProfileImage(with: profileImageView).startAnimation()
+    } else {
+      Animators.hideProfileImage(with: profileImageView).startAnimation()
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +53,9 @@ class TodayViewController: UIViewController {
     
     backgroundImageView.alpha = 0
     backgroundImageView.layer.transform = CATransform3DRotate(CATransform3DIdentity, CGFloat(70 * Double.pi / 180), 0, 1, 0)
+    
+    profileImageView.alpha = 0
+    profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 3)).scaledBy(x: 0.6, y: 0.6).translatedBy(x: -90, y: 0)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +67,7 @@ class TodayViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    showProfileImageAnimator = Animators.showProfileImage(with: profileImageView)
   }
 
   func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

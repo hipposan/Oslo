@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F60a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbk-Os-TjB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F67a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbk-Os-TjB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -94,17 +94,27 @@
                                                                 <constraint firstAttribute="height" constant="11.199999999999999" id="xiW-zj-vgu"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbW-xN-cW6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <connections>
+                                                                <action selector="showProfileImageButtonDidPressed:" destination="sbk-Os-TjB" eventType="touchUpInside" id="OSs-9G-GOt"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="ZbW-xN-cW6" firstAttribute="leading" secondItem="tfz-lC-2Nl" secondAttribute="leading" id="7RC-iL-40q"/>
                                                         <constraint firstItem="vtg-WD-PEO" firstAttribute="centerX" secondItem="tfz-lC-2Nl" secondAttribute="centerX" id="E2e-dp-EfK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZbW-xN-cW6" secondAttribute="bottom" id="FhZ-Z9-jrB"/>
                                                         <constraint firstItem="vtg-WD-PEO" firstAttribute="centerY" secondItem="tfz-lC-2Nl" secondAttribute="centerY" id="N0f-K5-bRZ"/>
+                                                        <constraint firstItem="ZbW-xN-cW6" firstAttribute="top" secondItem="tfz-lC-2Nl" secondAttribute="top" id="PPz-RW-soQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZbW-xN-cW6" secondAttribute="trailing" id="Z1b-kP-MFd"/>
                                                     </constraints>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="C6h-b3-b8K"/>
                                                     <constraint firstAttribute="height" constant="20" id="Ro4-1e-O6W"/>
                                                 </constraints>
-                                                <blurEffect style="extraLight"/>
+                                                <blurEffect style="light"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -221,15 +231,35 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1493" translatesAutoresizingMaskIntoConstraints="NO" id="5Gt-Um-Vbf">
+                                <rect key="frame" x="162" y="174" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="Ttx-vQ-Ktj"/>
+                                    <constraint firstAttribute="height" constant="36" id="fQI-C1-YqM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cMh-QI-PJz" secondAttribute="trailing" constant="28" id="4mr-DV-oTx"/>
                             <constraint firstItem="Kej-5n-Fia" firstAttribute="top" secondItem="nzw-1v-TjP" secondAttribute="bottom" constant="96" id="4zi-o4-FKg"/>
                             <constraint firstAttribute="trailing" secondItem="zbb-gE-a9h" secondAttribute="trailing" id="7cZ-hq-9dP"/>
                             <constraint firstItem="Kej-5n-Fia" firstAttribute="leading" secondItem="gtQ-ZV-czZ" secondAttribute="leading" constant="36" id="Ctl-jd-vvG"/>
+                            <constraint firstItem="5Gt-Um-Vbf" firstAttribute="bottom" secondItem="cMh-QI-PJz" secondAttribute="bottom" id="HVW-Gx-BlE"/>
                             <constraint firstAttribute="trailing" secondItem="U5r-29-QGM" secondAttribute="trailing" constant="28" id="SkX-UQ-G4m"/>
                             <constraint firstItem="zbb-gE-a9h" firstAttribute="leading" secondItem="gtQ-ZV-czZ" secondAttribute="leading" id="WAQ-jv-3iY"/>
                             <constraint firstItem="zbb-gE-a9h" firstAttribute="top" secondItem="nzw-1v-TjP" secondAttribute="bottom" id="Y3y-0C-Skp"/>
+                            <constraint firstItem="5Gt-Um-Vbf" firstAttribute="centerX" secondItem="gtQ-ZV-czZ" secondAttribute="centerX" id="asQ-Ae-vFg"/>
                             <constraint firstItem="qJ9-CR-vF2" firstAttribute="top" secondItem="cMh-QI-PJz" secondAttribute="bottom" constant="18" id="hlJ-hz-Qvj"/>
                             <constraint firstItem="U5r-29-QGM" firstAttribute="top" secondItem="nzw-1v-TjP" secondAttribute="bottom" constant="33" id="q8B-vr-u9C"/>
                             <constraint firstItem="qJ9-CR-vF2" firstAttribute="top" secondItem="zbb-gE-a9h" secondAttribute="bottom" id="swy-Hr-66z"/>
@@ -249,6 +279,7 @@
                         <outlet property="infoStackView" destination="cMh-QI-PJz" id="QoE-Ig-rI5"/>
                         <outlet property="likeBackgroundView" destination="Kej-5n-Fia" id="9HP-8k-X8g"/>
                         <outlet property="luckBackgroundView" destination="U5r-29-QGM" id="FsS-kS-SB3"/>
+                        <outlet property="profileImageView" destination="5Gt-Um-Vbf" id="xTM-gh-qYA"/>
                         <outlet property="viewCountLabel" destination="SOs-cO-Vkt" id="9Za-Xi-6Kz"/>
                     </connections>
                 </viewController>
@@ -259,6 +290,7 @@
     </scenes>
     <resources>
         <image name="Dice1" width="12" height="12"/>
+        <image name="IMG_1493" width="1216" height="1216"/>
         <image name="broken-heart" width="16" height="14"/>
         <image name="eye" width="16" height="13"/>
         <image name="sebastian-unrau-41675" width="4616" height="2699"/>
