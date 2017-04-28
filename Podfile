@@ -3,7 +3,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 def oslo_pods
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.4'
   pod "PromiseKit"
   pod 'Gloss'
   pod 'Kingfisher'

@@ -73,6 +73,7 @@ class PhotosTableViewController: UITableViewController {
     tableView.refreshControl = feedRefreshControl
     
     _ = load().then(on: DispatchQueue.main) { photos -> Void in
+      self.photos.append(contentsOf: photos)
       self.tableView.reloadData()
       self.feedRefreshControl.endRefreshing()
     }
@@ -103,9 +104,7 @@ class PhotosTableViewController: UITableViewController {
                                headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dicts -> Void in
                                 guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
                                 
-                                self.photos.append(contentsOf: photos)
-                                
-                                fulfill(self.photos)
+                                fulfill(photos)
         }.catch(execute: reject)
       } else {
         NetworkService.getPhotosJson(with: Constants.Base.UnsplashAPI + Constants.Base.Curated,
@@ -115,9 +114,7 @@ class PhotosTableViewController: UITableViewController {
                                ]).then { dicts -> Void in
                                 guard let photos = [Photo].from(jsonArray: dicts as! [JSON]) else { return }
                                 
-                                self.photos.append(contentsOf: photos)
-                                
-                                fulfill(self.photos)
+                                fulfill(photos)
           }.catch(execute: reject)
       }
     }

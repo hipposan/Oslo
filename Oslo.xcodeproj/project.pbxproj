@@ -15,6 +15,8 @@
 		EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */; };
 		EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
+		EA2004F81EB2FDBB003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004F71EB2FDBB003C50D0 /* image-loader.gif */; };
+		EA2004F91EB2FE06003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004F71EB2FDBB003C50D0 /* image-loader.gif */; };
 		EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */; };
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
 		EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */; };
@@ -114,6 +116,7 @@
 		EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
 		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
 		EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Oslo.framework; path = "../../Library/Developer/Xcode/DerivedData/Oslo-bgmevrozsetmxqavsyludbhhtago/Build/Products/Debug-iphonesimulator/Pods_Oslo.framework"; sourceTree = "<group>"; };
+		EA2004F71EB2FDBB003C50D0 /* image-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "image-loader.gif"; path = "../../image-loader.gif"; sourceTree = "<group>"; };
 		EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA4D285C1D79614E00D24413 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EA2004F71EB2FDBB003C50D0 /* image-loader.gif */,
 				EAE828A01CFEF4A100FD1657 /* Main.storyboard */,
 				EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */,
 				EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */,
@@ -476,6 +480,7 @@
 				EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */,
 				EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */,
 				EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */,
+				EA2004F91EB2FE06003C50D0 /* image-loader.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */,
+				EA2004F81EB2FDBB003C50D0 /* image-loader.gif in Resources */,
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
 				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
 				EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */,

@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="360" height="228"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sebastian-unrau-41675" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-gE-a9h">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-gE-a9h">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="228"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kej-5n-Fia">
@@ -114,7 +114,7 @@
                                                     <constraint firstAttribute="width" constant="20" id="C6h-b3-b8K"/>
                                                     <constraint firstAttribute="height" constant="20" id="Ro4-1e-O6W"/>
                                                 </constraints>
-                                                <blurEffect style="light"/>
+                                                <blurEffect style="extraLight"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -231,7 +231,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1493" translatesAutoresizingMaskIntoConstraints="NO" id="5Gt-Um-Vbf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Gt-Um-Vbf">
                                 <rect key="frame" x="162" y="174" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="Ttx-vQ-Ktj"/>
@@ -280,6 +280,7 @@
                         <outlet property="likeBackgroundView" destination="Kej-5n-Fia" id="9HP-8k-X8g"/>
                         <outlet property="luckBackgroundView" destination="U5r-29-QGM" id="FsS-kS-SB3"/>
                         <outlet property="profileImageView" destination="5Gt-Um-Vbf" id="xTM-gh-qYA"/>
+                        <outlet property="profileVisualEffectView" destination="Luu-IJ-to0" id="f8q-05-muc"/>
                         <outlet property="viewCountLabel" destination="SOs-cO-Vkt" id="9Za-Xi-6Kz"/>
                     </connections>
                 </viewController>
@@ -290,10 +291,8 @@
     </scenes>
     <resources>
         <image name="Dice1" width="12" height="12"/>
-        <image name="IMG_1493" width="1216" height="1216"/>
         <image name="broken-heart" width="16" height="14"/>
         <image name="eye" width="16" height="13"/>
-        <image name="sebastian-unrau-41675" width="4616" height="2699"/>
         <image name="today-download" width="16" height="15"/>
     </resources>
 </document>

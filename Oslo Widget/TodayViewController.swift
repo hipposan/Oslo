@@ -10,6 +10,10 @@ import UIKit
 import NotificationCenter
 
 import OsloKit
+import Alamofire
+import PromiseKit
+import Kingfisher
+import Gloss
 
 class TodayViewController: UIViewController {
   @IBOutlet weak var backgroundImageView: UIImageView!
@@ -21,13 +25,39 @@ class TodayViewController: UIViewController {
   @IBOutlet weak var downloadCountLabel: UILabel!
   @IBOutlet weak var infoStackView: UIStackView!
   @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet var profileVisualEffectView: UIVisualEffectView!
   
   private let diceImages = [#imageLiteral(resourceName: "Dice1"), #imageLiteral(resourceName: "Dice2"), #imageLiteral(resourceName: "Dice3"), #imageLiteral(resourceName: "Dice4"), #imageLiteral(resourceName: "Dice5"), #imageLiteral(resourceName: "Dice6")]
-  private var showProfileImageAnimator: UIViewPropertyAnimator!
   private var isShuffleStopped = true
+  private var loaderData: Data!
+  private var photo: Photo!
   
   @IBAction func likeItButton(_ sender: Any) {
-    isShuffleStopped = true
+    if let token = Token.getToken() {
+      print(token)
+      guard let photoIsLiked = photo.isLike,
+        let photoID = photo.id else { return }
+      
+      if !photoIsLiked {
+        brokenHeartImageView.image = #imageLiteral(resourceName: "heart-liked")
+        
+        photo.isLike = !photoIsLiked
+        
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
+                              method: HTTPMethod.post,
+                              headers: ["Authorization": "Bearer " + token])
+      } else {
+        brokenHeartImageView.image = #imageLiteral(resourceName: "broken-heart")
+        
+        photo.isLike = !photoIsLiked
+        
+        _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",
+                              method: HTTPMethod.delete,
+                              headers: ["Authorization": "Bearer " + token])
+      }
+    } else {
+      
+    }
   }
   
   @IBAction func nextLuckButton(_ sender: Any) {
@@ -36,14 +66,18 @@ class TodayViewController: UIViewController {
     } else {
       isShuffleStopped = false
       
+      getImage()
+      
       shuffle()
     }
   }
   
   @IBAction func showProfileImageButtonDidPressed(_ sender: Any) {
     if profileImageView.alpha == 0 {
+      profileVisualEffectView.effect = UIBlurEffect(style: .light)
       Animators.showProfileImage(with: profileImageView).startAnimation()
     } else {
+      profileVisualEffectView.effect = UIBlurEffect(style: .extraLight)
       Animators.hideProfileImage(with: profileImageView).startAnimation()
     }
   }
@@ -51,33 +85,20 @@ class TodayViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    backgroundImageView.alpha = 0
-    backgroundImageView.layer.transform = CATransform3DRotate(CATransform3DIdentity, CGFloat(70 * Double.pi / 180), 0, 1, 0)
-    
     profileImageView.alpha = 0
     profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 3)).scaledBy(x: 0.6, y: 0.6).translatedBy(x: -90, y: 0)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    Animators.showWidget(with: backgroundImageView).startAnimation()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    showProfileImageAnimator = Animators.showProfileImage(with: profileImageView)
-  }
-
-  func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-    // Perform any setup necessary in order to update the view.
+    likeBackgroundView.alpha = 0
+    infoStackView.alpha = 0
     
-    // If an error is encountered, use NCUpdateResult.Failed
-    // If there's no update required, use NCUpdateResult.NoData
-    // If there's an update, use NCUpdateResult.NewData
+    let loaderPath = Bundle.main.path(forResource: "image-loader", ofType: "gif")!
+    loaderData = try! Data(contentsOf: URL(fileURLWithPath: loaderPath))
     
-    completionHandler(NCUpdateResult.newData)
+    getImage()
   }
   
   private func shuffle() {
@@ -98,6 +119,33 @@ class TodayViewController: UIViewController {
       }
     } else {
       diceImageView.image = diceImages.randomItem()
+    }
+  }
+  
+  private func load() -> Promise<Photo> {
+    return Promise { fulfill, reject in
+      NetworkService.getJson(with: Constants.Base.UnsplashAPI + Constants.Base.Random,
+                             parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
+                              guard let photo = Photo(json: dict) else { return }
+                              
+                              fulfill(photo)
+      }.catch(execute: reject)
+    }
+  }
+  
+  private func getImage() {
+    _ = load().then(on: DispatchQueue.main) { photo -> Void in
+      self.photo = photo
+      
+      guard let photoImageURL = URL(string: photo.imageURL!),
+        let profileImageURL = URL(string: photo.profileImageURL!)
+        else { return }
+      
+      self.backgroundImageView.kf.indicatorType = .image(imageData: self.loaderData)
+      self.backgroundImageView.kf.setImage(with: photoImageURL, options: [.transition(.fade(0.2))])
+      self.profileImageView.kf.setImage(with: profileImageURL, options: [.transition(.fade(0.2))])
+      
+      self.isShuffleStopped = true
     }
   }
   

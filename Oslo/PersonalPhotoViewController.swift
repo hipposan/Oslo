@@ -41,14 +41,14 @@ class PersonalPhotoViewController: UIViewController {
   
   @IBAction func heartButtonDidPressed(_ sender: Any) {
     if let token = Token.getToken() {
-      guard let photoIsLike = photo.isLike,
+      guard let photoIsLiked = photo.isLike,
         let photoID = photo.id else { return }
       
-      if !photoIsLike {
+      if !photoIsLiked {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-liked"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! + 1)"
         
-        photo.isLike = !photoIsLike
+        photo.isLike = !photoIsLiked
         photo.heartCount = Int(heartCountLabel.text!)!
         
         
@@ -60,7 +60,7 @@ class PersonalPhotoViewController: UIViewController {
         heartButton.setBackgroundImage(#imageLiteral(resourceName: "heart-outline"), for: .normal)
         heartCountLabel.text = "\(Int(heartCountLabel.text!)! - 1)"
         
-        photo.isLike = !photoIsLike
+        photo.isLike = !photoIsLiked
         photo.heartCount = Int(heartCountLabel.text!)!
         
         _ = Alamofire.request(Constants.Base.UnsplashAPI + "/photos/" + photoID + "/like",

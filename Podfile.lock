@@ -15,7 +15,7 @@ PODS:
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.4)
   - Gloss
   - Kingfisher
   - PromiseKit
@@ -26,6 +26,6 @@ SPEC CHECKSUMS:
   Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
   PromiseKit: '08dfb783c161ddcd95b7912421f14c5113fd8318'
 
-PODFILE CHECKSUM: 14108335738f0eac97be268478e58e144f99bc95
+PODFILE CHECKSUM: 3f3fc0cecbf804c95a3911bd95d4d8304694118a
 
-COCOAPODS: 1.2.1.rc.1
+COCOAPODS: 1.2.1

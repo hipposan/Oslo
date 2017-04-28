@@ -15,6 +15,7 @@ public struct Constants {
     public static let Authorize = "/oauth/authorize"
     public static let Token = "/oauth/token"
     public static let Me = "/me"
+    public static let Random = "/photos/random"
   }
   
   public struct Parameters {
