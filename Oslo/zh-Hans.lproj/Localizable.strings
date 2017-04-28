@@ -47,3 +47,8 @@
 "Logout cancel title" = "取消";
 "Published count" = "%@ 发布";
 "Liked count" = "%@ 喜欢";
+
+// MARK: Today
+"Next Luck" = "试试手气";
+"Unlike it" = "不喜欢";
+"Like it" = "喜欢";

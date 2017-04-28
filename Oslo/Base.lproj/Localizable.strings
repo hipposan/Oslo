@@ -47,3 +47,8 @@
 "Logout cancel title" = "Cancel";
 "%@ Published" = "%@ Published";
 "%@ Liked" = "%@ Liked";
+
+// MARK: Today
+"Next Luck" = "Next Luck";
+"Unlike it" = "Unlike it";
+"Like it" = "Like it";

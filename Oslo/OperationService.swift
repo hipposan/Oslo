@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Token {
-  public static let userDefaults = UserDefaults.standard
+  public static let userDefaults = UserDefaults(suiteName: "group.com.ziyideas.oslo")!
   
   public static func getToken() -> String? {
     return userDefaults.string(forKey: "token")

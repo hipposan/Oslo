@@ -13,7 +13,6 @@ import OsloKit
 import Alamofire
 import PromiseKit
 import Kingfisher
-import Gloss
 
 class TodayViewController: UIViewController {
   @IBOutlet weak var backgroundImageView: UIImageView!
@@ -26,6 +25,8 @@ class TodayViewController: UIViewController {
   @IBOutlet weak var infoStackView: UIStackView!
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet var profileVisualEffectView: UIVisualEffectView!
+  @IBOutlet var likeLabel: UILabel!
+  @IBOutlet var luckLabel: UILabel!
   
   private let diceImages = [#imageLiteral(resourceName: "Dice1"), #imageLiteral(resourceName: "Dice2"), #imageLiteral(resourceName: "Dice3"), #imageLiteral(resourceName: "Dice4"), #imageLiteral(resourceName: "Dice5"), #imageLiteral(resourceName: "Dice6")]
   private var isShuffleStopped = true
@@ -40,6 +41,7 @@ class TodayViewController: UIViewController {
       
       if !photoIsLiked {
         brokenHeartImageView.image = #imageLiteral(resourceName: "heart-liked")
+        likeLabel.text = localize(with: "Unlike it")
         
         photo.isLike = !photoIsLiked
         
@@ -48,6 +50,7 @@ class TodayViewController: UIViewController {
                               headers: ["Authorization": "Bearer " + token])
       } else {
         brokenHeartImageView.image = #imageLiteral(resourceName: "broken-heart")
+        likeLabel.text = "Like it"
         
         photo.isLike = !photoIsLiked
         
@@ -56,7 +59,8 @@ class TodayViewController: UIViewController {
                               headers: ["Authorization": "Bearer " + token])
       }
     } else {
-      
+      let url = URL(string: "Oslo://Login")!
+      extensionContext?.open(url)
     }
   }
   
@@ -91,6 +95,10 @@ class TodayViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+    
+    luckLabel.text = "Next Luck"
     
     likeBackgroundView.alpha = 0
     infoStackView.alpha = 0

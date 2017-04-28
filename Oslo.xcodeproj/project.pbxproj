@@ -15,8 +15,8 @@
 		EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */; };
 		EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
-		EA2004F81EB2FDBB003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004F71EB2FDBB003C50D0 /* image-loader.gif */; };
-		EA2004F91EB2FE06003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004F71EB2FDBB003C50D0 /* image-loader.gif */; };
+		EA2004FF1EB30CE8003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004FE1EB30CE8003C50D0 /* image-loader.gif */; };
+		EA2005001EB30CE8003C50D0 /* image-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA2004FE1EB30CE8003C50D0 /* image-loader.gif */; };
 		EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */; };
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
 		EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */; };
@@ -116,7 +116,9 @@
 		EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
 		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
 		EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Oslo.framework; path = "../../Library/Developer/Xcode/DerivedData/Oslo-bgmevrozsetmxqavsyludbhhtago/Build/Products/Debug-iphonesimulator/Pods_Oslo.framework"; sourceTree = "<group>"; };
-		EA2004F71EB2FDBB003C50D0 /* image-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "image-loader.gif"; path = "../../image-loader.gif"; sourceTree = "<group>"; };
+		EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oslo.entitlements; sourceTree = "<group>"; };
+		EA2004FB1EB307FA003C50D0 /* Oslo Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Oslo Widget.entitlements"; sourceTree = "<group>"; };
+		EA2004FE1EB30CE8003C50D0 /* image-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "image-loader.gif"; sourceTree = "<group>"; };
 		EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA4D285C1D79614E00D24413 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		EA81B1A81EABBEDF005A1CA2 /* Oslo Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA2004FB1EB307FA003C50D0 /* Oslo Widget.entitlements */,
 				EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */,
 				EA1C7FF91EAE0AD40086690B /* Animators.swift */,
 				EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */,
@@ -271,7 +274,8 @@
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EA2004F71EB2FDBB003C50D0 /* image-loader.gif */,
+				EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */,
+				EA2004FE1EB30CE8003C50D0 /* image-loader.gif */,
 				EAE828A01CFEF4A100FD1657 /* Main.storyboard */,
 				EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */,
 				EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */,
@@ -437,6 +441,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = J8DC9PK5S4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					EABFAE061EAC55AC00731F90 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -448,6 +457,11 @@
 						DevelopmentTeam = J8DC9PK5S4;
 						DevelopmentTeamName = "ziyi zhang";
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -480,7 +494,7 @@
 				EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */,
 				EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */,
 				EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */,
-				EA2004F91EB2FE06003C50D0 /* image-loader.gif in Resources */,
+				EA2005001EB30CE8003C50D0 /* image-loader.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */,
-				EA2004F81EB2FDBB003C50D0 /* image-loader.gif in Resources */,
+				EA2004FF1EB30CE8003C50D0 /* image-loader.gif in Resources */,
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
 				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
 				EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */,
@@ -732,6 +746,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Oslo Widget/Oslo Widget.entitlements";
 				DEVELOPMENT_TEAM = J8DC9PK5S4;
 				INFOPLIST_FILE = "Oslo Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -750,6 +765,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Oslo Widget/Oslo Widget.entitlements";
 				DEVELOPMENT_TEAM = J8DC9PK5S4;
 				INFOPLIST_FILE = "Oslo Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -918,6 +934,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Oslo/Oslo.entitlements;
 				INFOPLIST_FILE = Oslo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ziyideas.Oslo;
@@ -932,6 +949,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Oslo/Oslo.entitlements;
 				INFOPLIST_FILE = Oslo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ziyideas.Oslo;

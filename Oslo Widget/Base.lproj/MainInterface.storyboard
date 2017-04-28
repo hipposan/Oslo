@@ -278,7 +278,9 @@
                         <outlet property="downloadCountLabel" destination="uTh-UA-YJw" id="tr7-DA-0Lp"/>
                         <outlet property="infoStackView" destination="cMh-QI-PJz" id="QoE-Ig-rI5"/>
                         <outlet property="likeBackgroundView" destination="Kej-5n-Fia" id="9HP-8k-X8g"/>
+                        <outlet property="likeLabel" destination="bJt-rk-kAd" id="wYp-bm-qc9"/>
                         <outlet property="luckBackgroundView" destination="U5r-29-QGM" id="FsS-kS-SB3"/>
+                        <outlet property="luckLabel" destination="5gQ-fm-gT0" id="0Xb-WD-09U"/>
                         <outlet property="profileImageView" destination="5Gt-Um-Vbf" id="xTM-gh-qYA"/>
                         <outlet property="profileVisualEffectView" destination="Luu-IJ-to0" id="f8q-05-muc"/>
                         <outlet property="viewCountLabel" destination="SOs-cO-Vkt" id="9Za-Xi-6Kz"/>
