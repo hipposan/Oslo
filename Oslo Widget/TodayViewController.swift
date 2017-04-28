@@ -32,10 +32,10 @@ class TodayViewController: UIViewController {
   private var isShuffleStopped = true
   private var loaderData: Data!
   private var photo: Photo!
+  private var statistics: Statistics!
   
   @IBAction func likeItButton(_ sender: Any) {
     if let token = Token.getToken() {
-      print(token)
       guard let photoIsLiked = photo.isLike,
         let photoID = photo.id else { return }
       
@@ -50,7 +50,7 @@ class TodayViewController: UIViewController {
                               headers: ["Authorization": "Bearer " + token])
       } else {
         brokenHeartImageView.image = #imageLiteral(resourceName: "broken-heart")
-        likeLabel.text = "Like it"
+        likeLabel.text = localize(with: "like it")
         
         photo.isLike = !photoIsLiked
         
@@ -86,25 +86,21 @@ class TodayViewController: UIViewController {
     }
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    profileImageView.alpha = 0
-    profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 3)).scaledBy(x: 0.6, y: 0.6).translatedBy(x: -90, y: 0)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-    
-    luckLabel.text = "Next Luck"
+    luckLabel.text = localize(with: "Next Luck")
     
     likeBackgroundView.alpha = 0
     infoStackView.alpha = 0
+    profileImageView.alpha = 0
+    profileImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 3)).scaledBy(x: 0.6, y: 0.6).translatedBy(x: -90, y: 0)
+
+    if #available(iOSApplicationExtension 10.0, *) {
+      extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+    }
     
-    let loaderPath = Bundle.main.path(forResource: "image-loader", ofType: "gif")!
-    loaderData = try! Data(contentsOf: URL(fileURLWithPath: loaderPath))
+    self.preferredContentSize.height = 228
     
     getImage()
   }
@@ -141,15 +137,39 @@ class TodayViewController: UIViewController {
     }
   }
   
-  private func getImage() {
+  private func loadStatistics(with id: String) -> Promise<Statistics> {
+    return Promise { fulfill, reject in
+      NetworkService.getJson(with: Constants.Base.UnsplashAPI + "/photos/" + id + "/stats",
+                             parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"]).then { dict -> Void in
+                              guard let statisticsInfoData = Statistics(json: dict) else { return }
+                              
+                              fulfill(statisticsInfoData)
+      }.catch(execute: reject)
+    }
+  }
+  
+  fileprivate func getImage() {
     _ = load().then(on: DispatchQueue.main) { photo -> Void in
       self.photo = photo
       
       guard let photoImageURL = URL(string: photo.imageURL!),
-        let profileImageURL = URL(string: photo.profileImageURL!)
-        else { return }
+        let profileImageURL = URL(string: photo.profileImageURL!),
+        let id = photo.id,
+        let isLiked = photo.isLike else { return }
       
-      self.backgroundImageView.kf.indicatorType = .image(imageData: self.loaderData)
+      if isLiked {
+        self.brokenHeartImageView.image = #imageLiteral(resourceName: "heart-liked")
+        self.likeLabel.text = localize(with: "Unlike it")
+      } else {
+        self.brokenHeartImageView.image = #imageLiteral(resourceName: "broken-heart")
+        self.likeLabel.text = localize(with: "Like it")
+      }
+      
+      _ = self.loadStatistics(with: id).then { statisticsInfo -> Void in
+        self.viewCountLabel.text = "\(statisticsInfo.views!)"
+        self.downloadCountLabel.text = "\(statisticsInfo.downloads!)"
+      }
+      
       self.backgroundImageView.kf.setImage(with: photoImageURL, options: [.transition(.fade(0.2))])
       self.profileImageView.kf.setImage(with: profileImageURL, options: [.transition(.fade(0.2))])
       
@@ -159,19 +179,26 @@ class TodayViewController: UIViewController {
   
 }
 
+extension TodayViewController {
+  func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
+    return UIEdgeInsets.zero
+  }
+}
+
 extension TodayViewController: NCWidgetProviding {
+  @available(iOSApplicationExtension 10.0, *)
   func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
     if activeDisplayMode == .expanded {
       self.preferredContentSize = CGSize(width: maxSize.width, height: 228)
       
-      UIView.animate(withDuration: 0.5) {
+      UIView.animate(withDuration: 0.25) {
         self.likeBackgroundView.alpha = 1
         self.infoStackView.alpha = 1
       }
-    } else {
+    } else if activeDisplayMode == .compact {
       self.preferredContentSize = maxSize
       
-      UIView.animate(withDuration: 0.4) {
+      UIView.animate(withDuration: 0.25) {
         self.likeBackgroundView.alpha = 0
         self.infoStackView.alpha = 0
       }

@@ -76,10 +76,10 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cMh-QI-PJz">
-                                <rect key="frame" x="269.5" y="160" width="62.5" height="50"/>
+                                <rect key="frame" x="298.5" y="160" width="33.5" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="JZ7-Vk-kO6">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="33.5" height="20"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luu-IJ-to0">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -121,8 +121,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </visualEffectView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12183" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-cO-Vkt">
-                                                <rect key="frame" x="26" y="0.0" width="36.5" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-cO-Vkt">
+                                                <rect key="frame" x="26" y="0.0" width="7.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="12"/>
                                                 <color key="textColor" red="0.99990373850000003" green="1" blue="0.99579793210000001" alpha="0.79822198280000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dFj-Bw-Dfs">
-                                        <rect key="frame" x="0.0" y="30" width="62.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="30" width="33.5" height="20"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-W9-xp3">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -166,8 +166,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </visualEffectView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="272" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTh-UA-YJw">
-                                                <rect key="frame" x="26" y="0.0" width="36.5" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTh-UA-YJw">
+                                                <rect key="frame" x="26" y="0.0" width="7.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="12"/>
                                                 <color key="textColor" red="0.99990373850000003" green="1" blue="0.99579793210000001" alpha="0.79822198280000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

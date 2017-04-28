@@ -207,6 +207,14 @@ extension PhotosTableViewController {
       cell.photoID = photoID
     }
     
+    if indexPath.row == 1 {
+      let imageView = UIImageView(image: #imageLiteral(resourceName: "tram"))
+      imageView.frame.origin.x = cell.contentView.center.x + 30
+      imageView.frame.origin.y = cell.contentView.frame.height - 30
+      
+      cell.contentView.addSubview(imageView)
+    }
+    
     return cell
   }
   
