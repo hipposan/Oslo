@@ -208,9 +208,9 @@ extension PhotosTableViewController {
     }
     
     if indexPath.row == 1 {
-      let imageView = UIImageView(image: #imageLiteral(resourceName: "tram"))
-      imageView.frame.origin.x = cell.contentView.center.x + 30
-      imageView.frame.origin.y = cell.contentView.frame.height - 30
+      let imageView = UIImageView(image: #imageLiteral(resourceName: "raccoon"))
+      imageView.frame = CGRect(x: cell.contentView.center.x + 30, y: cell.contentView.frame.height - 20, width: 60, height: 40)
+      imageView.contentMode = .scaleAspectFill
       
       cell.contentView.addSubview(imageView)
     }
