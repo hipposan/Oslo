@@ -49,6 +49,7 @@
 		EAE8289D1CFEF4A100FD1657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */; };
 		EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A01CFEF4A100FD1657 /* Main.storyboard */; };
 		EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A51CFEF4A100FD1657 /* LaunchScreen.storyboard */; };
+		EAEB81DE1EB829FA00A6C6EB /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */; };
 		F31A71CE8848A95294FA81AE /* Pods_Oslo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -112,7 +113,7 @@
 		EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationService.swift; sourceTree = "<group>"; };
 		EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
-		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
+		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animators.swift; path = "Oslo Widget/Animators.swift"; sourceTree = SOURCE_ROOT; };
 		EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Oslo.framework; path = "../../Library/Developer/Xcode/DerivedData/Oslo-bgmevrozsetmxqavsyludbhhtago/Build/Products/Debug-iphonesimulator/Pods_Oslo.framework"; sourceTree = "<group>"; };
 		EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oslo.entitlements; sourceTree = "<group>"; };
 		EA2004FB1EB307FA003C50D0 /* Oslo Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Oslo Widget.entitlements"; sourceTree = "<group>"; };
@@ -247,6 +248,7 @@
 		EA0DA6CA1DE0509000790384 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				EA1C7FF91EAE0AD40086690B /* Animators.swift */,
 				EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */,
 				EA9942431DFECE2500F682E3 /* Localizable.strings */,
 				EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */,
@@ -260,7 +262,6 @@
 			children = (
 				EA2004FB1EB307FA003C50D0 /* Oslo Widget.entitlements */,
 				EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */,
-				EA1C7FF91EAE0AD40086690B /* Animators.swift */,
 				EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */,
 				EA81B1AE1EABBEDF005A1CA2 /* Info.plist */,
 				EA94AE9A1EAD90D8002036F2 /* CompactView.xib */,
@@ -653,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA25FF71DEFCC87008B1CBE /* LikedPhotosCollectionViewController.swift in Sources */,
+				EAEB81DE1EB829FA00A6C6EB /* Animators.swift in Sources */,
 				EAA25FF11DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift in Sources */,
 				EAE5B8C61D0D6CB500883E3B /* PhotosTableViewController.swift in Sources */,
 				EAAD1A891D4B390100D22669 /* PersonalPhotoViewController.swift in Sources */,

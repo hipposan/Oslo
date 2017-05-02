@@ -47,6 +47,18 @@ class PhotosTableViewController: UITableViewController {
   }()
   
   fileprivate var currentPage = 1
+  fileprivate var raccoonImageView: UIImageView? {
+    didSet {
+      raccoonImageView?.image = #imageLiteral(resourceName: "raccoon")
+      raccoonImageView?.contentMode = .scaleAspectFill
+      raccoonImageView?.isUserInteractionEnabled = true
+      
+      if raccoonImageView?.gestureRecognizers == nil {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(raccoonFound(_:)))
+        raccoonImageView?.addGestureRecognizer(tapGestureRecognizer)
+      }
+    }
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -68,26 +80,46 @@ class PhotosTableViewController: UITableViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 400
     
-    if let navigationBar = navigationController?.navigationBar {
-      let imageView = UIImageView(image: #imageLiteral(resourceName: "raccoon"))
-//      let yPositionConstraint = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0)
-//      let xPositionConstraint = NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: navigationBar, attribute: .centerX, multiplier: 1, constant: 30)
-//      imageView.addConstraints([yPositionConstraint, xPositionConstraint])
-      
-      imageView.frame = CGRect(x: navigationBar.center.x + 30, y: navigationBar.frame.height - 10, width: 60, height: 40)
-      imageView.contentMode = .scaleAspectFill
-      
-      navigationBar.addSubview(imageView)
-    }
-    
     currentPage = 1
     
     tableView.refreshControl = feedRefreshControl
+    
+    self.raccoonImageView = UIImageView()
+    if let imageView = self.raccoonImageView, let navigationBar = self.navigationController?.navigationBar {
+      imageView.frame = CGRect(x: navigationBar.center.x + 1 / 4 * navigationBar.frame.size.width, y: navigationBar.frame.height - 21, width: 60, height: 40)
+      
+      Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [unowned self] _ in
+        self.blink(with: imageView)
+      }
+      
+      navigationBar.addSubview(imageView)
+    }
     
     _ = load().then(on: DispatchQueue.main) { photos -> Void in
       self.photos.append(contentsOf: photos)
       self.tableView.reloadData()
       self.feedRefreshControl.endRefreshing()
+    }
+  }
+  
+  private func blink(with imageView: UIImageView) {
+    imageView.image = #imageLiteral(resourceName: "raccoon")
+    
+    delay(1.5) {
+      imageView.image = #imageLiteral(resourceName: "raccoon-close-eyes")
+      
+      delay(0.1) {
+        imageView.image = #imageLiteral(resourceName: "raccoon")
+        
+        delay(0.1) {
+          imageView.image = #imageLiteral(resourceName: "raccoon-close-eyes")
+          
+          delay(0.1) {
+            imageView.image = #imageLiteral(resourceName: "raccoon")
+            
+          }
+        }
+      }
     }
   }
   
@@ -149,10 +181,6 @@ class PhotosTableViewController: UITableViewController {
     return nil
   }
   
-  func getCellHeight(completion: () -> Void) {
-    
-  }
-  
   func toggleLikedStatus(_ notification:Notification) {
     guard let likedPhoto = notification.userInfo?["likedPressedPhoto"] as? Photo else { return }
     
@@ -162,6 +190,10 @@ class PhotosTableViewController: UITableViewController {
     
     cell.isLike = likedPhoto.isLike!
     cell.heartCountLabel.text = "\(likedPhoto.heartCount!)"
+  }
+  
+  @objc private func raccoonFound(_ sender: UITapGestureRecognizer) {
+    print("raccoon")
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

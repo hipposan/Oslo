@@ -8,8 +8,6 @@
 
 import UIKit
 
-import OsloKit
-
 class Animators {
   static func showProfileImage(with profileImageView: UIImageView) -> UIViewPropertyAnimator {
     let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeOut)
