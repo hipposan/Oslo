@@ -50,6 +50,8 @@
 		EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A01CFEF4A100FD1657 /* Main.storyboard */; };
 		EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A51CFEF4A100FD1657 /* LaunchScreen.storyboard */; };
 		EAEB81DE1EB829FA00A6C6EB /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
+		EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */; };
+		EAEB81E21EB8641700A6C6EB /* RaccoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB81E11EB8641700A6C6EB /* RaccoonViewController.swift */; };
 		EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */; };
 		F31A71CE8848A95294FA81AE /* Pods_Oslo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -151,6 +153,8 @@
 		EAE828A31CFEF4A100FD1657 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAE828A61CFEF4A100FD1657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE828A81CFEF4A100FD1657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ikaros.otf; sourceTree = "<group>"; };
+		EAEB81E11EB8641700A6C6EB /* RaccoonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaccoonViewController.swift; sourceTree = "<group>"; };
 		EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioWebViewController.swift; sourceTree = "<group>"; };
 		F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oslo_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F827076338CA6ACB55BB81A9 /* Pods-Oslo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oslo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oslo/Pods-Oslo.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */,
 				EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */,
 				EAE828A01CFEF4A100FD1657 /* Main.storyboard */,
 				EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */,
@@ -297,6 +302,7 @@
 				EAA25FF61DEFCC87008B1CBE /* LikedPhotosCollectionViewController.swift */,
 				EAA25FF21DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift */,
 				EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */,
+				EAEB81E11EB8641700A6C6EB /* RaccoonViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
 				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
 				EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */,
+				EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */,
 				EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +668,7 @@
 				EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */,
 				EAE8289D1CFEF4A100FD1657 /* AppDelegate.swift in Sources */,
 				EA0DA6CE1DE057FE00790384 /* StatisticsView.swift in Sources */,
+				EAEB81E21EB8641700A6C6EB /* RaccoonViewController.swift in Sources */,
 				EAA0DDC71DF7A1880002B12F /* LoadingView.swift in Sources */,
 				EAA25FF31DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift in Sources */,
 				EA0DA6C51DE0434300790384 /* ExifView.swift in Sources */,
