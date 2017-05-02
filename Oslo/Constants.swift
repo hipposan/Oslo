@@ -32,3 +32,30 @@ public struct Constants {
     public static let likeGetNotification = NSNotification.Name(rawValue: "likedGet")
   }
 }
+
+public enum Meals {
+  case hamburgerAndChips, ChikenAndCoke, LollipopAndCoffee
+}
+
+extension Meals: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case .hamburgerAndChips: return "My favorite! You a good people!"
+    case .ChikenAndCoke: return "Delicious! I gain weight"
+    case .LollipopAndCoffee: return "I don't drink coffee. But this good"
+    }
+  }
+}
+
+public enum FedStatus {
+  case fed, noFed
+}
+
+extension FedStatus: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case .fed: return "As gift, see app's icon your home screen"
+    case .noFed: return "Maybe I find someone else"
+    }
+  }
+}
