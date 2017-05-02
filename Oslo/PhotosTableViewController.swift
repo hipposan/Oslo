@@ -68,6 +68,18 @@ class PhotosTableViewController: UITableViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 400
     
+    if let navigationBar = navigationController?.navigationBar {
+      let imageView = UIImageView(image: #imageLiteral(resourceName: "raccoon"))
+//      let yPositionConstraint = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0)
+//      let xPositionConstraint = NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: navigationBar, attribute: .centerX, multiplier: 1, constant: 30)
+//      imageView.addConstraints([yPositionConstraint, xPositionConstraint])
+      
+      imageView.frame = CGRect(x: navigationBar.center.x + 30, y: navigationBar.frame.height - 10, width: 60, height: 40)
+      imageView.contentMode = .scaleAspectFill
+      
+      navigationBar.addSubview(imageView)
+    }
+    
     currentPage = 1
     
     tableView.refreshControl = feedRefreshControl
@@ -135,6 +147,10 @@ class PhotosTableViewController: UITableViewController {
     }
     
     return nil
+  }
+  
+  func getCellHeight(completion: () -> Void) {
+    
   }
   
   func toggleLikedStatus(_ notification:Notification) {
@@ -207,14 +223,6 @@ extension PhotosTableViewController {
       cell.photoID = photoID
     }
     
-    if indexPath.row == 1 {
-      let imageView = UIImageView(image: #imageLiteral(resourceName: "raccoon"))
-      imageView.frame = CGRect(x: cell.contentView.center.x + 30, y: cell.contentView.frame.height - 20, width: 60, height: 40)
-      imageView.contentMode = .scaleAspectFill
-      
-      cell.contentView.addSubview(imageView)
-    }
-    
     return cell
   }
   
@@ -223,6 +231,7 @@ extension PhotosTableViewController {
       currentPage += 1
       
       _ = load(with: currentPage).then(on: DispatchQueue.main) { photos -> Void in
+        self.photos.append(contentsOf: photos)
         self.tableView.reloadData()
         self.feedRefreshControl.endRefreshing()
       }
