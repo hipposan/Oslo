@@ -23,7 +23,7 @@ class RaccoonViewController: UIViewController {
     
     return stackView
   }()
-  @IBOutlet var ChikenAndCoke: UIStackView! = {
+  @IBOutlet var ChickenAndCoke: UIStackView! = {
     let stackView = UIStackView()
     
     if stackView.gestureRecognizers == nil {

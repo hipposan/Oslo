@@ -13,7 +13,6 @@
 		EA0DA6C51DE0434300790384 /* ExifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6C41DE0434300790384 /* ExifView.swift */; };
 		EA0DA6CE1DE057FE00790384 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CD1DE057FE00790384 /* StatisticsView.swift */; };
 		EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */; };
-		EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
 		EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */; };
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
@@ -45,11 +44,13 @@
 		EABFAE1A1EAC560600731F90 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */; };
 		EABFAE1B1EAC560E00731F90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
 		EABFAE1C1EAC563400731F90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */; };
+		EAC3D5CC1EBA1C2800E50D71 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC3D5CB1EBA1C2800E50D71 /* StoreKit.framework */; };
+		EAC3D5CE1EBA203E00E50D71 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC3D5CD1EBA203E00E50D71 /* IAPHelper.swift */; };
+		EAC3D5CF1EBA205100E50D71 /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EAE5B8C61D0D6CB500883E3B /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE5B8C51D0D6CB500883E3B /* PhotosTableViewController.swift */; };
 		EAE8289D1CFEF4A100FD1657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */; };
 		EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A01CFEF4A100FD1657 /* Main.storyboard */; };
 		EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A51CFEF4A100FD1657 /* LaunchScreen.storyboard */; };
-		EAEB81DE1EB829FA00A6C6EB /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */; };
 		EAEB81E21EB8641700A6C6EB /* RaccoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB81E11EB8641700A6C6EB /* RaccoonViewController.swift */; };
 		EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */; };
@@ -146,6 +147,8 @@
 		EABFAE071EAC55AC00731F90 /* OsloKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OsloKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABFAE091EAC55AC00731F90 /* OsloKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OsloKit.h; sourceTree = "<group>"; };
 		EABFAE0A1EAC55AC00731F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAC3D5CB1EBA1C2800E50D71 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EAC3D5CD1EBA203E00E50D71 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		EAE5B8C51D0D6CB500883E3B /* PhotosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		EAE828991CFEF4A100FD1657 /* Oslo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oslo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE8289C1CFEF4A100FD1657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC3D5CC1EBA1C2800E50D71 /* StoreKit.framework in Frameworks */,
 				EABFAE0E1EAC55AC00731F90 /* OsloKit.framework in Frameworks */,
 				73AB5BA51820149F294B5641 /* Pods_Oslo.framework in Frameworks */,
 			);
@@ -195,6 +199,7 @@
 		1DB88917840FE4D1E8FA4ECB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3D5CB1EBA1C2800E50D71 /* StoreKit.framework */,
 				EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */,
 				E86E743F76DF0925F79241C8 /* Pods_Oslo.framework */,
 				EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */,
@@ -256,6 +261,7 @@
 				EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */,
 				EA9942431DFECE2500F682E3 /* Localizable.strings */,
 				EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */,
+				EAC3D5CD1EBA203E00E50D71 /* IAPHelper.swift */,
 			);
 			name = Helper;
 			path = ../Oslo;
@@ -464,6 +470,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -637,7 +646,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA1C7FFA1EAE0AD40086690B /* Animators.swift in Sources */,
 				EA81B1AA1EABBEDF005A1CA2 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,7 +657,9 @@
 				EABFAE181EAC55F700731F90 /* NetworkService.swift in Sources */,
 				EABFAE191EAC55F700731F90 /* OperationService.swift in Sources */,
 				EABFAE141EAC55ED00731F90 /* Photo.swift in Sources */,
+				EAC3D5CF1EBA205100E50D71 /* Animators.swift in Sources */,
 				EABFAE161EAC55ED00731F90 /* Statistics.swift in Sources */,
+				EAC3D5CE1EBA203E00E50D71 /* IAPHelper.swift in Sources */,
 				EABFAE1A1EAC560600731F90 /* Misc.swift in Sources */,
 				EABFAE151EAC55ED00731F90 /* Exif.swift in Sources */,
 				EABFAE171EAC55F700731F90 /* Constants.swift in Sources */,
@@ -661,7 +671,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA25FF71DEFCC87008B1CBE /* LikedPhotosCollectionViewController.swift in Sources */,
-				EAEB81DE1EB829FA00A6C6EB /* Animators.swift in Sources */,
 				EAA25FF11DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift in Sources */,
 				EAE5B8C61D0D6CB500883E3B /* PhotosTableViewController.swift in Sources */,
 				EAAD1A891D4B390100D22669 /* PersonalPhotoViewController.swift in Sources */,

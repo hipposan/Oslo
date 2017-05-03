@@ -462,7 +462,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ChikenAndCoke" destination="BJ8-cY-Ax3" id="2XR-Ab-xjb"/>
+                        <outlet property="ChickenAndCoke" destination="BJ8-cY-Ax3" id="0ro-Ay-2aO"/>
                         <outlet property="LollipopAndCoffee" destination="eC2-Bi-xx3" id="ygW-Pj-cJx"/>
                         <outlet property="cancelButton" destination="QQ2-0p-O8Y" id="27w-y2-ZF6"/>
                         <outlet property="hamburgerAndChips" destination="Cfr-dI-qeI" id="CFA-Oe-SS6"/>

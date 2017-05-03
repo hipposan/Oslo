@@ -31,6 +31,12 @@ public struct Constants {
     public static let likeSendNotification = NSNotification.Name(rawValue: "likedSent")
     public static let likeGetNotification = NSNotification.Name(rawValue: "likedGet")
   }
+  
+  public struct IAPIdentifiers {
+    public static let chickenAndCoke = "com.ziyideas.oslo.chickenAndCoke"
+    public static let hamburgerAndChips = "com.ziyideas.oslo.hamburgerAndChips"
+    public static let lollipopAndCoffee =	"com.ziyideas.oslo.lollipopAndCoffee"
+  }
 }
 
 public enum Meals {
