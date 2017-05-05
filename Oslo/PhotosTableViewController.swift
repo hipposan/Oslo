@@ -49,13 +49,19 @@ class PhotosTableViewController: UITableViewController {
   fileprivate var currentPage = 1
   fileprivate var raccoonImageView: UIImageView? {
     didSet {
-      raccoonImageView?.image = #imageLiteral(resourceName: "raccoon")
-      raccoonImageView?.contentMode = .scaleAspectFill
-      raccoonImageView?.isUserInteractionEnabled = true
-      
-      if raccoonImageView?.gestureRecognizers == nil {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(raccoonFound(_:)))
-        raccoonImageView?.addGestureRecognizer(tapGestureRecognizer)
+      if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.hamburgerAndChips) == true
+        && UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.chickenAndCoke) == true
+        && UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.lollipopAndCoffee) == true {
+        raccoonImageView = nil
+      } else {
+        raccoonImageView?.image = #imageLiteral(resourceName: "raccoon")
+        raccoonImageView?.contentMode = .scaleAspectFill
+        raccoonImageView?.isUserInteractionEnabled = true
+        
+        if raccoonImageView?.gestureRecognizers == nil {
+          let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(raccoonFound(_:)))
+          raccoonImageView?.addGestureRecognizer(tapGestureRecognizer)
+        }
       }
     }
   }
@@ -193,7 +199,7 @@ class PhotosTableViewController: UITableViewController {
   }
   
   @objc private func raccoonFound(_ sender: UITapGestureRecognizer) {
-    print("raccoon")
+    performSegue(withIdentifier: "ShowIAP", sender: sender)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

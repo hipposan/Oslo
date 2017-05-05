@@ -7,6 +7,7 @@ def oslo_pods
   pod "PromiseKit"
   pod 'Gloss'
   pod 'Kingfisher'
+  pod 'Device.swift'
 end
 
 target 'Oslo' do

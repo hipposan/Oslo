@@ -23,6 +23,13 @@
 		EA81B1B11EABBEDF005A1CA2 /* Oslo Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
 		EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
+		EA928ECF1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECA1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png */; };
+		EA928ED11EBC629700A33B8D /* AlternativeIcon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECC1EBC629700A33B8D /* AlternativeIcon-iPadPro@2x.png */; };
+		EA928ED21EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECD1EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png */; };
+		EA928ED31EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECE1EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png */; };
+		EA928ED51EBC65A200A33B8D /* AlternativeIcon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ED41EBC65A200A33B8D /* AlternativeIcon-iPad.png */; };
+		EA928ED61EBC72B700A33B8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
+		EA928ED71EBC72B800A33B8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
 		EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA94AE9A1EAD90D8002036F2 /* CompactView.xib */; };
 		EAA0DDC71DF7A1880002B12F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0DDC61DF7A1880002B12F /* LoadingView.swift */; };
 		EAA25FF11DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA25FF01DEFCC4E008B1CBE /* PublishedPhotoCollectionViewCell.swift */; };
@@ -40,7 +47,6 @@
 		EABFAE161EAC55ED00731F90 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CB1DE057D000790384 /* Statistics.swift */; };
 		EABFAE171EAC55F700731F90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A174B1D6469450090637B /* Constants.swift */; };
 		EABFAE181EAC55F700731F90 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A17491D64685F0090637B /* NetworkService.swift */; };
-		EABFAE191EAC55F700731F90 /* OperationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */; };
 		EABFAE1A1EAC560600731F90 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */; };
 		EABFAE1B1EAC560E00731F90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
 		EABFAE1C1EAC563400731F90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA99424C1DFED1AC00F682E3 /* InfoPlist.strings */; };
@@ -53,6 +59,8 @@
 		EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A51CFEF4A100FD1657 /* LaunchScreen.storyboard */; };
 		EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */; };
 		EAEB81E21EB8641700A6C6EB /* RaccoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB81E11EB8641700A6C6EB /* RaccoonViewController.swift */; };
+		EAEF3B291EBAD26800920D27 /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
+		EAEF3B2A1EBAD26900920D27 /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C7FF91EAE0AD40086690B /* Animators.swift */; };
 		EAF7F6A41DF6BFC60011A7E1 /* PortfolioWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7F6A31DF6BFC60011A7E1 /* PortfolioWebViewController.swift */; };
 		F31A71CE8848A95294FA81AE /* Pods_Oslo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E53206359A3ABCA3858BE0 /* Pods_Oslo_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -113,7 +121,6 @@
 		EA0DA6C61DE0506100790384 /* Exif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exif.swift; sourceTree = "<group>"; };
 		EA0DA6CB1DE057D000790384 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		EA0DA6CD1DE057FE00790384 /* StatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
-		EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationService.swift; sourceTree = "<group>"; };
 		EA1A5DA01D547C1B00B1E8E0 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
 		EA1C7FF91EAE0AD40086690B /* Animators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animators.swift; path = "Oslo Widget/Animators.swift"; sourceTree = SOURCE_ROOT; };
@@ -129,6 +136,11 @@
 		EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		EA81B1AC1EABBEDF005A1CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EA81B1AE1EABBEDF005A1CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA928ECA1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPad@2x.png"; sourceTree = "<group>"; };
+		EA928ECC1EBC629700A33B8D /* AlternativeIcon-iPadPro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPadPro@2x.png"; sourceTree = "<group>"; };
+		EA928ECD1EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPhone@2x.png"; sourceTree = "<group>"; };
+		EA928ECE1EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPhone@3x.png"; sourceTree = "<group>"; };
+		EA928ED41EBC65A200A33B8D /* AlternativeIcon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPad.png"; sourceTree = "<group>"; };
 		EA94AE9A1EAD90D8002036F2 /* CompactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompactView.xib; sourceTree = "<group>"; };
 		EA99423A1DFECB4500F682E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		EA99423B1DFECB4500F682E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -227,7 +239,6 @@
 			children = (
 				EA0A174B1D6469450090637B /* Constants.swift */,
 				EA0A17491D64685F0090637B /* NetworkService.swift */,
-				EA0FC88D1DDEFCFD00195E3C /* OperationService.swift */,
 			);
 			name = Services;
 			path = ../Oslo;
@@ -282,6 +293,7 @@
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EAEF3B351EBB4F4F00920D27 /* Alternative icons */,
 				EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */,
 				EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */,
 				EAE828A01CFEF4A100FD1657 /* Main.storyboard */,
@@ -357,6 +369,18 @@
 				EAE828A81CFEF4A100FD1657 /* Info.plist */,
 			);
 			path = Oslo;
+			sourceTree = "<group>";
+		};
+		EAEF3B351EBB4F4F00920D27 /* Alternative icons */ = {
+			isa = PBXGroup;
+			children = (
+				EA928ED41EBC65A200A33B8D /* AlternativeIcon-iPad.png */,
+				EA928ECA1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png */,
+				EA928ECC1EBC629700A33B8D /* AlternativeIcon-iPadPro@2x.png */,
+				EA928ECD1EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png */,
+				EA928ECE1EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png */,
+			);
+			name = "Alternative icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */,
+				EA928ED71EBC72B800A33B8D /* Localizable.strings in Resources */,
 				EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */,
 				EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */,
 			);
@@ -523,10 +548,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */,
+				EA928ED61EBC72B700A33B8D /* Localizable.strings in Resources */,
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
 				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
 				EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */,
+				EA928ED11EBC629700A33B8D /* AlternativeIcon-iPadPro@2x.png in Resources */,
+				EA928ED21EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png in Resources */,
+				EA928ECF1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png in Resources */,
 				EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */,
+				EA928ED31EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png in Resources */,
+				EA928ED51EBC65A200A33B8D /* AlternativeIcon-iPad.png in Resources */,
 				EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAEF3B291EBAD26800920D27 /* Animators.swift in Sources */,
 				EA81B1AA1EABBEDF005A1CA2 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,7 +687,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EABFAE181EAC55F700731F90 /* NetworkService.swift in Sources */,
-				EABFAE191EAC55F700731F90 /* OperationService.swift in Sources */,
 				EABFAE141EAC55ED00731F90 /* Photo.swift in Sources */,
 				EAC3D5CF1EBA205100E50D71 /* Animators.swift in Sources */,
 				EABFAE161EAC55ED00731F90 /* Statistics.swift in Sources */,
@@ -682,6 +713,7 @@
 				EAA25FF31DEFCC62008B1CBE /* LikedPhotoCollectionViewCell.swift in Sources */,
 				EA0DA6C51DE0434300790384 /* ExifView.swift in Sources */,
 				EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */,
+				EAEF3B2A1EBAD26900920D27 /* Animators.swift in Sources */,
 				EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */,
 				EAA25FF91DEFCD7C008B1CBE /* MeViewController.swift in Sources */,
 				EA05DFAE1DE40B700094B251 /* LoginViewController.swift in Sources */,

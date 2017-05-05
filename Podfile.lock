@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - Device.swift (0.5)
   - Gloss (1.2.4)
   - Kingfisher (3.6.2)
   - PromiseKit (4.2.0):
@@ -16,16 +17,18 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - Device.swift
   - Gloss
   - Kingfisher
   - PromiseKit
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Device.swift: 0fab7a58c7643aafa096f5bac6d4029484ab2ccd
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
-  PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
+  PromiseKit: '08dfb783c161ddcd95b7912421f14c5113fd8318'
 
-PODFILE CHECKSUM: 3f3fc0cecbf804c95a3911bd95d4d8304694118a
+PODFILE CHECKSUM: 6d90dd0b6c1d635131bf73f80243bf857ed5c1be
 
 COCOAPODS: 1.2.1
