@@ -112,6 +112,18 @@ class RaccoonViewController: UIViewController {
       lollipopAndCoffee.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.hamburgerAndChips) == true {
+      hamburgerAndChips.removeFromSuperview()
+    }
+    
+    if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.chickenAndCoke) == true {
+      chickenAndCoke.removeFromSuperview()
+    }
+    
+    if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.lollipopAndCoffee) == true {
+      lollipopAndCoffee.removeFromSuperview()
+    }
+    
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(handlePurchaseNotification(_:)),
                                            name: Constants.NotificationName.IAPHelperPurchaseNotification, object: nil)
