@@ -14,6 +14,8 @@
 		EA0DA6CE1DE057FE00790384 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0DA6CD1DE057FE00790384 /* StatisticsView.swift */; };
 		EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */; };
 		EA1C7FFD1EAE21C00086690B /* OsloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABFAE071EAC55AC00731F90 /* OsloKit.framework */; };
+		EA210AC51EBCA1AB0002D556 /* AkkuratPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA210AC31EBCA1AB0002D556 /* AkkuratPro-Regular.otf */; };
+		EA210AC61EBCA1AB0002D556 /* Akkurat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA210AC41EBCA1AB0002D556 /* Akkurat-Light.ttf */; };
 		EA2491351D1CEAAF00E2223A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */; };
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
 		EA7B50A91D59BD7C00C2C8E4 /* StatisticsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7B50A81D59BD7C00C2C8E4 /* StatisticsView.xib */; };
@@ -127,6 +129,8 @@
 		EA1C7FFB1EAE20A10086690B /* Pods_Oslo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Oslo.framework; path = "../../Library/Developer/Xcode/DerivedData/Oslo-bgmevrozsetmxqavsyludbhhtago/Build/Products/Debug-iphonesimulator/Pods_Oslo.framework"; sourceTree = "<group>"; };
 		EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oslo.entitlements; sourceTree = "<group>"; };
 		EA2004FB1EB307FA003C50D0 /* Oslo Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Oslo Widget.entitlements"; sourceTree = "<group>"; };
+		EA210AC31EBCA1AB0002D556 /* AkkuratPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkkuratPro-Regular.otf"; sourceTree = "<group>"; };
+		EA210AC41EBCA1AB0002D556 /* Akkurat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akkurat-Light.ttf"; sourceTree = "<group>"; };
 		EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA4D285C1D79614E00D24413 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -278,6 +282,16 @@
 			path = ../Oslo;
 			sourceTree = "<group>";
 		};
+		EA210AC71EBCA1B00002D556 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */,
+				EA210AC31EBCA1AB0002D556 /* AkkuratPro-Regular.otf */,
+				EA210AC41EBCA1AB0002D556 /* Akkurat-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		EA81B1A81EABBEDF005A1CA2 /* Oslo Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				EAEF3B351EBB4F4F00920D27 /* Alternative icons */,
-				EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */,
+				EA210AC71EBCA1B00002D556 /* Fonts */,
 				EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */,
 				EAE828A01CFEF4A100FD1657 /* Main.storyboard */,
 				EA1A5DA21D547FF000B1E8E0 /* ExifView.xib */,
@@ -548,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1A5DA31D547FF000B1E8E0 /* ExifView.xib in Resources */,
+				EA210AC61EBCA1AB0002D556 /* Akkurat-Light.ttf in Resources */,
 				EA928ED61EBC72B700A33B8D /* Localizable.strings in Resources */,
 				EAE828A71CFEF4A100FD1657 /* LaunchScreen.storyboard in Resources */,
 				EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */,
@@ -556,6 +571,7 @@
 				EA928ED21EBC629700A33B8D /* AlternativeIcon-iPhone@2x.png in Resources */,
 				EA928ECF1EBC629700A33B8D /* AlternativeIcon-iPad@2x.png in Resources */,
 				EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */,
+				EA210AC51EBCA1AB0002D556 /* AkkuratPro-Regular.otf in Resources */,
 				EA928ED31EBC629700A33B8D /* AlternativeIcon-iPhone@3x.png in Resources */,
 				EA928ED51EBC65A200A33B8D /* AlternativeIcon-iPad.png in Resources */,
 				EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */,
