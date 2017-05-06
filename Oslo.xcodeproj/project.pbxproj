@@ -805,6 +805,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 687ACE9778DB476A2270D468 /* Pods-Oslo Widget.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Oslo Widget/Oslo Widget.entitlements";
@@ -824,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA50AA7339D74643A3EA4A38 /* Pods-Oslo Widget.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Oslo Widget/Oslo Widget.entitlements";
@@ -843,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 583BF5C475700EBB98839DF9 /* Pods-OsloKit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -872,6 +875,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEC68E30C1720771FC9CEEEB /* Pods-OsloKit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
