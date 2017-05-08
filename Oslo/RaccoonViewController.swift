@@ -156,12 +156,20 @@ class RaccoonViewController: UIViewController {
     
     if raccoonIsFedThisTime {
       self.dismiss(animated: true)
+      
+      if #available(iOS 10.3, *) {
+        SKStoreReviewController.requestReview()
+      }
     } else {
       raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-starved")
       raccoonWordsLabel.text = localize(with: "Maybe I find someone else")
       
       delay(2) {
         self.dismiss(animated: true)
+        
+        if #available(iOS 10.3, *) {
+          SKStoreReviewController.requestReview()
+        }
       }
     }
   }
