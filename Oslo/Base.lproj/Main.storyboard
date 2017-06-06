@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kwZ-QC-cVD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kwZ-QC-cVD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
             <objects>
                 <tableViewController id="lbD-Zo-v39" customClass="PhotosTableViewController" customModule="Oslo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" id="gOK-JX-UBr">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -653,7 +653,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BpB-Yd-8p0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3vr-F5-NKB">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bh2-WT-xi6">
@@ -813,7 +813,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lVK-rH-53r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hlo-3T-TFv">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15M-mE-sTe">
@@ -846,53 +846,53 @@
                         <viewControllerLayoutGuide type="bottom" id="xKH-2g-km8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CaN-bK-wYW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="210" height="549"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPr-Ft-ihL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="549"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oLy-md-jrd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="210" height="549"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBP-6e-KkE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="210" height="549"/>
                                             <connections>
                                                 <action selector="closeButtonPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="BBW-cp-g41"/>
                                             </connections>
                                         </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KXX-lK-eGW">
-                                            <rect key="frame" x="15" y="115" width="345" height="362"/>
+                                            <rect key="frame" x="8.5" y="94.5" width="193" height="298"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQs-vh-0eB">
-                                            <rect key="frame" x="15" y="490.5" width="22" height="19"/>
+                                            <rect key="frame" x="8.5" y="406" width="22" height="19"/>
                                             <state key="normal" backgroundImage="heart-outline"/>
                                             <connections>
                                                 <action selector="heartButtonDidPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="aGN-Dk-979"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-Ap-vZZ">
-                                            <rect key="frame" x="43" y="492.5" width="4" height="15"/>
+                                            <rect key="frame" x="36.5" y="408" width="4" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-eG-gVE">
-                                            <rect key="frame" x="57" y="489.5" width="24" height="18"/>
+                                            <rect key="frame" x="50.5" y="405" width="24" height="18"/>
                                             <state key="normal" backgroundImage="download"/>
                                             <connections>
                                                 <action selector="downloadButtonDidPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="Fwi-JS-x8Z"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmS-SQ-B27">
-                                            <rect key="frame" x="95" y="486.5" width="15" height="22"/>
+                                            <rect key="frame" x="88.5" y="402" width="15" height="22"/>
                                             <state key="normal" backgroundImage="share"/>
                                             <connections>
                                                 <action selector="shareButtonDIdPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="2yq-zL-gzD"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2N-RN-ZEb">
-                                            <rect key="frame" x="344" y="492.5" width="16" height="15"/>
+                                            <rect key="frame" x="185.5" y="408" width="16" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" backgroundImage="camera"/>
                                             <connections>
@@ -900,7 +900,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIH-Of-QPg">
-                                            <rect key="frame" x="311" y="493.5" width="18" height="13"/>
+                                            <rect key="frame" x="152.5" y="409" width="18" height="13"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" backgroundImage="statistics"/>
                                             <connections>
@@ -908,7 +908,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzw-OT-zvj">
-                                            <rect key="frame" x="187.5" y="547.5" width="0.0" height="0.0"/>
+                                            <rect key="frame" x="105" y="463" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -971,7 +971,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kwZ-QC-cVD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="P0F-l8-yQk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="P0F-l8-yQk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="0.80112248563218402" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1011,6 +1011,6 @@
         <image name="user" width="20" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KWV-bV-2AU"/>
+        <segue reference="LqF-Py-x9n"/>
     </inferredMetricsTieBreakers>
 </document>

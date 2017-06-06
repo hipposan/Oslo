@@ -144,8 +144,6 @@ class PhotosTableViewController: UITableViewController {
         return
       } else {
         self.photos.append(contentsOf: photos)
-        print(self.photos.count)
-        print("____________________________________")
         self.tableView.reloadData()
         self.feedRefreshControl.endRefreshing()
       }
