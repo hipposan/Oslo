@@ -7,61 +7,138 @@
 //
 
 import UIKit
+import StoreKit
 
 import OsloKit
+import Device_swift
 
 class RaccoonViewController: UIViewController {
   @IBOutlet var raccoonFaceImageView: UIImageView!
   @IBOutlet var raccoonWordsLabel: UILabel!
-  @IBOutlet var hamburgerAndChips: UIStackView! = {
-    let stackView = UIStackView()
-    
-    if stackView.gestureRecognizers == nil {
-      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showIAPController))
-      stackView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    return stackView
-  }()
-  @IBOutlet var ChickenAndCoke: UIStackView! = {
-    let stackView = UIStackView()
-    
-    if stackView.gestureRecognizers == nil {
-      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showIAPController))
-      stackView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    return stackView
-  }()
-  @IBOutlet var LollipopAndCoffee: UIStackView! = {
-    let stackView = UIStackView()
-    
-    if stackView.gestureRecognizers == nil {
-      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showIAPController))
-      stackView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    return stackView
-  }()
+  @IBOutlet var hamburgerAndChips: UIStackView!
+  @IBOutlet var chickenAndCoke: UIStackView!
+  @IBOutlet var lollipopAndCoffee: UIStackView!
   @IBOutlet weak var mealsView: UIView!
   @IBOutlet weak var cancelButton: UIButton!
+  @IBOutlet var hamburgerAndChipsPrice: UILabel!
+  @IBOutlet var chickenAndCokePrice: UILabel!
+  @IBOutlet var lollipopAndCoffeePrice: UILabel!
+  @IBOutlet var nextDialogButton: UIButton!
+  @IBOutlet var mealsStackView: UIStackView!
+  @IBOutlet var mealsTitleLabel: UILabel!
+  @IBOutlet var dialogView: UIView!
+  @IBOutlet var dialogBackground: UIImageView!
+  
+  private let priceFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    
+    formatter.formatterBehavior = .behavior10_4
+    formatter.numberStyle = .currency
+    
+    return formatter
+  }()
+  
+  private let raccoonStore = IAPHelper(productIds: [
+    Constants.IAPIdentifiers.hamburgerAndChips,
+    Constants.IAPIdentifiers.chickenAndCoke,
+    Constants.IAPIdentifiers.lollipopAndCoffee
+    ])
   
   private var raccoonWords = [
     "Oh, you found me",
     "Though I raccoon, I developer",
     "I quite starve...",
-    "buy me food, give you gift"
+    "buy me food, give you gift",
+    "As gift, see app's icon your home screen"
   ]
   
-  private var count = 0
+  private var purchasedMeal: Meals = .hamburgerAndChips
+  
+  private var count = 1
+  
+  private var products: [SKProduct]? {
+    didSet {
+      guard let raccoonProducts = products else { return }
+      
+      for product in raccoonProducts {
+        if SKPaymentQueue.canMakePayments() {
+          priceFormatter.locale = product.priceLocale
+          
+          switch product.productIdentifier {
+          case Constants.IAPIdentifiers.hamburgerAndChips:
+            hamburgerAndChipsPrice.text = priceFormatter.string(from: product.price)
+          case Constants.IAPIdentifiers.chickenAndCoke:
+            chickenAndCokePrice.text = priceFormatter.string(from: product.price)
+          case Constants.IAPIdentifiers.lollipopAndCoffee:
+            lollipopAndCoffeePrice.text = priceFormatter.string(from: product.price)
+          default: break
+          }
+        } else {
+          hamburgerAndChipsPrice.text = "Not available"
+          chickenAndCokePrice.text = "Not available"
+          lollipopAndCoffeePrice.text = "Not available"
+        }
+      }
+    }
+  }
+  
+  private var raccoonIsFedThisTime = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    if #available(iOS 10.3, *) {
+      UIApplication.shared.setAlternateIconName("AlternativeIcon") { error in
+        if let error = error {
+          print(error.localizedDescription)
+        }
+      }
+    } else {
+      // Fallback on earlier versions
+    }
+    raccoonStore.loadingIcon.center = self.view.center
+    raccoonStore.loadingIcon.stopAnimating()
+    self.view.addSubview(raccoonStore.loadingIcon)
+
     mealsView.alpha = 0
     cancelButton.alpha = 0
     
+    transformMealsLabel()
     
+    if hamburgerAndChips.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      hamburgerAndChips.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    if chickenAndCoke.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      chickenAndCoke.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    if lollipopAndCoffee.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      lollipopAndCoffee.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(handlePurchaseNotification(_:)),
+                                           name: Constants.NotificationName.IAPHelperPurchaseNotification, object: nil)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-found")
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    raccoonStore.requestProducts { success, products in
+      if success {
+        self.products = products!
+      }
+    }
   }
   
   @IBAction func nextDialog(_ sender: Any) {
@@ -69,31 +146,138 @@ class RaccoonViewController: UIViewController {
   }
   
   @IBAction func cancelFed(_ sender: Any) {
-    raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-starved")
-    raccoonWordsLabel.text = "Maybe I find someone else"
-    
+    mealsView.alpha = 0
     count = 0
     
-    delay(2) {
+    if raccoonIsFedThisTime {
       self.dismiss(animated: true)
+    } else {
+      raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-starved")
+      raccoonWordsLabel.text = "Maybe I find someone else"
+      
+      delay(2) {
+        self.dismiss(animated: true)
+      }
     }
   }
   
   private func checkDialogPosition() {
-    if count == 3 {
+    
+    if count == 2 {
+      raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-panic")
+    } else if count == 3 {
       mealsView.alpha = 1
       cancelButton.alpha = 1
+      raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-panic")
+      nextDialogButton.isUserInteractionEnabled = false
+    } else if count == 4  && raccoonWords[4] == "As gift, see app's icon your home screen" {
+      cancelButton.alpha = 0
+      mealsView.alpha = 0
+      
+      changeAppIcon()
+    } else if count == 4 && raccoonWords[4] == "Have to update iOS see gift" {
+      raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-panic")
     }
     
     if count < raccoonWords.count {
+      Animators.nextDialog(with: dialogBackground).startAnimation()
+      
       raccoonWordsLabel.text = raccoonWords[count]
       count += 1
+    } else {
+      self.dismiss(animated: true)
     }
   }
   
-  func showIAPController() {
+  func buyRaccoonProduct(with sender: UITapGestureRecognizer) {
+    guard let products = products else { return }
+    
+    if sender.view?.tag == 0 {
+      let product = products.filter { $0.productIdentifier == Constants.IAPIdentifiers.hamburgerAndChips }[0]
+      raccoonStore.buyProduct(product)
+    } else if sender.view?.tag == 1 {
+      
+      let product = products.filter { $0.productIdentifier == Constants.IAPIdentifiers.chickenAndCoke }[0]
+      raccoonStore.buyProduct(product)
+    } else {
+      let product = products.filter { $0.productIdentifier == Constants.IAPIdentifiers.lollipopAndCoffee }[0]
+      raccoonStore.buyProduct(product)
+    }
+  }
+  
+  func handlePurchaseNotification(_ notification: Notification) {
+    guard let productID = notification.object as? String else { return }
+    
+    raccoonIsFedThisTime = true
+    nextDialogButton.isUserInteractionEnabled = true
+    
+    raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-fed")
+    
+    if productID == Constants.IAPIdentifiers.hamburgerAndChips {
+      purchasedMeal = .hamburgerAndChips
+      raccoonWordsLabel.text = purchasedMeal.description
+      
+      UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+        self.hamburgerAndChips.alpha = 0
+        self.hamburgerAndChips.removeFromSuperview()
+        
+        self.checkIfMealsAreAvailable()
+      })
+    } else if productID == Constants.IAPIdentifiers.chickenAndCoke {
+      purchasedMeal = .chikenAndCoke
+      raccoonWordsLabel.text = purchasedMeal.description
+      
+      UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+        self.chickenAndCoke.alpha = 0
+        self.chickenAndCoke.removeFromSuperview()
+        
+        self.checkIfMealsAreAvailable()
+      })
+    } else {
+      purchasedMeal = .lollipopAndCoffee
+      raccoonWordsLabel.text = purchasedMeal.description
+      
+      UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
+        self.lollipopAndCoffee.alpha = 0
+        self.lollipopAndCoffee.removeFromSuperview()
+        
+        self.checkIfMealsAreAvailable()
+      })
+    }
+  }
+  
+  func checkIfMealsAreAvailable() {
+    if mealsStackView.subviews.count == 0 {
+      mealsTitleLabel.alpha = 0
+    }
+  }
+  
+  private func changeAppIcon() {
+    if #available(iOS 10.3, *) {
+      let deviceType = UIDevice.current.deviceType
+      
+      if deviceType.rawValue.contains("iPhone") {
+        UIApplication.shared.setAlternateIconName("AlternativeiPhoneIcon")
+      } else if deviceType.rawValue.contains("iPad") && !deviceType.rawValue.contains("Pro") {
+        
+      } else if deviceType.rawValue.contains("iPadPro") {
+        UIApplication.shared.setAlternateIconName("AlternativeiPadProIcon")
+      }
+    } else {
+      raccoonWords[4] = "Have to update iOS see gift"
+    }
+  }
+  
+  private func transformMealsLabel() {
+    var transformation = CATransform3DIdentity
+    transformation.m12 = -0.2
+    
+    let concatenatedTransformation = CATransform3DConcat(CATransform3DIdentity, transformation)
+    mealsTitleLabel.layer.transform = concatenatedTransformation
+  }
+  
+  private func checkIfRaccoonShouldShow() {
     
   }
-
 }
 
