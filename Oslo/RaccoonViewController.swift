@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 
 import OsloKit
-import Device_swift
+import Device
 
 class RaccoonViewController: UIViewController {
   @IBOutlet var raccoonFaceImageView: UIImageView!
@@ -280,14 +280,19 @@ class RaccoonViewController: UIViewController {
   
   private func changeAppIcon() {
     if #available(iOS 10.3, *) {
-      let deviceType = UIDevice.current.deviceType
-      
-      if deviceType.rawValue.contains("iPhone") {
-        UIApplication.shared.setAlternateIconName("AlternativeiPhoneIcon")
-      } else if deviceType.rawValue.contains("iPad") && !deviceType.rawValue.contains("Pro") {
-        
-      } else if deviceType.rawValue.contains("iPadPro") {
-        UIApplication.shared.setAlternateIconName("AlternativeiPadProIcon")
+      if (Device.isPad()) {
+        switch Device.version() {
+        case .iPadPro9_7Inch:
+          UIApplication.shared.setAlternateIconName("AlternativeiPadProIcon")
+        case .iPadPro10_5Inch:
+          UIApplication.shared.setAlternateIconName("AlternativeiPadProIcon")
+        case .iPadPro12_9Inch:
+          UIApplication.shared.setAlternateIconName("AlternativeiPadProIcon")
+        default:
+          UIApplication.shared.setAlternateIconName("AlternativeiPadIcon")
+        }
+      } else {
+        UIApplication.shared.setAlternateIconName("AlternativeiIcon")
       }
     } else {
       raccoonWords[4] = "Have to update iOS see gift"

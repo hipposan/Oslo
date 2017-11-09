@@ -1,34 +1,34 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Device.swift (0.5)
-  - Gloss (1.2.4)
-  - Kingfisher (3.6.2)
-  - PromiseKit (4.2.0):
-    - PromiseKit/Foundation (= 4.2.0)
-    - PromiseKit/QuartzCore (= 4.2.0)
-    - PromiseKit/UIKit (= 4.2.0)
-  - PromiseKit/CorePromise (4.2.0)
-  - PromiseKit/Foundation (4.2.0):
+  - Alamofire (4.5.1)
+  - Device (3.0.3)
+  - Gloss (2.0.0-beta.2)
+  - Kingfisher (4.2.0)
+  - PromiseKit (4.5.0):
+    - PromiseKit/Foundation (= 4.5.0)
+    - PromiseKit/QuartzCore (= 4.5.0)
+    - PromiseKit/UIKit (= 4.5.0)
+  - PromiseKit/CorePromise (4.5.0)
+  - PromiseKit/Foundation (4.5.0):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.2.0):
+  - PromiseKit/QuartzCore (4.5.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.2.0):
+  - PromiseKit/UIKit (4.5.0):
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
-  - Device.swift
-  - Gloss
+  - Alamofire
+  - Device
+  - Gloss (= 2.0.0-beta.2)
   - Kingfisher
   - PromiseKit
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Device.swift: 0fab7a58c7643aafa096f5bac6d4029484ab2ccd
-  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
-  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
-  PromiseKit: '08dfb783c161ddcd95b7912421f14c5113fd8318'
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Device: 9a5264ee4e0f392e7153d2c46b10c8df46b7aad2
+  Gloss: ec2bc49c3d2db468581ced33d49c26117c7343af
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
 
-PODFILE CHECKSUM: 6d90dd0b6c1d635131bf73f80243bf857ed5c1be
+PODFILE CHECKSUM: 2b6e5fdb0e5617edeb3dc9e398474795f62941c1
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0.beta.2

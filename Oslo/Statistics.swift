@@ -10,7 +10,7 @@ import Foundation
 
 import Gloss
 
-public struct Statistics: Decodable {
+public struct Statistics: JSONDecodable {
   public let downloads: Int?
   public let views: Int?
   public let likes: Int?

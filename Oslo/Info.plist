@@ -10,11 +10,11 @@
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>AlternativeiPhoneIcon</key>
+			<key>AlternativeIcon</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>AlternativeIcon-iPhone</string>
+					<string>AlternativeIcon</string>
 				</array>
 			</dict>
 		</dict>
@@ -66,7 +66,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -83,7 +83,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.0.1</string>
+	<string>2.0.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -122,27 +122,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string></string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
-		</dict>
-		<key>CFBundleAlternateIcons</key>
-		<dict>
-			<key>AlternativeIcon</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>AlternativeIcon</string>
-				</array>
-			</dict>
-		</dict>
-	</dict>
 </dict>
 </plist>

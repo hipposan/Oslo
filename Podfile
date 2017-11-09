@@ -3,11 +3,11 @@ platform :ios, '10.0'
 use_frameworks!
 
 def oslo_pods
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire'
   pod "PromiseKit"
-  pod 'Gloss'
+  pod 'Gloss', '2.0.0-beta.2'
   pod 'Kingfisher'
-  pod 'Device.swift'
+  pod 'Device'
 end
 
 target 'Oslo' do

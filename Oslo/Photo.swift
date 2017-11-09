@@ -5,9 +5,10 @@
 //  Created by hippo_san on 02/09/2016.
 //  Copyright © 2016 Ziyideas. All rights reserved.
 //
+
 import Gloss
 
-public struct Photo: Decodable {
+public struct Photo: JSONDecodable {
   public let id: String?
   public let imageURL: String?
   public let profileImageURL: String?
