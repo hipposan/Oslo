@@ -101,6 +101,32 @@ class RaccoonViewController: UIViewController {
 
     mealsView.alpha = 0
     cancelButton.alpha = 0
+    raccoonWordsLabel.text = raccoonWords[0]
+    
+    transformMealsLabel()
+    
+    if hamburgerAndChips.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      hamburgerAndChips.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    if chickenAndCoke.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      chickenAndCoke.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    if lollipopAndCoffee.gestureRecognizers == nil {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buyRaccoonProduct(with:)))
+      lollipopAndCoffee.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.hamburgerAndChips) == true {
+      hamburgerAndChips.removeFromSuperview()
+    }
+    
+    if UserDefaults.standard.bool(forKey: Constants.IAPIdentifiers.chickenAndCoke) == true {
+      chickenAndCoke.removeFromSuperview()
+    }
     
     transformMealsLabel()
     

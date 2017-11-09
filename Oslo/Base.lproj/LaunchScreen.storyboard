@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Akkurat-Light.ttf">
+            <string>Akkurat-Light</string>
+        </array>
+        <array key="AkkuratPro-Regular.otf">
+            <string>AkkuratPro-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -15,14 +28,57 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-background" translatesAutoresizingMaskIntoConstraints="NO" id="Qf8-Me-qcI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IMs-Qm-fD7">
+                                <rect key="frame" x="131.33333333333331" y="173.66666666666666" width="152.33333333333331" height="57.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oslo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axN-Ue-duk">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333314" height="31"/>
+                                        <fontDescription key="fontDescription" name="AkkuratPro-Regular" family="Akkurat Pro" pointSize="31"/>
+                                        <color key="textColor" red="0.63939940929412842" green="0.52997303009033203" blue="0.470348060131073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Unsplash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZG-0s-IeR">
+                                        <rect key="frame" x="0.0" y="33" width="152.33333333333334" height="24.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="20"/>
+                                        <color key="textColor" red="0.63939940930000005" green="0.52997303009999996" blue="0.47034806010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-HQ-MHm">
+                                <rect key="frame" x="145" y="306" width="124" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fsp-HQ-MHm" secondAttribute="height" multiplier="1:1" id="eCW-mK-SZ6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fsp-HQ-MHm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1BP-cG-Yjp"/>
+                            <constraint firstItem="IMs-Qm-fD7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.55" id="731-Hq-lIM"/>
+                            <constraint firstItem="IMs-Qm-fD7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Giz-jJ-c0x"/>
+                            <constraint firstItem="Qf8-Me-qcI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="KIi-wI-l55"/>
+                            <constraint firstItem="fsp-HQ-MHm" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="Yzd-eV-P0I"/>
+                            <constraint firstItem="Qf8-Me-qcI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="aMT-6J-1SY"/>
+                            <constraint firstItem="fsp-HQ-MHm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bhL-Xh-DS8"/>
+                            <constraint firstAttribute="trailing" secondItem="Qf8-Me-qcI" secondAttribute="trailing" id="kc8-TO-NvB"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Qf8-Me-qcI" secondAttribute="bottom" id="udo-01-IQW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash-background" width="414" height="736"/>
+        <image name="splash-icon" width="150" height="150"/>
+    </resources>
 </document>

@@ -36,7 +36,7 @@ class PhotosTableViewController: UITableViewController {
   lazy var feedRefreshControl: UIRefreshControl = {
     let feedRefreshControl = UIRefreshControl()
     feedRefreshControl.tintColor = UIColor.clear
-//    feedRefreshControl.addTarget(self, action: #selector(load(with:)), for: .valueChanged)
+    feedRefreshControl.addTarget(self, action: #selector(pullToLoad), for: .valueChanged)
     
     self.loadingView = LoadingView()
     self.loadingView.frame.size.height = feedRefreshControl.frame.size.height
@@ -101,11 +101,7 @@ class PhotosTableViewController: UITableViewController {
       navigationBar.addSubview(imageView)
     }
     
-    _ = load().then(on: DispatchQueue.main) { photos -> Void in
-      self.photos.append(contentsOf: photos)
-      self.tableView.reloadData()
-      self.feedRefreshControl.endRefreshing()
-    }
+    pullToLoad()
   }
   
   private func blink(with imageView: UIImageView) {
@@ -139,6 +135,19 @@ class PhotosTableViewController: UITableViewController {
       show(meViewController, sender: sender)
     }
     
+  }
+  
+  func pullToLoad() {
+    _ = load().then(on: DispatchQueue.main) { photos -> Void in
+      if self.photos.count > 0 && photos[0].id == self.photos[0].id {
+        self.feedRefreshControl.endRefreshing()
+        return
+      } else {
+        self.photos.append(contentsOf: photos)
+        self.tableView.reloadData()
+        self.feedRefreshControl.endRefreshing()
+      }
+    }
   }
   
   func load(with page: Int = 1) -> Promise<[Photo]> {
