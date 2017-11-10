@@ -83,7 +83,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.0.2</string>
+	<string>2.0.5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -91,9 +91,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Oslo would save photo to your album 🌅</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Oslo would save photo to your album 🌅</string>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Oslo would save photo to your album 🌅</string>
 	<key>UIAppFonts</key>
 	<array>

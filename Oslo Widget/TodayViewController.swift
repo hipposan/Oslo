@@ -97,8 +97,6 @@ class TodayViewController: UIViewController {
       extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
-    self.preferredContentSize.height = 228
-    
     getImage()
   }
   

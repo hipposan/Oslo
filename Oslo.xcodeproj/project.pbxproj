@@ -26,6 +26,9 @@
 		EA81B1B11EABBEDF005A1CA2 /* Oslo Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
 		EA81B1B91EABBFA8005A1CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE828A31CFEF4A100FD1657 /* Assets.xcassets */; };
+		EA8527961FB60225003EBFEC /* AlternativeIcon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA8527931FB60225003EBFEC /* AlternativeIcon-iPadPro@2x.png */; };
+		EA8527971FB60225003EBFEC /* AlternativeIcon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = EA8527941FB60225003EBFEC /* AlternativeIcon-iPad.png */; };
+		EA8527981FB60225003EBFEC /* AlternativeIcon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA8527951FB60225003EBFEC /* AlternativeIcon-iPad@2x.png */; };
 		EA928ED21EBC629700A33B8D /* AlternativeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECD1EBC629700A33B8D /* AlternativeIcon@2x.png */; };
 		EA928ED31EBC629700A33B8D /* AlternativeIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA928ECE1EBC629700A33B8D /* AlternativeIcon@3x.png */; };
 		EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA94AE9A1EAD90D8002036F2 /* CompactView.xib */; };
@@ -143,6 +146,9 @@
 		EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		EA81B1AC1EABBEDF005A1CA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EA81B1AE1EABBEDF005A1CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA8527931FB60225003EBFEC /* AlternativeIcon-iPadPro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPadPro@2x.png"; sourceTree = "<group>"; };
+		EA8527941FB60225003EBFEC /* AlternativeIcon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPad.png"; sourceTree = "<group>"; };
+		EA8527951FB60225003EBFEC /* AlternativeIcon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon-iPad@2x.png"; sourceTree = "<group>"; };
 		EA928ECD1EBC629700A33B8D /* AlternativeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon@2x.png"; sourceTree = "<group>"; };
 		EA928ECE1EBC629700A33B8D /* AlternativeIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlternativeIcon@3x.png"; sourceTree = "<group>"; };
 		EA94AE9A1EAD90D8002036F2 /* CompactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompactView.xib; sourceTree = "<group>"; };
@@ -379,6 +385,9 @@
 		EAEF3B351EBB4F4F00920D27 /* Alternative icons */ = {
 			isa = PBXGroup;
 			children = (
+				EA8527941FB60225003EBFEC /* AlternativeIcon-iPad.png */,
+				EA8527951FB60225003EBFEC /* AlternativeIcon-iPad@2x.png */,
+				EA8527931FB60225003EBFEC /* AlternativeIcon-iPadPro@2x.png */,
 				EA928ECD1EBC629700A33B8D /* AlternativeIcon@2x.png */,
 				EA928ECE1EBC629700A33B8D /* AlternativeIcon@3x.png */,
 			);
@@ -569,8 +578,11 @@
 				EA928ED21EBC629700A33B8D /* AlternativeIcon@2x.png in Resources */,
 				EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */,
 				EA928ED31EBC629700A33B8D /* AlternativeIcon@3x.png in Resources */,
+				EA8527971FB60225003EBFEC /* AlternativeIcon-iPad.png in Resources */,
 				EACD23611FB596870057BF37 /* InfoPlist.strings in Resources */,
+				EA8527981FB60225003EBFEC /* AlternativeIcon-iPad@2x.png in Resources */,
 				EAE828A21CFEF4A100FD1657 /* Main.storyboard in Resources */,
+				EA8527961FB60225003EBFEC /* AlternativeIcon-iPadPro@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
