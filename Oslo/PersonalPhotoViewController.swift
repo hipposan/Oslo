@@ -77,7 +77,7 @@ class PersonalPhotoViewController: UIViewController {
   
   @IBAction func downloadButtonDidPressed(_ sender: Any) {
     guard personalPhoto != nil else { return }
-    UIImageWriteToSavedPhotosAlbum(personalPhoto!, self, #selector(save(_:didFinishSavingWithError:contextInfo:)), nil)
+    UIImageWriteToSavedPhotosAlbum(personalPhoto!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
   }
   
   @IBAction func shareButtonDIdPressed(_ sender: Any) {
@@ -175,8 +175,7 @@ class PersonalPhotoViewController: UIViewController {
       exifView = nil
     }
   }
-  
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -224,14 +223,14 @@ class PersonalPhotoViewController: UIViewController {
     }
   }
   
-  @objc private func save(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+  @objc private func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
     if let error = error {
       savePhotoLabel.text = localize(with: "Save photo failed")
       print(error.localizedDescription)
     } else {
       savePhotoLabel.text = "\(emoji.randomItem())" + localize(with: "Photo saved")
       savePhotoLabel.transform = CGAffineTransform(translationX: -20, y: -20)
-      
+
       UIView.animate(withDuration: 1, animations: {
         self.savePhotoLabel.alpha = 1
         self.savePhotoLabel.transform = CGAffineTransform.identity

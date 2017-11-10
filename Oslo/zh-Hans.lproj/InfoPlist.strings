@@ -2,5 +2,8 @@
 "CFBundleName" = "奥斯陆";
 
 /* (No Comment) */
+"NSPhotoLibraryAddUsageDescription" = "「奥斯陆」想要将下载的图片保存到你的相册中 🌅";
+
+/* (No Comment) */
 "NSPhotoLibraryUsageDescription" = "「奥斯陆」想要将下载的图片保存到你的相册中 🌅";
 

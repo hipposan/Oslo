@@ -93,6 +93,8 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Oslo would save photo to your album 🌅</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Oslo would save photo to your album 🌅</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Ikaros.otf</string>
