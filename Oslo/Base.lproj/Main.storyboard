@@ -885,7 +885,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" backgroundImage="camera"/>
                                             <connections>
-                                                <action selector="exifButtonDidPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="hGy-QP-35u"/>
+                                                <action selector="exifButtonDidPressed:" destination="1eG-FR-eAM" eventType="touchUpInside" id="I6S-Uy-grm"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIH-Of-QPg">

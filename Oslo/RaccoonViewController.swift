@@ -298,9 +298,5 @@ class RaccoonViewController: UIViewController {
     let concatenatedTransformation = CATransform3DConcat(CATransform3DIdentity, transformation)
     mealsTitleLabel.layer.transform = concatenatedTransformation
   }
-  
-  private func checkIfRaccoonShouldShow() {
-    
-  }
 }
 

@@ -176,6 +176,7 @@ class PersonalPhotoViewController: UIViewController {
     }
   }
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -221,10 +222,6 @@ class PersonalPhotoViewController: UIViewController {
                                 guard let exifInfoData = Exif(json: dict) else { return }
                                 self.exifInfo = exifInfoData
     }
-  }
-  
-  private func toggleLikeStatus(completion: () -> Void) {
-    
   }
   
   @objc private func save(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {

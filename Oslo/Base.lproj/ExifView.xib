@@ -186,7 +186,6 @@
                 <outlet property="focalLengthLabel" destination="WJe-LK-HS5" id="Oqz-fU-1HT"/>
                 <outlet property="isoLabel" destination="MVe-NH-n8a" id="4oD-KO-QTI"/>
                 <outlet property="makeLabel" destination="fcb-mq-1Gj" id="Hhc-e8-NaY"/>
-                <outlet property="makeTitleLabel" destination="dlO-nm-U5L" id="b55-4z-U8P"/>
                 <outlet property="modelLabel" destination="4nO-db-SXJ" id="zNi-ca-68l"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="53.5"/>
