@@ -78,7 +78,7 @@ class PhotoTableViewCell: UITableViewCell {
     delegate?.tapToPerformSegue(sender)
   }
   
-  func tapped(_ sender: Any) {
+  @objc func tapped(_ sender: Any) {
     if let tag = (sender as AnyObject).view?.tag {
       switch tag {
       case 0:

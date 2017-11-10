@@ -158,7 +158,6 @@ class PersonalPhotoViewController: UIViewController {
         dateFormatter.dateStyle = .long
         let createDate = dateFormatter.string(from: date!)
         exifView!.createdTimeLabel.text = createDate
-        
         exifView!.dimensionsLabel.text = "\(width) x \(height)"
         exifView!.makeLabel.text = make
         exifView!.modelLabel.text = model

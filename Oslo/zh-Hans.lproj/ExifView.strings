@@ -1,0 +1,48 @@
+/* Class = "UILabel"; text = " "; ObjectID = "4nO-db-SXJ"; */
+"4nO-db-SXJ.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "6Jx-XR-wdY"; */
+"6Jx-XR-wdY.text" = " ";
+
+/* Class = "UILabel"; text = "Dimensions"; ObjectID = "6UX-wb-Ml8"; */
+"6UX-wb-Ml8.text" = "尺寸";
+
+/* Class = "UILabel"; text = "ISO"; ObjectID = "I0n-8d-c2n"; */
+"I0n-8d-c2n.text" = "ISO";
+
+/* Class = "UILabel"; text = " "; ObjectID = "MVe-NH-n8a"; */
+"MVe-NH-n8a.text" = " ";
+
+/* Class = "UILabel"; text = "Published"; ObjectID = "Pak-AT-hUz"; */
+"Pak-AT-hUz.text" = "发布时间";
+
+/* Class = "UILabel"; text = "Exposure Time"; ObjectID = "UDv-b3-csJ"; */
+"UDv-b3-csJ.text" = "曝光时间";
+
+/* Class = "UILabel"; text = " "; ObjectID = "WJe-LK-HS5"; */
+"WJe-LK-HS5.text" = " ";
+
+/* Class = "UILabel"; text = "Camera Make"; ObjectID = "dlO-nm-U5L"; */
+"dlO-nm-U5L.text" = "相机品牌";
+
+/* Class = "UILabel"; text = " "; ObjectID = "fcb-mq-1Gj"; */
+"fcb-mq-1Gj.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "fvN-jq-V6i"; */
+"fvN-jq-V6i.text" = " ";
+
+/* Class = "UILabel"; text = "Focal Length"; ObjectID = "j6j-Ih-lHA"; */
+"j6j-Ih-lHA.text" = "焦距";
+
+/* Class = "UILabel"; text = " "; ObjectID = "kGY-LR-T05"; */
+"kGY-LR-T05.text" = " ";
+
+/* Class = "UILabel"; text = "Camera Model"; ObjectID = "sVy-Rm-eUS"; */
+"sVy-Rm-eUS.text" = "相机型号";
+
+/* Class = "UILabel"; text = " "; ObjectID = "wif-Hv-JVf"; */
+"wif-Hv-JVf.text" = " ";
+
+/* Class = "UILabel"; text = "Aperture"; ObjectID = "zfp-jU-k3O"; */
+"zfp-jU-k3O.text" = "光圈";
+

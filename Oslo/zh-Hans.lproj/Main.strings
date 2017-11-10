@@ -1,36 +1,75 @@
+/* Class = "UILabel"; text = " "; ObjectID = "0C7-2e-0Rg"; */
+"0C7-2e-0Rg.text" = " ";
 
-/* Class = "UILabel"; text = "Beijing"; ObjectID = "0C7-2e-0Rg"; */
-"0C7-2e-0Rg.text" = "Beijing";
+/* Class = "UILabel"; text = " "; ObjectID = "8Ue-70-fAL"; */
+"8Ue-70-fAL.text" = " ";
 
-/* Class = "UILabel"; text = "A good logo works in the simplest form. It is a memorable representation of your brand and inspires confidence in your customers."; ObjectID = "8Ue-70-fAL"; */
-"8Ue-70-fAL.text" = "A good logo works in the simplest form. It is a memorable representation of your brand and inspires confidence in your customers.";
+/* Class = "UINavigationItem"; title = " "; ObjectID = "9I8-Sb-0G1"; */
+"9I8-Sb-0G1.title" = " ";
 
-/* Class = "UINavigationItem"; title = "hippo_san"; ObjectID = "9I8-Sb-0G1"; */
-"9I8-Sb-0G1.title" = "hippo_san";
+/* Class = "UILabel"; text = "="; ObjectID = "CXa-HY-Vgk"; */
+"CXa-HY-Vgk.text" = "=";
 
-/* Class = "UIButton"; normalTitle = "hippo_san"; ObjectID = "FMO-9s-ZRa"; */
-"FMO-9s-ZRa.normalTitle" = "hippo_san";
+/* Class = "UIButton"; normalTitle = " "; ObjectID = "FMO-9s-ZRa"; */
+"FMO-9s-ZRa.normalTitle" = " ";
 
-/* Class = "UILabel"; text = "hippo_san"; ObjectID = "GB1-8k-j0j"; */
-"GB1-8k-j0j.text" = "hippo_san";
+/* Class = "UILabel"; text = " "; ObjectID = "GB1-8k-j0j"; */
+"GB1-8k-j0j.text" = " ";
+
+/* Class = "UILabel"; text = "="; ObjectID = "GaO-JA-PHo"; */
+"GaO-JA-PHo.text" = "=";
+
+/* Class = "UILabel"; text = "Oh, you found me"; ObjectID = "Hb0-Fb-pZH"; */
+"Hb0-Fb-pZH.text" = "噢，你发现了我";
+
+/* Class = "UILabel"; text = "="; ObjectID = "ITh-YK-SPw"; */
+"ITh-YK-SPw.text" = "=";
 
 /* Class = "UILabel"; text = " "; ObjectID = "KOW-MN-kwO"; */
 "KOW-MN-kwO.text" = " ";
 
-/* Class = "UILabel"; text = "114"; ObjectID = "dWO-qb-zhs"; */
-"dWO-qb-zhs.text" = "114";
+/* Class = "UILabel"; text = "         "; ObjectID = "UaL-GE-8cq"; */
+"UaL-GE-8cq.text" = "         ";
 
-/* Class = "UILabel"; text = "114"; ObjectID = "j0i-Ap-vZZ"; */
-"j0i-Ap-vZZ.text" = "114";
+/* Class = "UILabel"; text = "Tap below to feed raccoon"; ObjectID = "V8p-8D-KGf"; */
+"V8p-8D-KGf.text" = "选择下方套餐喂饱浣熊";
 
-/* Class = "UIButton"; normalTitle = "hippo_san"; ObjectID = "jkX-zS-Z4h"; */
-"jkX-zS-Z4h.normalTitle" = "hippo_san";
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "XU7-Me-9ev"; */
+"XU7-Me-9ev.normalTitle" = "返回";
+
+/* Class = "UILabel"; text = "         "; ObjectID = "ace-bJ-Rrh"; */
+"ace-bJ-Rrh.text" = "         ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "dWO-qb-zhs"; */
+"dWO-qb-zhs.text" = " ";
+
+/* Class = "UINavigationItem"; title = "Featured"; ObjectID = "g6u-4y-thN"; */
+"g6u-4y-thN.title" = "精选";
+
+/* Class = "UILabel"; text = " "; ObjectID = "j0i-Ap-vZZ"; */
+"j0i-Ap-vZZ.text" = " ";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "jUs-oF-0M4"; */
+"jUs-oF-0M4.text" = "+";
+
+/* Class = "UIButton"; normalTitle = " "; ObjectID = "jkX-zS-Z4h"; */
+"jkX-zS-Z4h.normalTitle" = " ";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "lJK-9R-h3Q"; */
+"lJK-9R-h3Q.text" = "+";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "tZQ-xQ-h5g"; */
+"tZQ-xQ-h5g.text" = "+";
 
 /* Class = "UILabel"; text = " "; ObjectID = "ty5-Sm-Nrz"; */
 "ty5-Sm-Nrz.text" = " ";
 
-/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[0] = "  Published"; ObjectID = "zQc-UC-jHw"; */
-"zQc-UC-jHw.segmentTitles[0]" = "  Published";
+/* Class = "UILabel"; text = "         "; ObjectID = "zKs-p5-JyB"; */
+"zKs-p5-JyB.text" = "         ";
 
-/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[1] = "  Liked"; ObjectID = "zQc-UC-jHw"; */
-"zQc-UC-jHw.segmentTitles[1]" = "  Liked";
+/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[0] = " "; ObjectID = "zQc-UC-jHw"; */
+"zQc-UC-jHw.segmentTitles[0]" = " ";
+
+/* Class = "UISegmentedControl"; zQc-UC-jHw.segmentTitles[1] = " "; ObjectID = "zQc-UC-jHw"; */
+"zQc-UC-jHw.segmentTitles[1]" = " ";
+

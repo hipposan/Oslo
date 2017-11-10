@@ -78,15 +78,14 @@ class MeViewController: UIViewController {
     
     segmentedControl.setDividerImage(generateSegmentedControlImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
     segmentedControl.setBackgroundImage(generateSegmentedControlImage(), for: .normal, barMetrics: .default)
-    segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.colorWithRGB(red: 155, green: 155, blue: 155, alpha: 1.0)], for: .normal)
-    segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.colorWithRGB(red: 92, green: 92, blue: 92, alpha: 1.0)], for: .selected)
+    segmentedControl.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.colorWithRGB(red: 155, green: 155, blue: 155, alpha: 1.0)], for: .normal)
+    segmentedControl.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.colorWithRGB(red: 92, green: 92, blue: 92, alpha: 1.0)], for: .selected)
     
     generateSelectedBorder(under: segmentedControl.subviews[0])
 
     likedPhotoContainerView.isHidden = true
     
     _ = NetworkService.getJson(with: Constants.Base.UnsplashAPI + Constants.Base.Me,
-                           parameters: ["client_id": "a1a50a27313d9bba143953469e415c24fc1096aea3be010bd46d4bd252a60896"],
                            headers: ["Authorization": "Bearer " + Token.getToken()!]).then { dict -> Void in
                             guard let profileImage = dict["profile_image"] as? [String: AnyObject],
                               let largeProfileImage = profileImage["large"] as? String,

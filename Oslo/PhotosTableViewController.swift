@@ -81,8 +81,6 @@ class PhotosTableViewController: UITableViewController {
     
     NotificationCenter.default.addObserver(self, selector: #selector(toggleLikedStatus(_:)), name: Constants.NotificationName.likeSendNotification, object: nil)
     
-    navigationItem.title = localize(with: "Feature")
-    
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 400
     
@@ -126,7 +124,6 @@ class PhotosTableViewController: UITableViewController {
   }
   
   @IBAction func userBarButtonDidPressed(_ sender: Any) {
-    
     if Token.getToken() == nil {
       let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
       present(loginViewController, animated: true)
@@ -137,7 +134,7 @@ class PhotosTableViewController: UITableViewController {
     
   }
   
-  func pullToLoad() {
+  @objc func pullToLoad() {
     _ = load().then(on: DispatchQueue.main) { photos -> Void in
       if self.photos.count > 0 && photos[0].id == self.photos[0].id {
         self.feedRefreshControl.endRefreshing()
@@ -196,7 +193,7 @@ class PhotosTableViewController: UITableViewController {
     return nil
   }
   
-  func toggleLikedStatus(_ notification:Notification) {
+  @objc func toggleLikedStatus(_ notification:Notification) {
     guard let likedPhoto = notification.userInfo?["likedPressedPhoto"] as? Photo else { return }
     
     guard let row = photos.index(where: { $0.id == likedPhoto.id }) else { return }

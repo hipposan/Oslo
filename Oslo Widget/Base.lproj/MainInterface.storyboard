@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F67a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbk-Os-TjB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sbk-Os-TjB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Courier.ttc">
+            <string>Courier-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Today View Controller-->
         <scene sceneID="FTP-4o-any">
@@ -280,7 +285,6 @@
                         <outlet property="likeBackgroundView" destination="Kej-5n-Fia" id="9HP-8k-X8g"/>
                         <outlet property="likeLabel" destination="bJt-rk-kAd" id="wYp-bm-qc9"/>
                         <outlet property="luckBackgroundView" destination="U5r-29-QGM" id="FsS-kS-SB3"/>
-                        <outlet property="luckLabel" destination="5gQ-fm-gT0" id="0Xb-WD-09U"/>
                         <outlet property="profileImageView" destination="5Gt-Um-Vbf" id="xTM-gh-qYA"/>
                         <outlet property="profileVisualEffectView" destination="Luu-IJ-to0" id="f8q-05-muc"/>
                         <outlet property="viewCountLabel" destination="SOs-cO-Vkt" id="9Za-Xi-6Kz"/>

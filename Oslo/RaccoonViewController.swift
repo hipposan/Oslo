@@ -45,11 +45,11 @@ class RaccoonViewController: UIViewController {
     ])
   
   private var raccoonWords = [
-    "Oh, you found me",
-    "Though I raccoon, I developer",
-    "I quite starve...",
-    "buy me food, give you gift",
-    "As gift, see app's icon your home screen"
+    localize(with: "Oh, you found me"),
+    localize(with: "Though I raccoon, I developer"),
+    localize(with: "I quite starve..."),
+    localize(with: "buy me food, give you gift"),
+    localize(with: "As gift, see app's icon your home screen")
   ]
   
   private var purchasedMeal: Meals = .hamburgerAndChips
@@ -74,9 +74,9 @@ class RaccoonViewController: UIViewController {
           default: break
           }
         } else {
-          hamburgerAndChipsPrice.text = "Not available"
-          chickenAndCokePrice.text = "Not available"
-          lollipopAndCoffeePrice.text = "Not available"
+          hamburgerAndChipsPrice.text = localize(with: "Not available")
+          chickenAndCokePrice.text = localize(with: "Not available")
+          lollipopAndCoffeePrice.text = localize(with: "Not available")
         }
       }
     }
@@ -86,15 +86,7 @@ class RaccoonViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if #available(iOS 10.3, *) {
-      UIApplication.shared.setAlternateIconName("AlternativeIcon") { error in
-        if let error = error {
-          print(error.localizedDescription)
-        }
-      }
-    } else {
-      // Fallback on earlier versions
-    }
+
     raccoonStore.loadingIcon.center = self.view.center
     raccoonStore.loadingIcon.stopAnimating()
     self.view.addSubview(raccoonStore.loadingIcon)
@@ -179,7 +171,7 @@ class RaccoonViewController: UIViewController {
       self.dismiss(animated: true)
     } else {
       raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-starved")
-      raccoonWordsLabel.text = "Maybe I find someone else"
+      raccoonWordsLabel.text = localize(with: "Maybe I find someone else")
       
       delay(2) {
         self.dismiss(animated: true)
@@ -196,12 +188,12 @@ class RaccoonViewController: UIViewController {
       cancelButton.alpha = 1
       raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-panic")
       nextDialogButton.isUserInteractionEnabled = false
-    } else if count == 4  && raccoonWords[4] == "As gift, see app's icon your home screen" {
+    } else if count == 4  && raccoonWords[4] == localize(with: "As gift, see app's icon your home screen") {
       cancelButton.alpha = 0
       mealsView.alpha = 0
       
       changeAppIcon()
-    } else if count == 4 && raccoonWords[4] == "Have to update iOS see gift" {
+    } else if count == 4 && raccoonWords[4] == localize(with: "Have to update iOS see gift") {
       raccoonFaceImageView.image = #imageLiteral(resourceName: "raccoon-panic")
     }
     
@@ -215,7 +207,7 @@ class RaccoonViewController: UIViewController {
     }
   }
   
-  func buyRaccoonProduct(with sender: UITapGestureRecognizer) {
+  @objc func buyRaccoonProduct(with sender: UITapGestureRecognizer) {
     guard let products = products else { return }
     
     if sender.view?.tag == 0 {
@@ -231,7 +223,7 @@ class RaccoonViewController: UIViewController {
     }
   }
   
-  func handlePurchaseNotification(_ notification: Notification) {
+  @objc func handlePurchaseNotification(_ notification: Notification) {
     guard let productID = notification.object as? String else { return }
     
     raccoonIsFedThisTime = true
@@ -295,7 +287,7 @@ class RaccoonViewController: UIViewController {
         UIApplication.shared.setAlternateIconName("AlternativeiIcon")
       }
     } else {
-      raccoonWords[4] = "Have to update iOS see gift"
+      raccoonWords[4] = localize(with: "Have to update iOS see gift")
     }
   }
   

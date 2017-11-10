@@ -1,13 +1,10 @@
-/* 
-  Localization.strings
-  Oslo
-
-  Created by Ziyi Zhang on 12/12/2016.
-  Copyright © 2016 Ziyideas. All rights reserved.
-*/
-
-// MARK: Photos Table View Controller
-"Feature" = "精选";
+/*
+ Localization.strings
+ Oslo
+ 
+ Created by Ziyi Zhang on 12/12/2016.
+ Copyright © 2016 Ziyideas. All rights reserved.
+ */
 
 // MARK: Profile View Controller
 "Website" = "个人网站";
@@ -18,38 +15,15 @@
 "Save photo failed" = "⚠️ 图片没有保存。请检查系统隐私设置或是否存储已满。";
 "Photo saved" = " 图片已保存到相册中。";
 
-
-// MARK: Exif View
-"Published" = "发布时间";
-"Dimensions" = "尺寸";
-"Camera Make" = "相机品牌";
-"Camera Model" = "相机型号";
-"Aperture" = "光圈";
-"Exposure Time" = "曝光时间";
-"Focal Length" = "焦距";
-"ISO" = "ISO";
-
-
-// MARK: Statistics View
-"Downloads" = "下载";
-"Views" = "浏览";
-"Likes" = "喜欢";
-
-
-// MARK: Login View Controller
-"Back" = "返回";
-
-
 // MARK: Me View Controller
 "Logout" = "登出 Unsplash 帐号";
 "Logout intro" = "登出后将无法访问个人图片，也无法 ❤️ 喜欢的图片。";
 "Logout action title" = "登出";
 "Logout cancel title" = "取消";
-"Published count" = "%@ 发布";
-"Liked count" = "%@ 喜欢";
+"%@ Published" = "%@ 发布";
+"%@ Liked" = "%@ 喜欢";
 
 // MARK: Today
-"Next Luck" = "试试手气";
 "Unlike it" = "不喜欢";
 "Like it" = "喜欢";
 
@@ -65,3 +39,4 @@
 "My favorite! You a good people!" = "我的最爱！你是好人";
 "Delicious! I gain weight" = "好吃！我变胖了";
 "I don't drink coffee. But this good" = "我不喝咖啡，但这个不错";
+

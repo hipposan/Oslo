@@ -83,6 +83,7 @@ public struct Token {
   }
   
   public static func saveToken(_ token: String) {
+    userDefaults.removeObject(forKey: "token")
     userDefaults.set(token, forKey: "token")
   }
   

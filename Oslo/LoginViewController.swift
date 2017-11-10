@@ -15,7 +15,7 @@ import PromiseKit
 class LoginViewController: UIViewController {
   
   @IBOutlet var loginWebView: UIWebView!
-  @IBOutlet var backButton: UIButton!
+  @IBOutlet var loadingIndicator: UIActivityIndicatorView!
   
   @IBAction func backButtonDidPressed(_ sender: Any) {
     dismiss(animated: true)
@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    backButton.setTitle(localize(with: "Back"), for: .normal)
     
     loginWebView.delegate = self
     
@@ -67,5 +65,9 @@ extension LoginViewController: UIWebViewDelegate {
     }
     
     return true
+  }
+  
+  func webViewDidFinishLoad(_ webView: UIWebView) {
+    loadingIndicator.stopAnimating()
   }
 }
