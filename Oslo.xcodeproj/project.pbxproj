@@ -20,6 +20,11 @@
 		EA2491371D1CEC1E00E2223A /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */; };
 		EA4FE7FC1FB4A8BC005508CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
 		EA4FE7FD1FB4A8BC005508CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA9942431DFECE2500F682E3 /* Localizable.strings */; };
+		EA77FFB81FB9354E00A4DE34 /* AkkuratPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA77FFB71FB9354E00A4DE34 /* AkkuratPro-Regular.otf */; };
+		EA77FFBB1FB9356D00A4DE34 /* Akkurat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA77FFB91FB9356D00A4DE34 /* Akkurat-Light.ttf */; };
+		EA77FFBC1FB9356D00A4DE34 /* Akkurat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA77FFB91FB9356D00A4DE34 /* Akkurat-Light.ttf */; };
+		EA77FFBD1FB9357000A4DE34 /* AkkuratPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA77FFB71FB9354E00A4DE34 /* AkkuratPro-Regular.otf */; };
+		EA77FFBE1FB9357100A4DE34 /* AkkuratPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA77FFB71FB9354E00A4DE34 /* AkkuratPro-Regular.otf */; };
 		EA81B1A71EABBEDF005A1CA2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */; };
 		EA81B1AA1EABBEDF005A1CA2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */; };
 		EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA81B1AB1EABBEDF005A1CA2 /* MainInterface.storyboard */; };
@@ -141,6 +146,8 @@
 		EA2491341D1CEAAF00E2223A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA2491361D1CEC1E00E2223A /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA4D285C1D79614E00D24413 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		EA77FFB71FB9354E00A4DE34 /* AkkuratPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkkuratPro-Regular.otf"; sourceTree = SOURCE_ROOT; };
+		EA77FFB91FB9356D00A4DE34 /* Akkurat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akkurat-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		EA81B1A51EABBEDF005A1CA2 /* Oslo Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Oslo Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA81B1A61EABBEDF005A1CA2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		EA81B1A91EABBEDF005A1CA2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +307,8 @@
 		EA9A13441D6466E600C0C1D5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EA77FFB91FB9356D00A4DE34 /* Akkurat-Light.ttf */,
+				EA77FFB71FB9354E00A4DE34 /* AkkuratPro-Regular.otf */,
 				EAEF3B351EBB4F4F00920D27 /* Alternative icons */,
 				EAEB81DF1EB85EBE00A6C6EB /* Ikaros.otf */,
 				EA2004FA1EB3077B003C50D0 /* Oslo.entitlements */,
@@ -486,7 +495,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Ziyideas;
 				TargetAttributes = {
 					EA81B1A41EABBEDF005A1CA2 = {
@@ -551,8 +560,10 @@
 				EA94AE9B1EAD90D8002036F2 /* CompactView.xib in Resources */,
 				EA4FE7FC1FB4A8BC005508CA /* Localizable.strings in Resources */,
 				EA81B1B81EABBF9B005A1CA2 /* Assets.xcassets in Resources */,
+				EA77FFBB1FB9356D00A4DE34 /* Akkurat-Light.ttf in Resources */,
 				EA81B1AD1EABBEDF005A1CA2 /* MainInterface.storyboard in Resources */,
 				EACD236B1FB596890057BF37 /* InfoPlist.strings in Resources */,
+				EA77FFBD1FB9357000A4DE34 /* AkkuratPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +571,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA77FFBE1FB9357100A4DE34 /* AkkuratPro-Regular.otf in Resources */,
+				EA77FFBC1FB9356D00A4DE34 /* Akkurat-Light.ttf in Resources */,
 				EABFAE1B1EAC560E00731F90 /* Localizable.strings in Resources */,
 				EACD23661FB596880057BF37 /* InfoPlist.strings in Resources */,
 			);
@@ -576,6 +589,7 @@
 				EA0BA30E1FB593B700E48C12 /* StatisticsView.xib in Resources */,
 				EA4FE7FD1FB4A8BC005508CA /* Localizable.strings in Resources */,
 				EA928ED21EBC629700A33B8D /* AlternativeIcon@2x.png in Resources */,
+				EA77FFB81FB9354E00A4DE34 /* AkkuratPro-Regular.otf in Resources */,
 				EAEB81E01EB85EBE00A6C6EB /* Ikaros.otf in Resources */,
 				EA928ED31EBC629700A33B8D /* AlternativeIcon@3x.png in Resources */,
 				EA8527971FB60225003EBFEC /* AlternativeIcon-iPad.png in Resources */,

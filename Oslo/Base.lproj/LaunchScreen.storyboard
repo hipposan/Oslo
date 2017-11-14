@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,43 +26,49 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-background" translatesAutoresizingMaskIntoConstraints="NO" id="Qf8-Me-qcI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IMs-Qm-fD7">
-                                <rect key="frame" x="132.66666666666669" y="171.66666666666666" width="149.66666666666669" height="61.666666666666657"/>
+                                <rect key="frame" x="87" y="196" width="203" height="60.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oslo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axN-Ue-duk">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36.333333333333336"/>
                                         <fontDescription key="fontDescription" name="AkkuratPro-Regular" family="Akkurat Pro" pointSize="31"/>
                                         <color key="textColor" red="0.63939940929412842" green="0.52997303009033203" blue="0.470348060131073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="AkkuratPro-Regular" family="Akkurat Pro" pointSize="45"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Unsplash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZG-0s-IeR">
-                                        <rect key="frame" x="0.0" y="38.333333333333343" width="149.66666666666666" height="23.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beautiful pocket photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZG-0s-IeR">
+                                        <rect key="frame" x="0.0" y="38.333333333333343" width="203" height="22.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="19"/>
                                         <color key="textColor" red="0.63939940930000005" green="0.52997303009999996" blue="0.47034806010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="34"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fsp-HQ-MHm">
-                                <rect key="frame" x="145" y="306" width="124" height="124"/>
+                                <rect key="frame" x="112.66666666666669" y="331" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="fsp-HQ-MHm" secondAttribute="height" multiplier="1:1" id="eCW-mK-SZ6"/>
+                                    <constraint firstAttribute="height" constant="150" id="QKk-q3-6qz"/>
+                                    <constraint firstAttribute="width" constant="150" id="fyQ-JS-F85"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fsp-HQ-MHm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1BP-cG-Yjp"/>
-                            <constraint firstItem="IMs-Qm-fD7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.55" id="731-Hq-lIM"/>
                             <constraint firstItem="IMs-Qm-fD7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Giz-jJ-c0x"/>
+                            <constraint firstItem="fsp-HQ-MHm" firstAttribute="top" secondItem="IMs-Qm-fD7" secondAttribute="bottom" constant="75" id="Jqu-Lq-9b0"/>
                             <constraint firstItem="Qf8-Me-qcI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="KIi-wI-l55"/>
-                            <constraint firstItem="fsp-HQ-MHm" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="Yzd-eV-P0I"/>
                             <constraint firstItem="Qf8-Me-qcI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="aMT-6J-1SY"/>
                             <constraint firstItem="fsp-HQ-MHm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bhL-Xh-DS8"/>
                             <constraint firstAttribute="trailing" secondItem="Qf8-Me-qcI" secondAttribute="trailing" id="kc8-TO-NvB"/>
